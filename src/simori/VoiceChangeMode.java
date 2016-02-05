@@ -1,12 +1,17 @@
 package simori;
 
-public class VoiceChangeMode implements Mode
-{
+public class VoiceChangeMode implements Mode {
 
-	@Override
-	public void processMatrixButton() {
+    private SimoriOn simori;
+
+    public VoiceChangeMode(SimoriOn simori) {
+        this.simori = simori;
+    }
+
+    @Override
+    public void processMatrixButton() {
 		// TODO Auto-generated method stub
-		
-	}
+
+    }
 
 }

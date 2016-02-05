@@ -1,6 +1,6 @@
 package simori;
 
-public interface Mode 
-{
-	public abstract void processMatrixButton();
+public interface Mode {
+
+    public abstract void processMatrixButton();
 }
