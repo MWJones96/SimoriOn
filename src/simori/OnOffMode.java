@@ -10,8 +10,8 @@ public class OnOffMode implements Mode {
 
     @Override
     public void processMatrixButton() {
-		// TODO Auto-generated method stub
-
+        // TODO Auto-generated method stub
+        System.out.println("Matrix button processed in OnOffMode");
     }
 
 }
