@@ -60,7 +60,9 @@ public class GUI {
 
     }
 
-    public JPanel getGui() { return gui; }
+    public JPanel getGui() { 
+    	return gui;
+    	}
 
     public static void main(String[] argv){
         
