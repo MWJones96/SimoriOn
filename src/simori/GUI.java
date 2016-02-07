@@ -10,7 +10,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 /**
  * 
- * @author 640032165
+ * @author 640032165, 640025919
  * @version 1.0
  * @since 05-02-2016
  * GUI class that creates basic Layout for Sprint 1. Class  creates main 
@@ -18,8 +18,8 @@ import java.awt.Toolkit;
  * full functionailty for Sprint 1. Class uses the Runnable interface
  * to allow GUI to run within its own thread. 
  * Buttons include: 4 buttons for the left, 4 buttons for the right
- * ON/OFF button, 
- *
+ * ON/OFF button and 16x16 grid buttons.
+ * Class outline by 640025919, main functionality by 640032165
  */
 public class GUI{
 
