@@ -54,7 +54,7 @@ public class GUI{
     
 
     // Array for 16x16 grid buttons
-    Buttons buttons[] = new Buttons[256];
+    Buttons buttons[] = new Buttons[16 * 16];
 
 	/**
 	 * Constructor for GUI without any parameters. It is used in order to 
@@ -110,9 +110,11 @@ public class GUI{
      * get method to return gui instance from JPanel. 
      * @return gui that will be used for the entire UI. 
      */
-    public JPanel getGui() { 
+    public JPanel getGui() 
+    { 
     	return this.gui;
-    	}
+    }
+    
 
     public static void main(String[] argv){
         
