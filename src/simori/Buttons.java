@@ -1,9 +1,9 @@
 package simori;
 
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 
 class Buttons extends JButton implements ActionListener{
 	@Override
