@@ -89,18 +89,10 @@ public class GUI{
         display.setBounds(100, 600,300,50);
 
         // Create and add grid buttons
-        int i = 0;
-        for(int x=0;x<16;x++){
-            for(int y=0; y<16; y++){
-                buttons[i] = new Buttons();
-                
-                buttons[i].setCoords(x,y);
-                buttons[i].setNumber(i);
-                
-                grid.add(buttons[i]);
-            
-                i++;
-            }
+        for(int i = 0;i < 16*16; i++)
+        {
+            buttons[i] = new Buttons(i % 16, (int)i/16, this);
+            grid.add(buttons[i]);
         }
 
         // Add L and R buttons to gui panel
@@ -128,10 +120,13 @@ public class GUI{
     	return this.gui;
     }
     
+    public Buttons getButton(int x, int y)
+    {
+		return buttons[y*16 + x];
+    }
 
-    public static void main(String[] argv){
-        
-        
+    public static void makeGUI()
+    {
         final GUI g = new GUI(); 
         
         

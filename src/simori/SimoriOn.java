@@ -16,6 +16,7 @@ public class SimoriOn
     	mode = new OnOffMode(this);
     	bpm = 60; //TEMP
     	layers = new Layer[16];
+    	GUI.makeGUI();
     }
     
     public void setMode(Mode mode)
