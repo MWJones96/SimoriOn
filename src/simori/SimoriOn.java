@@ -1,6 +1,9 @@
 package simori;
 
-public class SimoriOn 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class SimoriOn
 {
 	//The current mode
     private Mode mode;
