@@ -15,7 +15,7 @@ public class SimoriOn
     	layers = new Layer[16];
     }
     
-    public void setMode(Mode mode) 
+    public void setMode(Mode mode)
     {
         this.mode = mode;
     }
@@ -23,5 +23,9 @@ public class SimoriOn
     public void setBPM(int bpm)
     {
     	this.bpm = bpm;
+    }
+
+    public Mode getMode(){
+        return mode;
     }
 }

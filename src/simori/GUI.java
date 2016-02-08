@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  * 
  * @author 640032165, 640025919
@@ -29,9 +31,7 @@ public class GUI{
     JLabel display = new JLabel("Action:");
     //empty text box with font-size : 15
     JTextField LCD = new JTextField(15);
-    
-    
-    
+
 
     // Left buttons
     JButton L1  = new  JButton("L1");
@@ -47,11 +47,9 @@ public class GUI{
     
     //ON/OFF button
     JButton ON = new JButton("ON");
-    JButton OFF = new JButton("OFF");
-    
+
     //OK button
     JButton OK = new JButton("OK");
-    
 
     // Array for 16x16 grid buttons
     Buttons buttons[] = new Buttons[16 * 16];
@@ -84,7 +82,6 @@ public class GUI{
         
         // Set position/size of top/bottom buttons
         ON.setBounds(325,50,50,50);
-        OFF.setBounds(325,50,50,50);
         OK.setBounds(487,600,50,50);
         LCD.setBounds(150,600,300,50);
         //prevents text within textbox being edited
@@ -113,6 +110,13 @@ public class GUI{
 
         // Add grid to gui panel
         gui.add(grid);
+
+        ON.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.out.println("ON/OFF button clicked");
+            }
+        });
+
 
     }
     /**
