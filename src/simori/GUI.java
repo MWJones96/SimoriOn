@@ -92,9 +92,18 @@ public class GUI{
         display.setBounds(100, 600,300,50);
 
         // Create and add grid buttons
-        for(int i = 0; i<256; i++){
-            buttons[i] = new Buttons();
-            grid.add(buttons[i]);
+        int i = 0;
+        for(int x=0;x<16;x++){
+            for(int y=0; y<16; y++){
+                buttons[i] = new Buttons();
+                
+                buttons[i].setCoords(x,y);
+                buttons[i].setNumber(i);
+                
+                grid.add(buttons[i]);
+            
+                i++;
+            }
         }
 
         // Add L and R buttons to gui panel
@@ -119,7 +128,7 @@ public class GUI{
     public static void main(String[] argv){
         
         
-        GUI g = new GUI(); 
+        final GUI g = new GUI(); 
         
         
         //run the GUI within its own thread and not in main thread. 
