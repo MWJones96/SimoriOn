@@ -10,6 +10,7 @@ public class SimoriOn
     //The speed of the metronome (in beats per minute)
     private int bpm;
     private Layer[] layers;
+    private GUI gui;
     
     protected SimoriOn()
     {
@@ -41,5 +42,10 @@ public class SimoriOn
     public Mode getMode()
     {
         return mode;
+    }
+
+    public GUI getGui()
+    {
+        return gui;
     }
 }

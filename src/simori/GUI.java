@@ -28,7 +28,7 @@ public class GUI
 {
     private JPanel gui = new JPanel();
     private JPanel grid = new JPanel();
-    //uneditable label
+    private ClockHand clockHand;
     JLabel display = new JLabel("Action:");
     //empty text box with font-size : 15
     JTextField LCD = new JTextField(15);
@@ -122,12 +122,16 @@ public class GUI
                 if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
                 {
                     SimoriOn.getInstance().setMode(new PerformanceMode());
+                    if (clockHand == null) {
+                        (new Thread(new ClockHand(SimoriOn.getInstance().getGui()))).start();
+                    }
                     ON.setBackground(Color.ORANGE);
                 }
                 else 
                 {
                 	L1.setBackground(null);
                     SimoriOn.getInstance().setMode(new OnOffMode());
+                    clockHand.running = false;
                     ON.setBackground(null);
                 }
                 System.out.println("ON/OFF button clicked");
@@ -240,7 +244,21 @@ public class GUI
         }
     }
 
-    public static void makeGUI() 
+    public void highlightColumn(int x)
+    {
+
+        // Turn off all buttons
+        for (int i=0; i<this.buttons.length; i++) {
+            buttons[i].turnOff();
+        }
+        // Highlight buttons in the same column
+        for (int i=0; i < 16; i++) {
+            getButton(x, i).turnOn();
+        }
+
+    }
+
+    public static GUI makeGUI()
     {
         final GUI g = new GUI();
 
@@ -271,5 +289,6 @@ public class GUI
             }
         };
         SwingUtilities.invokeLater(runnable);
+        return g;
     }
 }
