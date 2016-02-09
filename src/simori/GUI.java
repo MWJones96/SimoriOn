@@ -81,8 +81,8 @@ public class GUI{
         R4.setBounds(640,400,50,50);
         
         // Set position/size of top/bottom buttons
-        ON.setBounds(325,50,50,50);
-        OK.setBounds(487,600,50,50);
+        ON.setBounds(320,50,60,50);
+        OK.setBounds(482,600,60,50);
         LCD.setBounds(150,600,300,50);
         //prevents text within textbox being edited
         LCD.setEditable(false);
@@ -149,7 +149,7 @@ public class GUI{
                 JFrame frame = new JFrame("Simori-ON");
                 //set location in center of screen
                 frame.setLocation(400, 100);
-                frame.setPreferredSize(new Dimension(700,670));
+                frame.setPreferredSize(new Dimension(700,690));
                 frame.setResizable(false);
 
                 //set screen size to adapt to different screen dimensions
