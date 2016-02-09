@@ -14,6 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ClockHand implements Runnable {
 
     private GUI gui;
+    private int loopPoint = 16;
     public AtomicBoolean running = new AtomicBoolean();
 
     public ClockHand (GUI gui){
@@ -26,7 +27,7 @@ public class ClockHand implements Runnable {
 
         while(running.get()) {
 
-            for (int i=0; i<16; i++){
+            for (int i=0; i<loopPoint; i++){
                 gui.highlightColumn(i);
 
                 if (!running.get())
@@ -39,7 +40,7 @@ public class ClockHand implements Runnable {
                 }
 
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
