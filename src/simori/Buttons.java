@@ -25,18 +25,21 @@ class Buttons extends JButton implements ActionListener{
             public void mouseClicked(MouseEvent e) 
             {
                 System.out.println("Button clicked; co-ords: " + x + ", " + y);
-                gui.getButton(x, y).setBackground(Color.ORANGE);
+                if(!on)
+                {
+                	gui.getButton(x, y).setBackground(Color.ORANGE);
+                	on = true;
+                }
+                else
+                {
+                	gui.getButton(x, y).setBackground(null);
+                	on = false;
+                }
             }
     	}
     	);
     }
-    
-	@Override
-	public void actionPerformed(ActionEvent e)
-	{
-		System.out.println("Button pressed: co-ords: " + x + ", " + y);
-	}
-    
+
     public int getCoordsX()
     {
         return this.x;
@@ -46,4 +49,10 @@ class Buttons extends JButton implements ActionListener{
     {
         return this.y;
     }
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 }
