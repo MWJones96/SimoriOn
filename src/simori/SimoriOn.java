@@ -23,6 +23,7 @@ public class SimoriOn
     }
     
     public static SimoriOn getInstance(){
+        // Singleton pattern..
         if(instance == null){
             instance = new SimoriOn();
         }

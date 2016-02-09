@@ -2,10 +2,7 @@ package simori;
 
 public class VoiceChangeMode implements Mode {
 
-    private SimoriOn simori;
-
-    public VoiceChangeMode(SimoriOn simori) {
-        this.simori = simori;
+    public VoiceChangeMode() {
     }
 
     @Override
