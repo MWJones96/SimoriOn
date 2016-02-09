@@ -103,11 +103,72 @@ public class GUI{
         // Add grid to gui panel
         gui.add(grid);
 
+
+        // Event handlers for ON  and OK
         ON.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 System.out.println("ON/OFF button clicked");
             }
         });
+
+        OK.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.out.println("OK button clicked");
+            }
+        });
+
+        // Event handlers for L1-4
+
+        L1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.out.println("L1 button clicked");
+            }
+        });
+
+        L2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.out.println("L2 button clicked");
+            }
+        });
+
+        L3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.out.println("L3 button clicked");
+            }
+        });
+
+        L4.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.out.println("L4 button clicked");
+            }
+        });
+
+        // Event handlers for R1-4
+
+        R1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.out.println("R1 button clicked");
+            }
+        });
+
+        R2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.out.println("R2 button clicked");
+            }
+        });
+
+        R3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.out.println("R3 button clicked");
+            }
+        });
+
+        R4.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.out.println("R4 button clicked");
+            }
+        });
+
 
 
     }
