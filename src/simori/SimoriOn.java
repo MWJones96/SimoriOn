@@ -1,8 +1,5 @@
 package simori;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class SimoriOn
 {
     // Self instance (Singleton pattern)
@@ -22,7 +19,8 @@ public class SimoriOn
     	GUI.makeGUI();
     }
     
-    public static SimoriOn getInstance(){
+    public static SimoriOn getInstance()
+    {
         // Singleton pattern..
         if(instance == null){
             instance = new SimoriOn();
@@ -40,7 +38,8 @@ public class SimoriOn
     	this.bpm = bpm;
     }
 
-    public Mode getMode(){
+    public Mode getMode()
+    {
         return mode;
     }
 }

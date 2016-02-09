@@ -13,9 +13,10 @@ import javax.swing.JButton;
  * @author 8744
  * @date 09/02/2016
  */
-class Buttons extends JButton
+class GridButton extends JButton
 {
-    //The X co-ord of the button
+	private static final long serialVersionUID = 1L;
+	//The X co-ord of the button
     private final int x;
     //The Y co-ord of the button
     private final int y;
@@ -24,7 +25,7 @@ class Buttons extends JButton
     //Whether the button is on or off
     private boolean on = false;
     
-    public Buttons(int x, int y, GUI gui)
+    public GridButton(int x, int y, GUI gui)
     {
     	this.x = x;
     	this.y = y;
@@ -36,18 +37,7 @@ class Buttons extends JButton
     	{
             public void mouseClicked(MouseEvent e) 
             {
-                /*System.out.println("Button clicked; co-ords: " + x + ", " + y);
-                if(!on)
-                {
-                	gui.getButton(x, y).setBackground(Color.ORANGE);
-                	on = true;
-                }
-                else
-                {
-                	gui.getButton(x, y).setBackground(null);
-                	on = false;
-                }*/
-                Buttons buttonClicked = (Buttons)e.getSource();
+                GridButton buttonClicked = (GridButton)e.getSource();
                 SimoriOn.getInstance().getMode().processMatrixButton(buttonClicked);
             }
     	}
@@ -74,16 +64,20 @@ class Buttons extends JButton
     	return this.on;
     }
     
-    public void highlightOn(){
+    public void turnOn()
+    {
         this.setBackground(Color.ORANGE);
         this.setOpaque(true);
         this.setBorderPainted(false);
+        on = true;
     }
     
-    public void highlightOff(){
+    public void turnOff()
+    {
         this.setBackground(null);
         this.setBorderPainted(true);
         this.setOpaque(false);
+        on = false;
     }
     
 }

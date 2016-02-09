@@ -23,7 +23,8 @@ import java.awt.event.ActionListener;
  * left, 4 buttons for the right ON/OFF button and 16x16 grid buttons. Class
  * outline by 640025919, main functionality by 640032165
  */
-public class GUI {
+public class GUI 
+{
 
     private JPanel gui = new JPanel();
     private JPanel grid = new JPanel();
@@ -51,7 +52,7 @@ public class GUI {
     JButton OK = new JButton("OK");
 
     // Array for 16x16 grid buttons
-    Buttons buttons[] = new Buttons[16 * 16];
+    GridButton buttons[] = new GridButton[16 * 16];
 
     /**
      * Constructor for GUI without any parameters. It is used in order to create
@@ -61,7 +62,8 @@ public class GUI {
      *
      * @return void - contructor sets default values so nothing is returned.
      */
-    public GUI() {
+    public GUI() 
+    {
         //set default values for the grid and grid dimensions
         gui.setLayout(null);
         grid.setLayout(new GridLayout(16, 16));
@@ -88,8 +90,9 @@ public class GUI {
         display.setBounds(100, 600, 300, 50);
 
         // Create and add grid buttons
-        for (int i = 0; i < 16 * 16; i++) {
-            buttons[i] = new Buttons(i % 16, (int) i / 16, this);
+        for (int i = 0; i < 16 * 16; i++) 
+        {
+            buttons[i] = new GridButton(i % 16, (int) i / 16, this);
             grid.add(buttons[i]);
         }
 
@@ -111,15 +114,21 @@ public class GUI {
         gui.add(grid);
 
         // Event handlers for ON  and OK
-        ON.addActionListener(new ActionListener() {
+        ON.addActionListener(new ActionListener() 
+        {
             public void actionPerformed(ActionEvent e) {
                 // If device is in OnOfMode then turn it into performance mode
-                if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
+                if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
+                {
                     SimoriOn.getInstance().setMode(new PerformanceMode());
                 } else {
                     SimoriOn.getInstance().setMode(new OnOffMode());
                 }
                 System.out.println("ON/OFF button clicked");
+                for(GridButton button : buttons)
+                {
+                	button.turnOff();
+                }
             }
         });
 
@@ -186,27 +195,31 @@ public class GUI {
      *
      * @return gui that will be used for the entire UI.
      */
-    public JPanel getGui() {
+    public JPanel getGui() 
+    {
         return this.gui;
     }
 
-    public Buttons getButton(int x, int y) {
+    public GridButton getButton(int x, int y) 
+    {
         return buttons[y * 16 + x];
     }
 
-    public void highlightColumnAndRow(int x, int y) {
+    public void highlightColumnAndRow(int x, int y) 
+    {
         // Turn off all buttons
         for (int i = 0; i < this.buttons.length; i++) {
-            buttons[i].highlightOff();
+            buttons[i].turnOff();
         }
         // Highlight buttons in the same row and column
         for (int i = 0; i < 16; i++) {
-            getButton(x, i).highlightOn();
-            getButton(i, y).highlightOn();
+            getButton(x, i).turnOn();
+            getButton(i, y).turnOn();
         }
     }
 
-    public static void makeGUI() {
+    public static void makeGUI() 
+    {
         final GUI g = new GUI();
 
         //run the GUI within its own thread and not in main thread. 

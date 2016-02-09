@@ -1,5 +1,7 @@
 package simori;
 
+import java.awt.Color;
+
 public class PerformanceMode implements Mode {
 
     public PerformanceMode() {
@@ -7,9 +9,19 @@ public class PerformanceMode implements Mode {
     
 
     @Override
-    public void processMatrixButton(Buttons button) {
+    public void processMatrixButton(GridButton button) 
+    {
         // TODO Auto-generated method stub
         System.out.println("Matrix button processed in Performance Mode");
+        System.out.println("Button clicked; co-ords: " + button.getX() + ", " + button.getY());
+        if(!button.getState())
+        {
+        	button.turnOn();
+        }
+        else
+        {
+        	button.turnOff();
+        }
     }
 
 }
