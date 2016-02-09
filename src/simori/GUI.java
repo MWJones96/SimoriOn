@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -14,18 +15,17 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author 640032165, 640025919
+ * @author 640032165, 640025919, 640041749
  * @version 1.0
  * @since 05-02-2016 GUI class that creates basic Layout for Sprint 1. Class
  * creates main board for Simori-ON and simulates all buttons, but does not
- * include full functionailty for Sprint 1. Class uses the Runnable interface to
+ * include full functionality for Sprint 1. Class uses the Runnable interface to
  * allow GUI to run within its own thread. Buttons include: 4 buttons for the
  * left, 4 buttons for the right ON/OFF button and 16x16 grid buttons. Class
  * outline by 640025919, main functionality by 640032165
  */
 public class GUI 
 {
-
     private JPanel gui = new JPanel();
     private JPanel grid = new JPanel();
     //uneditable label
@@ -122,8 +122,12 @@ public class GUI
                 if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
                 {
                     SimoriOn.getInstance().setMode(new PerformanceMode());
-                } else {
+                    ON.setBackground(Color.ORANGE);
+                }
+                else 
+                {
                     SimoriOn.getInstance().setMode(new OnOffMode());
+                    ON.setBackground(null);
                 }
                 System.out.println("ON/OFF button clicked");
                 for(GridButton button : buttons)
@@ -153,6 +157,7 @@ public class GUI
                 else 
                 {
                     SimoriOn.getInstance().setMode(new VoiceChangeMode());
+                    L1.setBackground(Color.ORANGE);
                     for(GridButton button : buttons)
                     {
                     	button.turnOff();
