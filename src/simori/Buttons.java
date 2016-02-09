@@ -29,6 +29,9 @@ class Buttons extends JButton
     	this.x = x;
     	this.y = y;
     	this.gui = gui;
+        
+        this.setOpaque(true);
+        
     	addMouseListener(new MouseAdapter()
     	{
             public void mouseClicked(MouseEvent e) 
