@@ -76,10 +76,14 @@ class Buttons extends JButton
     
     public void highlightOn(){
         this.setBackground(Color.ORANGE);
+        this.setOpaque(true);
+        this.setBorderPainted(false);
     }
     
     public void highlightOff(){
         this.setBackground(null);
+        this.setBorderPainted(true);
+        this.setOpaque(false);
     }
     
 }
