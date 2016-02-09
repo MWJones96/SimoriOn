@@ -17,7 +17,7 @@ public class SimoriOn
     	mode = new OnOffMode();
     	bpm = 60; //TEMP
     	layers = new Layer[16];
-    	GUI.makeGUI();
+    	gui = GUI.makeGUI();
     }
     
     public static SimoriOn getInstance()

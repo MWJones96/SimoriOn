@@ -29,6 +29,7 @@ public class GUI
     private JPanel gui = new JPanel();
     private JPanel grid = new JPanel();
     private ClockHand clockHand;
+    //uneditable label
     JLabel display = new JLabel("Action:");
     //empty text box with font-size : 15
     JTextField LCD = new JTextField(15);
