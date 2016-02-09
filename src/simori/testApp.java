@@ -11,7 +11,7 @@ public class TestApp
 {
     public static void main(String[] args)
     {
-        SimoriOn s = new SimoriOn();
+        SimoriOn s = SimoriOn.getInstance();
     }
     
 }
