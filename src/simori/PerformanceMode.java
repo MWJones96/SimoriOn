@@ -13,7 +13,7 @@ public class PerformanceMode implements Mode {
     {
         // TODO Auto-generated method stub
         System.out.println("Matrix button processed in Performance Mode");
-        System.out.println("Button clicked; co-ords: " + button.getX() + ", " + button.getY());
+        System.out.println("Button clicked; co-ords: " + button.getCoordsX() + ", " + button.getCoordsY());
         if(!button.getState())
         {
         	button.turnOn();

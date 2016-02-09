@@ -113,6 +113,7 @@ public class GUI
         // Add grid to gui panel
         gui.add(grid);
 
+
         // Event handlers for ON  and OK
         ON.addActionListener(new ActionListener() 
         {
