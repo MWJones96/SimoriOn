@@ -17,10 +17,13 @@ public class PerformanceMode implements Mode {
         if(!button.getState())
         {
         	button.turnOn();
+            GridButton.addButtonsSelected(button);
         }
         else
         {
         	button.turnOff();
+            GridButton.removeButtonsSelected(button);
+
         }
     }
 

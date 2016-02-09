@@ -25,6 +25,7 @@ class GridButton extends JButton
     private final GUI gui;
     //Whether the button is on or off
     private boolean on = false;
+    // Contains all buttons that are currently selected on the grid
     private static ArrayList<GridButton> buttonsSelected = new ArrayList<>();
 
 
@@ -42,14 +43,22 @@ class GridButton extends JButton
             {
                 GridButton buttonClicked = (GridButton)e.getSource();
                 SimoriOn.getInstance().getMode().processMatrixButton(buttonClicked);
-                buttonsSelected.add(buttonClicked);
             }
     	}
     	);
     }
 
-    public static ArrayList<GridButton> getButtonsSelected(){
+    public static ArrayList<GridButton> getButtonsSelected()
+    {
         return buttonsSelected;
+    }
+
+    public static void addButtonsSelected(GridButton b){
+        buttonsSelected.add(b);
+    }
+
+    public static void removeButtonsSelected(GridButton b){
+        buttonsSelected.remove(b);
     }
 
     public int getCoordsX()
