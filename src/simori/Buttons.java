@@ -49,6 +49,16 @@ class Buttons extends JButton
                 }*/
                 Buttons buttonClicked = (Buttons)e.getSource();
                 SimoriOn.getInstance().getMode().processMatrixButton(buttonClicked);
+
+				if(!on) {
+					on = true;
+					buttonClicked.setBackground(Color.ORANGE);
+				}
+
+				else {
+					buttonClicked.setBackground(null);
+					on = false;
+				}
             }
     	}
     	);
