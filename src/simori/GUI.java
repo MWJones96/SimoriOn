@@ -248,9 +248,12 @@ public class GUI
     {
 
         // Turn off all buttons
-        for (int i=0; i<this.buttons.length; i++) {
-            buttons[i].turnOff();
+        for (GridButton button : buttons) {
+            if(!(GridButton.getButtonsSelected().contains(button))) {
+                button.turnOff();
+            }
         }
+
         // Highlight buttons in the same column
         for (int i=0; i < 16; i++) {
             getButton(x, i).turnOn();

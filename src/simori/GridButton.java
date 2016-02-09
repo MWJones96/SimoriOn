@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 
@@ -24,7 +25,9 @@ class GridButton extends JButton
     private final GUI gui;
     //Whether the button is on or off
     private boolean on = false;
-    
+    private static ArrayList<GridButton> buttonsSelected = new ArrayList<>();
+
+
     public GridButton(int x, int y, GUI gui)
     {
     	this.x = x;
@@ -39,9 +42,14 @@ class GridButton extends JButton
             {
                 GridButton buttonClicked = (GridButton)e.getSource();
                 SimoriOn.getInstance().getMode().processMatrixButton(buttonClicked);
+                buttonsSelected.add(buttonClicked);
             }
     	}
     	);
+    }
+
+    public static ArrayList<GridButton> getButtonsSelected(){
+        return buttonsSelected;
     }
 
     public int getCoordsX()
