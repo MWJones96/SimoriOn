@@ -12,7 +12,6 @@ public class TestApp
     public static void main(String[] args)
     {
         SimoriOn s = SimoriOn.getInstance();
-        s.setMode(new VoiceChangeMode());
     }
     
 }
