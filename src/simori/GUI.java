@@ -126,6 +126,7 @@ public class GUI
                 }
                 else 
                 {
+                	L1.setBackground(null);
                     SimoriOn.getInstance().setMode(new OnOffMode());
                     ON.setBackground(null);
                 }
