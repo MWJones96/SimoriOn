@@ -124,6 +124,18 @@ public class GUI{
     {
 		return buttons[y*16 + x];
     }
+    
+    public void highlightColumnAndRow(int x, int y){
+        // Turn off all buttons
+        for(int i=0; i<this.buttons.length; i++){
+            buttons[i].highlightOff();
+        }
+        // Highlight buttons in the same row and column
+        for(int i=0;i<16;i++){
+            getButton(x, i).highlightOn();
+            getButton(i, y).highlightOn();
+        }
+    }
 
     public static void makeGUI()
     {
