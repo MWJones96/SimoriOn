@@ -33,7 +33,7 @@ class Buttons extends JButton
     	{
             public void mouseClicked(MouseEvent e) 
             {
-                System.out.println("Button clicked; co-ords: " + x + ", " + y);
+                /*System.out.println("Button clicked; co-ords: " + x + ", " + y);
                 if(!on)
                 {
                 	gui.getButton(x, y).setBackground(Color.ORANGE);
@@ -43,7 +43,8 @@ class Buttons extends JButton
                 {
                 	gui.getButton(x, y).setBackground(null);
                 	on = false;
-                }
+                }*/
+                SimoriOn.getInstance().getMode().processMatrixButton();
             }
     	}
     	);

@@ -16,7 +16,7 @@ public class SimoriOn
     
     protected SimoriOn()
     {
-    	mode = new OnOffMode(this);
+    	mode = new OnOffMode();
     	bpm = 60; //TEMP
     	layers = new Layer[16];
     	GUI.makeGUI();
