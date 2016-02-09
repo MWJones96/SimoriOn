@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 
-/**The class that represents the buttons on the GUI
+/**The class that represents the grid buttons on the GUI
  * 
  * @author 8744
  * @date 09/02/2016
@@ -39,16 +39,6 @@ class GridButton extends JButton
             {
                 GridButton buttonClicked = (GridButton)e.getSource();
                 SimoriOn.getInstance().getMode().processMatrixButton(buttonClicked);
-
-				if(!on) {
-					on = true;
-					buttonClicked.setBackground(Color.ORANGE);
-				}
-
-				else {
-					buttonClicked.setBackground(null);
-					on = false;
-				}
             }
     	}
     	);
