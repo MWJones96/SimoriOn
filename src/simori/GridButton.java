@@ -66,18 +66,24 @@ class GridButton extends JButton
     
     public void turnOn()
     {
-        this.setBackground(Color.ORANGE);
-        this.setOpaque(true);
-        this.setBorderPainted(false);
-        on = true;
+    	if(!on)
+    	{
+    		this.setBackground(Color.ORANGE);
+        	this.setOpaque(true);
+        	this.setBorderPainted(true);
+        	on = true;
+    	}
     }
     
     public void turnOff()
     {
-        this.setBackground(null);
-        this.setBorderPainted(true);
-        this.setOpaque(false);
-        on = false;
+    	if(on)
+    	{
+    		this.setBackground(null);
+    		this.setBorderPainted(true);
+    		this.setOpaque(false);
+    		on = false;
+    	}
     }
     
 }

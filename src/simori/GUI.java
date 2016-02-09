@@ -140,9 +140,24 @@ public class GUI
         });
 
         // Event handlers for L1-4
-        L1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        L1.addActionListener(new ActionListener() 
+        {
+            public void actionPerformed(ActionEvent e) 
+            {
                 System.out.println("L1 button clicked");
+                if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
+                {
+                	//If OnOffMode, then do nothing
+                    return;
+                } 
+                else 
+                {
+                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
+                    for(GridButton button : buttons)
+                    {
+                    	button.turnOff();
+                    }
+                }
             }
         });
 
