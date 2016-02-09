@@ -64,6 +64,10 @@ class GridButton extends JButton
     	return this.on;
     }
     
+    /**Turns on the GUI button that was selected
+     * and sets its colour to orange and its
+     * state to on
+     */
     public void turnOn()
     {
     	if(!on)
