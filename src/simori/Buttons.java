@@ -8,11 +8,20 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 
-class Buttons extends JButton implements ActionListener{
-    
-    private int x;
-    private int y;
-    private GUI gui;
+/**The class that represents the buttons on the GUI
+ * 
+ * @author 8744
+ * @date 09/02/2016
+ */
+class Buttons extends JButton
+{
+    //The X co-ord of the button
+    private final int x;
+    //The Y co-ord of the button
+    private final int y;
+    //The GUI the button is associated with
+    private final GUI gui;
+    //Whether the button is on or off
     private boolean on = false;
     
     public Buttons(int x, int y, GUI gui)
@@ -49,10 +58,15 @@ class Buttons extends JButton implements ActionListener{
     {
         return this.y;
     }
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+    
+    public GUI getGUI()
+    {
+    	return this.gui;
+    }
+    
+    public boolean getState()
+    {
+    	return this.on;
+    }
+    
 }
