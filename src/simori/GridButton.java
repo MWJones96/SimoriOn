@@ -39,6 +39,16 @@ class GridButton extends JButton
             {
                 GridButton buttonClicked = (GridButton)e.getSource();
                 SimoriOn.getInstance().getMode().processMatrixButton(buttonClicked);
+
+				if(!on) {
+					on = true;
+					buttonClicked.setBackground(Color.ORANGE);
+				}
+
+				else {
+					buttonClicked.setBackground(null);
+					on = false;
+				}
             }
     	}
     	);
