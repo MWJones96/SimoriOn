@@ -71,4 +71,8 @@ class Buttons extends JButton
     	return this.on;
     }
     
+    public void highlightOn(){
+        this.setBackground(Color.ORANGE);
+    }
+    
 }
