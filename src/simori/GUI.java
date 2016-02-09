@@ -123,16 +123,15 @@ public class GUI
                 if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
                 {
                     SimoriOn.getInstance().setMode(new PerformanceMode());
-                    if (clockHand == null) {
-                        (new Thread(new ClockHand(SimoriOn.getInstance().getGui()))).start();
-                    }
+                        clockHand = new ClockHand(SimoriOn.getInstance().getGui());
+                        (new Thread(clockHand)).start();
                     ON.setBackground(Color.ORANGE);
                 }
                 else 
                 {
                 	L1.setBackground(null);
                     SimoriOn.getInstance().setMode(new OnOffMode());
-                    clockHand.running = false;
+                    clockHand.running.set(false);
                     ON.setBackground(null);
                 }
                 System.out.println("ON/OFF button clicked");
