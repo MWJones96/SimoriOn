@@ -6,7 +6,7 @@ public class VoiceChangeMode implements Mode {
     }
 
     @Override
-    public void processMatrixButton() {
+    public void processMatrixButton(Buttons button) {
 	// TODO Auto-generated method stub
         System.out.println("Matrix button processed in Voice Change Mode");
     }

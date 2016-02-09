@@ -6,9 +6,10 @@ public class OnOffMode implements Mode {
     }
 
     @Override
-    public void processMatrixButton() {
+    public void processMatrixButton(Buttons button) {
         // TODO Auto-generated method stub
         System.out.println("Matrix button processed in OnOffMode");
+        System.out.println("X: " + button.getCoordsX() + "; Y: "+ button.getCoordsY());
     }
 
 }

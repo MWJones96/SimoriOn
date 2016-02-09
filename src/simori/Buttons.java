@@ -44,7 +44,8 @@ class Buttons extends JButton
                 	gui.getButton(x, y).setBackground(null);
                 	on = false;
                 }*/
-                SimoriOn.getInstance().getMode().processMatrixButton();
+                Buttons buttonClicked = (Buttons)e.getSource();
+                SimoriOn.getInstance().getMode().processMatrixButton(buttonClicked);
             }
     	}
     	);
