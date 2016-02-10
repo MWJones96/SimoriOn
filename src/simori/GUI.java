@@ -165,6 +165,7 @@ public class GUI
                 } 
                 else 
                 {
+                	SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     L1.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
