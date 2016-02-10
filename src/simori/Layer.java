@@ -12,6 +12,11 @@ public class Layer
 	//Array containing information about whether each button is on or off
 	private boolean[] buttonArray = new boolean[16 * 16];
 	
+	/**
+     * method that returns on/off the current layer on the GUI 
+     * (i.e. L1/L2/L3/L4) and  
+     * @return buttonArray is the x coordinate for each box
+     */
 	public boolean[] getLayer()
 	{
 		return buttonArray;

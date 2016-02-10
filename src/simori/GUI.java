@@ -59,7 +59,8 @@ public class GUI
      * Constructor for GUI without any parameters. It is used in order to create
      * the default style of how the Simori-ON board will look. sets height and
      * width and location of buttons and creates default grid to be used for the
-     * Simori-ON.
+     * Simori-ON. in furture sprints, this layout will be changed to 
+     * ciruclar buttons in order to match the spec identically
      *
      * @return void - contructor sets default values so nothing is returned.
      */
@@ -125,6 +126,7 @@ public class GUI
                 {
                     SimoriOn.getInstance().setMode(new PerformanceMode());
                         clockHand = new ClockHand(SimoriOn.getInstance().getGui());
+                        //start the clockhand movement
                         (new Thread(clockHand)).start();
                     ON.setBackground(Color.GREEN);
                 }
@@ -145,7 +147,7 @@ public class GUI
                 }
             }
         });
-
+        
         OK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("OK button clicked");
@@ -385,7 +387,7 @@ public class GUI
     }
 
     /**
-     * get method to return gui instance from JPanel.
+     * get method to return gui instance to be used as the grid
      *
      * @return gui that will be used for the entire UI.
      */
@@ -393,12 +395,24 @@ public class GUI
     {
         return this.gui;
     }
-
+    
+    /**
+     * method that gets the button coordinates from the grid
+     * @param x the x coordinates of a button
+     * @param y the y coordinates of a button
+     * @return the buttons at different positions
+     */
     public GridButton getButton(int x, int y) 
     {
         return buttons[y * 16 + x];
     }
-
+    
+    /**
+     * method that will highlight each column and row using the
+     * coordinates system
+     * @param x x coordinate of the box
+     * @param y y coordinate of the box
+     */
     public void highlightColumnAndRow(int x, int y) 
     {
         // Turn off all buttons
@@ -412,6 +426,11 @@ public class GUI
         }
     }
 
+    /**
+     * method that will only highlight the column of the grid 
+     * this can be used for the oscillation of the clockhand too. 
+     * @param x
+     */
     public void highlightColumn(int x)
     {
 
@@ -428,7 +447,11 @@ public class GUI
         }
 
     }
-
+    /**
+     * method that creates the main GUI that will be used to represent
+     * the grid being used. this method will return the GUI being used
+     * @return g which is the instance of the GUI being used
+     */
     public static GUI makeGUI()
     {
         final GUI g = new GUI();
