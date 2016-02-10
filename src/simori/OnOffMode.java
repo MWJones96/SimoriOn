@@ -3,7 +3,12 @@ package simori;
 public class OnOffMode implements Mode 
 {
     public OnOffMode() 
-    {
+    {	
+    	System.out.println(SimoriOn.getClockHand());
+    	if (SimoriOn.getClockHand() != null){
+    		System.out.println("turn off clockhand");
+    		SimoriOn.getClockHand().running.set(false);
+    	}
     }
 
     @Override

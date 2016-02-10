@@ -2,7 +2,11 @@ package simori;
 
 public class VoiceChangeMode implements Mode {
 
-    public VoiceChangeMode() {
+    public VoiceChangeMode() 
+    {	
+    	if(SimoriOn.getClockHand() != null){
+    		SimoriOn.getClockHand().running.set(false);
+    	}
     }
 
     @Override
