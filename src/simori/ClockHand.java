@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * Highlights the columns in sequence and sleeps
  * for a fixed amount of time between columns.
  *
- * @author Alex Sahin
+ * @author 640025919
  * @date 09/02/2016.
  */
 
@@ -17,24 +17,24 @@ public class ClockHand implements Runnable {
     private int loopPoint = 16;
     public AtomicBoolean running = new AtomicBoolean();
 
-    /**
-     * Constructor that is used to set the defualt constructor for which 
-     * the clockhand will run on. 
-     * @param gui - this is the GUI interface that the clockhand will use. 
-     */
-
+     /**
+    *Constructor that is used to set the default constructor for which 
+    * the clockhand will run on. 
+    @param gui - this is the GUI interface that the clockhand will use. 
+    */
     public ClockHand (GUI gui){
         this.gui = gui;
     }
-    
+
     /**
-     * method will run the clockhand within its own thread. it causes the 
-     * clockhand to move from the left hand side of the grid to the right
-     * hand side of the grid. 
-     * whilst in ON mode, it should highlight the appropriate column as 
-     * the clockhand oscillates. 
-     * @return none - method is void and therefore nothing returned. 
-     */
+
+    * method will run the clockhand within its own thread. it causes the 
+    * clockhand to move from the left hand side of the grid to the right
+    * hand side of the grid. 
+    * whilst in ON mode, it should highlight the appropriate column as 
+    * the clockhand oscillates. 
+    * @return none - method is void and therefore nothing returned. 
+    */
     public void run() {
         System.out.println("Clockhand thread started");
         running.set(true);
