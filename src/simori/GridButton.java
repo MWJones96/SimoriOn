@@ -61,6 +61,10 @@ class GridButton extends JButton
         buttonsSelected.remove(b);
     }
 
+    public static void clearButtonsSelected(){
+        buttonsSelected.clear();
+    }
+
     public int getCoordsX()
     {
         return this.x;

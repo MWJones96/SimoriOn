@@ -5,6 +5,7 @@ import java.awt.Color;
 public class PerformanceMode implements Mode {
 
     public PerformanceMode() {
+        GridButton.clearButtonsSelected();
     }
     
 
