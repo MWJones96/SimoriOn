@@ -422,8 +422,8 @@ public class GUI
             }
         }
 
-        // Highlight buttons in the same column
-        for (int i=0; i < 16; i++) {
+        // Highlight every 5 buttons in the same column
+        for (int i=0; i < 16; i+=5) {
             getButton(x, i).turnOn();
         }
 
