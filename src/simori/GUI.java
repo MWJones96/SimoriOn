@@ -119,17 +119,21 @@ public class GUI
         ON.addActionListener(new ActionListener() 
         {
             public void actionPerformed(ActionEvent e) {
-                // If device is in OnOfMode then turn it into performance mode
+                // If clicked in OnOfMode then switch to performance mode
+                // Else set all buttons to null colour
                 if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
                 {
                     SimoriOn.getInstance().setMode(new PerformanceMode());
                         clockHand = new ClockHand(SimoriOn.getInstance().getGui());
                         (new Thread(clockHand)).start();
-                    ON.setBackground(Color.ORANGE);
+                    ON.setBackground(Color.GREEN);
                 }
                 else 
                 {
                 	L1.setBackground(null);
+                        L2.setBackground(null);
+                        L3.setBackground(null);
+                        L4.setBackground(null);
                     SimoriOn.getInstance().setMode(new OnOffMode());
                     clockHand.running.set(false);
                     ON.setBackground(null);
@@ -163,6 +167,13 @@ public class GUI
                 {
                     SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     L1.setBackground(Color.ORANGE);
+                    R1.setBackground(null);
+                    R2.setBackground(null);
+                    R3.setBackground(null);
+                    R4.setBackground(null);
+                    L2.setBackground(null);
+                    L3.setBackground(null);
+                    L4.setBackground(null);
                     for(GridButton button : buttons)
                     {
                     	button.turnOff();
@@ -171,21 +182,92 @@ public class GUI
             }
         });
 
-        L2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        L2.addActionListener(new ActionListener() 
+        {
+            public void actionPerformed(ActionEvent e) 
+            {
                 System.out.println("L2 button clicked");
+            
+            if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
+                {
+                	//If OnOffMode, then do nothing
+                    return;
+                } 
+                else 
+                {
+                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
+                    L2.setBackground(Color.ORANGE);
+                    R1.setBackground(null);
+                    R2.setBackground(null);
+                    R3.setBackground(null);
+                    R4.setBackground(null);
+                    L1.setBackground(null);
+                    L3.setBackground(null);
+                    L4.setBackground(null);
+                    for(GridButton button : buttons)
+                    {
+                    	button.turnOff();
+                    }
+                }
             }
         });
 
         L3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) 
+            {
                 System.out.println("L3 button clicked");
+            
+            if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
+                {
+                	//If OnOffMode, then do nothing
+                    return;
+                } 
+                else 
+                {
+                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
+                    L3.setBackground(Color.ORANGE);
+                    R1.setBackground(null);
+                    R2.setBackground(null);
+                    R3.setBackground(null);
+                    R4.setBackground(null);
+                    L1.setBackground(null);
+                    L2.setBackground(null);
+                    L4.setBackground(null);
+                    for(GridButton button : buttons)
+                    {
+                    	button.turnOff();
+                    }
+                }
             }
+            
         });
 
         L4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) 
+            {
                 System.out.println("L4 button clicked");
+            
+            if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
+                {
+                	//If OnOffMode, then do nothing
+                    return;
+                } 
+                else 
+                {
+                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
+                    L4.setBackground(Color.ORANGE);
+                    R1.setBackground(null);
+                    R2.setBackground(null);
+                    R3.setBackground(null);
+                    R4.setBackground(null);
+                    L1.setBackground(null);
+                    L2.setBackground(null);
+                    L3.setBackground(null);
+                    for(GridButton button : buttons)
+                    {
+                    	button.turnOff();
+                    }
+                }
             }
         });
 
@@ -193,25 +275,111 @@ public class GUI
         R1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("R1 button clicked");
+            if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
+                {
+                	//If OnOffMode, then do nothing
+                    return;
+                } 
+                else 
+                {
+                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
+                    R1.setBackground(Color.ORANGE);
+                    R2.setBackground(null);
+                    R3.setBackground(null);
+                    R4.setBackground(null);
+                    L1.setBackground(null);
+                    L2.setBackground(null);
+                    L3.setBackground(null);
+                    L4.setBackground(null);
+                    for(GridButton button : buttons)
+                    {
+                    	button.turnOff();
+                    }
+                }
             }
         });
 
         R2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("R2 button clicked");
+            if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
+                {
+                	//If OnOffMode, then do nothing
+                    return;
+                } 
+                else 
+                {
+                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
+                    R2.setBackground(Color.ORANGE);
+                    R1.setBackground(null);
+                    R3.setBackground(null);
+                    R4.setBackground(null);
+                    L1.setBackground(null);
+                    L2.setBackground(null);
+                    L3.setBackground(null);
+                    L4.setBackground(null);
+                    for(GridButton button : buttons)
+                    {
+                    	button.turnOff();
+                    }
+                }
             }
         });
 
         R3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("R3 button clicked");
+                
+            if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
+                {
+                	//If OnOffMode, then do nothing
+                    return;
+                } 
+                else 
+                {
+                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
+                    R3.setBackground(Color.ORANGE);
+                    R1.setBackground(null);
+                    R2.setBackground(null);
+                    R4.setBackground(null);
+                    L1.setBackground(null);
+                    L2.setBackground(null);
+                    L3.setBackground(null);
+                    L4.setBackground(null);
+                    for(GridButton button : buttons)
+                    {
+                    	button.turnOff();
+                    }
+                }
             }
         });
 
         R4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("R4 button clicked");
-            }
+            
+            if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
+                {
+                	//If OnOffMode, then do nothing
+                    return;
+                } 
+                else 
+                {
+                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
+                    R4.setBackground(Color.ORANGE);
+                    R1.setBackground(null);
+                    R2.setBackground(null);
+                    R3.setBackground(null);
+                    L1.setBackground(null);
+                    L2.setBackground(null);
+                    L3.setBackground(null);
+                    L4.setBackground(null);
+                    for(GridButton button : buttons)
+                    {
+                    	button.turnOff();
+                    }
+                }
+            }    
         });
 
     }
