@@ -131,10 +131,10 @@ public class GUI
                         L2.setBackground(null);
                         L3.setBackground(null);
                         L4.setBackground(null);
-                        L1.setBackground(null);
-                        L2.setBackground(null);
-                        L3.setBackground(null);
-                        L4.setBackground(null);
+                        R1.setBackground(null);
+                        R2.setBackground(null);
+                        R3.setBackground(null);
+                        R4.setBackground(null);
                     SimoriOn.getInstance().setMode(new OnOffMode());
                     ON.setBackground(null);
                 }
