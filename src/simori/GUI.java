@@ -139,6 +139,10 @@ public class GUI
                         L2.setBackground(null);
                         L3.setBackground(null);
                         L4.setBackground(null);
+                        L1.setBackground(null);
+                        L2.setBackground(null);
+                        L3.setBackground(null);
+                        L4.setBackground(null);
                     SimoriOn.getInstance().setMode(new OnOffMode());
                     clockHand.running.set(false);
                     ON.setBackground(null);
@@ -170,7 +174,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     L1.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -200,7 +203,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     L2.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -229,7 +231,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     L3.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -259,7 +260,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     L4.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -287,7 +287,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     R1.setBackground(Color.ORANGE);
                     R2.setBackground(null);
                     R3.setBackground(null);
@@ -314,7 +313,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     R2.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R3.setBackground(null);
@@ -342,7 +340,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     R3.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -370,7 +367,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     R4.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
