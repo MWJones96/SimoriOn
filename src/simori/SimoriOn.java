@@ -11,6 +11,7 @@ public class SimoriOn
     private int bpm;
     private Layer[] layers;
     private GUI gui;
+    private static ClockHand clockhand;
     
     protected SimoriOn()
     {
@@ -47,5 +48,15 @@ public class SimoriOn
     public GUI getGui()
     {
         return gui;
+    }
+    
+    public static void setClockHand(ClockHand c)
+    {
+    	clockhand = c;
+    }
+    
+    public static ClockHand getClockHand()
+    {
+    	return clockhand;
     }
 }

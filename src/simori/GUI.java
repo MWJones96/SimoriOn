@@ -28,7 +28,6 @@ public class GUI
 {
     private JPanel gui = new JPanel();
     private JPanel grid = new JPanel();
-    private ClockHand clockHand;
     //uneditable label
     JLabel display = new JLabel("Action:");
     //empty text box with font-size : 15
@@ -60,10 +59,8 @@ public class GUI
      * the default style of how the Simori-ON board will look. sets height and
      * width and location of buttons and creates default grid to be used for the
      * Simori-ON.
-     * in future sprints, this layout will be changed to 
-     * circular buttons in order to match the spec identically
      *
-     * @return void - constructor sets default values so nothing is returned.
+     * @return void - contructor sets default values so nothing is returned.
      */
     public GUI() 
     {
@@ -121,16 +118,11 @@ public class GUI
         ON.addActionListener(new ActionListener() 
         {
             public void actionPerformed(ActionEvent e) {
-                /*
-                 *  If clicked in OnOfMode then switch to performance mode
-                 *  Else set all buttons to have no colour
-                 */
+                // If clicked in OnOfMode then switch to performance mode
+                // Else set all buttons to null colour
                 if (SimoriOn.getInstance().getMode() instanceof OnOffMode) 
                 {
                     SimoriOn.getInstance().setMode(new PerformanceMode());
-                        clockHand = new ClockHand(SimoriOn.getInstance().getGui());
-                        //start the clockhand movement
-                        (new Thread(clockHand)).start();
                     ON.setBackground(Color.GREEN);
                 }
                 else 
@@ -140,7 +132,6 @@ public class GUI
                         L3.setBackground(null);
                         L4.setBackground(null);
                     SimoriOn.getInstance().setMode(new OnOffMode());
-                    clockHand.running.set(false);
                     ON.setBackground(null);
                 }
                 System.out.println("ON/OFF button clicked");
@@ -200,7 +191,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     L2.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -229,7 +219,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     L3.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -259,7 +248,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     L4.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -287,7 +275,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     R1.setBackground(Color.ORANGE);
                     R2.setBackground(null);
                     R3.setBackground(null);
@@ -314,7 +301,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     R2.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R3.setBackground(null);
@@ -342,7 +328,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     R3.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -370,7 +355,6 @@ public class GUI
                 } 
                 else 
                 {
-                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     R4.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -390,8 +374,7 @@ public class GUI
     }
 
     /**
-     * get method to return the GUI that will be used as
-     * the grid
+     * get method to return gui instance from JPanel.
      *
      * @return gui that will be used for the entire UI.
      */
@@ -400,23 +383,11 @@ public class GUI
         return this.gui;
     }
 
-   /**
-    * method that gets the button coordinates from the grid
-    * @param x the x coordinates of a button
-    * @param y the y coordinates of a button
-    * @return the buttons at different positions
-    */
     public GridButton getButton(int x, int y) 
     {
         return buttons[y * 16 + x];
     }
-    
-    /**
-     * method that will highlight each column and row using the
-     * coordinates system
-     * @param x x coordinate of the box
-     * @param y y coordinate of the box
-     */
+
     public void highlightColumnAndRow(int x, int y) 
     {
         // Turn off all buttons
@@ -429,12 +400,7 @@ public class GUI
             getButton(i, y).turnOn();
         }
     }
-    
-    /**
-     * method that will only highlight the column of the grid 
-     * this can be used for the oscillation of the clockhand too. 
-     * @param x
-     */
+
     public void highlightColumn(int x)
     {
 
@@ -452,11 +418,6 @@ public class GUI
 
     }
 
-   /**
-    * method that creates the main GUI that will be used to represent
-    * the grid being used. this method will return the GUI being used
-    * @return g which is the instance of the GUI being used
-    */
     public static GUI makeGUI()
     {
         final GUI g = new GUI();

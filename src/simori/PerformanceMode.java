@@ -4,9 +4,16 @@ import javax.sound.midi.Synthesizer;
 import java.awt.Color;
 
 public class PerformanceMode implements Mode {
-
+		
     public PerformanceMode() {
         GridButton.clearButtonsSelected();
+        if (SimoriOn.getClockHand() == null){
+        	SimoriOn.setClockHand(new ClockHand(SimoriOn.getInstance().getGui()));
+        	(new Thread(SimoriOn.getClockHand())).start();
+        }
+        else {
+        	(new Thread(SimoriOn.getClockHand())).start();
+        }
     }
     
 
