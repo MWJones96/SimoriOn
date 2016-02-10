@@ -26,7 +26,7 @@ class GridButton extends JButton
     //Whether the button is on or off
     private boolean on = false;
     // Contains all buttons that are currently selected on the grid
-    private static ArrayList<GridButton> buttonsSelected = new ArrayList<>();
+    private static ArrayList<GridButton> buttonsSelected = new ArrayList<GridButton>();
 
 
     public GridButton(int x, int y, GUI gui)

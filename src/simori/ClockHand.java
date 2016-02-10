@@ -30,6 +30,20 @@ public class ClockHand implements Runnable {
             for (int i=0; i<loopPoint; i++){
                 gui.highlightColumn(i);
 
+                // Iterate through all selected buttons
+                for(int j=0; j<GridButton.getButtonsSelected().size(); j++)
+                {
+                    GridButton button = GridButton.getButtonsSelected().get(j);
+
+                    // If selected button is in the current column, play sound
+                    if (button.getCoordsX() == i)
+                    {
+                        // Sound test
+                        (new Thread(new Sounds(50 - button.getCoordsY(), 64))).start();
+
+                    }
+                }
+
                 if (!running.get())
                 {
                     for(GridButton button : gui.buttons)
