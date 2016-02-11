@@ -17,7 +17,7 @@ import javax.swing.JButton;
  * @author Alex Sahin, Carl Saptarshi, Dennis Luo, Matt Jones, Giedruis Kartanovic
  * @date 09/02/2016
  */
-class GridButton extends JButton
+public class GridButton extends JButton
 {
 	private static final long serialVersionUID = 1L;
 	//The X and Y co-ord of the button

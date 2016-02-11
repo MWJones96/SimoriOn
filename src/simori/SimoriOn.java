@@ -1,5 +1,13 @@
 package simori;
 
+/**
+ * this class uses the singleton design pattern to enable 
+ * methods to be referenced from anywhere within the package using
+ * a single instance. the simori-on class is the main class. 
+ * 
+ * @author Team G
+ *
+ */
 public class SimoriOn
 {
     // Self instance (Singleton pattern)
