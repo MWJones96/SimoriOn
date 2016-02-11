@@ -163,6 +163,10 @@ public class GUI
                 	//If OnOffMode, then do nothing
                     return;
                 } 
+                else if (L1.getBackground() == Color.ORANGE)
+                {
+                    L1.setBackground(null);
+                }
                 else 
                 {
                 	SimoriOn.getInstance().setMode(new VoiceChangeMode());
@@ -192,7 +196,11 @@ public class GUI
                 {
                 	//If OnOffMode, then do nothing
                     return;
-                } 
+                }
+                else if (L2.getBackground() == Color.ORANGE)
+                {
+                    L2.setBackground(null);
+                }
                 else 
                 {
                     L2.setBackground(Color.ORANGE);
@@ -220,7 +228,11 @@ public class GUI
                 {
                 	//If OnOffMode, then do nothing
                     return;
-                } 
+                }
+                else if (L3.getBackground() == Color.ORANGE)
+                {
+                    L3.setBackground(null);
+                }
                 else 
                 {
                     L3.setBackground(Color.ORANGE);
@@ -250,7 +262,11 @@ public class GUI
                 	//If OnOffMode, then do nothing
                     return;
                 } 
-                else 
+            else if (L4.getBackground() == Color.ORANGE)
+                {
+                    L4.setBackground(null);
+                }    
+            else 
                 {
                     L4.setBackground(Color.ORANGE);
                     R1.setBackground(null);
@@ -276,8 +292,12 @@ public class GUI
                 {
                 	//If OnOffMode, then do nothing
                     return;
-                } 
-                else 
+                }
+            else if (R1.getBackground() == Color.ORANGE)
+                {
+                    R1.setBackground(null);
+                }
+            else 
                 {
                     R1.setBackground(Color.ORANGE);
                     R2.setBackground(null);
@@ -302,8 +322,12 @@ public class GUI
                 {
                 	//If OnOffMode, then do nothing
                     return;
-                } 
-                else 
+                }
+            else if (R2.getBackground() == Color.ORANGE)
+                {
+                    R2.setBackground(null);
+                }
+            else 
                 {
                     R2.setBackground(Color.ORANGE);
                     R1.setBackground(null);
@@ -329,8 +353,12 @@ public class GUI
                 {
                 	//If OnOffMode, then do nothing
                     return;
-                } 
-                else 
+                }
+            else if (R3.getBackground() == Color.ORANGE)
+                {
+                    R3.setBackground(null);
+                }
+            else 
                 {
                     R3.setBackground(Color.ORANGE);
                     R1.setBackground(null);
@@ -356,8 +384,12 @@ public class GUI
                 {
                 	//If OnOffMode, then do nothing
                     return;
-                } 
-                else 
+                }
+            else if (R4.getBackground() == Color.ORANGE)
+                {
+                    R4.setBackground(null);
+                }
+            else 
                 {
                     R4.setBackground(Color.ORANGE);
                     R1.setBackground(null);
