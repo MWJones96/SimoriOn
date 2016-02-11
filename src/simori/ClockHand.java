@@ -18,7 +18,7 @@ public class ClockHand implements Runnable {
     public AtomicBoolean running = new AtomicBoolean();
 
     /**
-     * Constructor that is used to set the defualt constructor for which 
+     * Constructor that is used to set the default constructor for which 
      * the clockhand will run on. 
      * @param gui - this is the GUI interface that the clockhand will use. 
      */

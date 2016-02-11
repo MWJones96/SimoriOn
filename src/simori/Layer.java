@@ -4,7 +4,7 @@ package simori;
  * of the Simori-ON device. One layer may be
  * sent to the GUI at any given time.
  * 
- * @author 8744
+ * @author team G
  * @date 07/02/2016
  */
 public class Layer 
