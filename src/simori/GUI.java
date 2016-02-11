@@ -152,7 +152,10 @@ public class GUI
             }
         });
 
-        // Event handlers for L1-4
+        // Event handlers for L1-4 
+        // If Left button clicked in OnOfMode then do nothing
+        // Else if clicked in select mode already then deselect Left button
+        // Else set Left and Right buttons to null colour
         L1.addActionListener(new ActionListener() 
         {
             public void actionPerformed(ActionEvent e) 
@@ -166,10 +169,11 @@ public class GUI
                 else if (L1.getBackground() == Color.ORANGE)
                 {
                     L1.setBackground(null);
+                    SimoriOn.getInstance().setMode(new PerformanceMode());
                 }
                 else 
                 {
-                	SimoriOn.getInstance().setMode(new VoiceChangeMode());
+                    SimoriOn.getInstance().setMode(new VoiceChangeMode());
                     L1.setBackground(Color.ORANGE);
                     R1.setBackground(null);
                     R2.setBackground(null);
@@ -285,6 +289,9 @@ public class GUI
         });
 
         // Event handlers for R1-4
+        // If Right button clicked in OnOfMode then do nothing
+        // Else if clicked in select mode already then deselect Right button
+        // Else set Right and Left buttons to null colour
         R1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("R1 button clicked");
