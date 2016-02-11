@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * Highlights the columns in sequence and sleeps
  * for a fixed amount of time between columns.
  *
- * @author Alex Sahin
+ * @author Team G
  * @date 09/02/2016.
  */
 

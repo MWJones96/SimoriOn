@@ -22,6 +22,11 @@ public class Layer
 		return buttonArray;
 	}
 	
+	/**
+	 * method that will set the Layer. for the Simori - on, there 
+	 * are 16 layers, with 256 buttons on the grid. 
+	 * @param array
+	 */
 	public void setLayer(boolean[] array)
 	{
 		if(array.length != 16 * 16)

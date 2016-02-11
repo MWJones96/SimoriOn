@@ -5,9 +5,12 @@ import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Synthesizer;
 
-/** Sound thread class which plays a sound
- *  with the given note and velocity.
- * @author Alex Sahin
+/** 
+ *  
+ *  this is a class that implements the sounds that will be played when 
+ *  a button is clicked and the clock hand is on the button for that time period. 
+ *  if the button is pressed and the clock hand isnt on the button, no sound will play
+ * @author Team G
  * @date 10/02/2016.
  */
 public class Sounds implements Runnable {
@@ -22,13 +25,24 @@ public class Sounds implements Runnable {
     private int velocity = 64;
 
     Synthesizer synthesizer;
-
+    
+    /**
+     * constructor that takes into account 2 arguments that
+     * take into account the note being played and the velocity. 
+     * 
+     * @param note
+     * @param velocity
+     */
     public Sounds(int note, int velocity)
     {
         this.note = note;
         this.velocity = velocity;
     }
 
+    /**
+     * run method will play initiliase the synthesizer and then 
+     * play the appropriate instrument at that specific button. 
+     */
     public void run()
     {
         synthesizer = this.getSynthesizer();
@@ -36,7 +50,11 @@ public class Sounds implements Runnable {
 
     }
 
-
+    /**
+     * a method that reutns the intance of the synthesizer for that
+     * specific object. 
+     * @return
+     */
     public Synthesizer getSynthesizer() {
         Synthesizer synthesizer = null;
         try {
@@ -49,8 +67,11 @@ public class Sounds implements Runnable {
     }
 
 
-    /*
-     * Delay for a number of milliseconds.
+    /**
+     * method that has been created in order to delay 
+     * the current thread that is being used for ms amount 
+     * of milliseconds.
+     * @param ms
      */
     public void delay( int ms ) {
         try {
@@ -59,8 +80,13 @@ public class Sounds implements Runnable {
             Thread.currentThread().interrupt();
         }
     }
-
+    
+    /**
+     * method that will allow the instrument to be played
+     * using the standard java libraries to play the sounds at the given button
+     */
     public void playInstrument() {
+    	//get the channel for the synthesizer. 
         MidiChannel[] midiChannels = synthesizer.getChannels();
         MidiChannel midiChannel = midiChannels[OTHER_CHANNEL];
         Instrument[] instruments = synthesizer.getDefaultSoundbank().getInstruments();
