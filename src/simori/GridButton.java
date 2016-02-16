@@ -1,12 +1,16 @@
 package simori;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -17,18 +21,18 @@ import javax.swing.JButton;
  * @author Team G
  * @date 09/02/2016
  */
-public class GridButton extends JButton {
+public class GridButton extends JButton
+{
 	private static final long serialVersionUID = 1L;
 	// The X and Y co-ord of the button
 	private final int x;
 	private final int y;
-
-	// The GUI the button is associated with
-	private final GUI gui;
 	// Whether the button is on or off
 	private boolean on = false;
 	// Contains all buttons that are currently selected on the grid
 	private static ArrayList<GridButton> buttonsSelected = new ArrayList<GridButton>();
+	//The image currently on the button
+	private ImageIcon img;
 
 	/**
 	 * constructor that is used that takes into account 3 arguments. performs
@@ -41,12 +45,15 @@ public class GridButton extends JButton {
 	 * @param gui
 	 *            is the interface where the grid will be placed.
 	 */
-	public GridButton(int x, int y, GUI gui) {
+	public GridButton(int x, int y) {
 		this.x = x;
 		this.y = y;
-		this.gui = gui;
 		// compatable with other OS's.
 		this.setOpaque(true);
+		this.img = new ImageIcon("./res/ButtonDisabled.png");
+		Image newimg = this.img.getImage();
+		newimg = newimg.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+		this.setIcon(new ImageIcon(newimg));
 
 		/*
 		 * when the button is clicked, the button clicked will be selected
@@ -126,7 +133,7 @@ public class GridButton extends JButton {
 	 * @return gui the interface object launched
 	 */
 	public GUI getGUI() {
-		return this.gui;
+		return SimoriOn.getInstance().getGui();
 	}
 
 	/**
@@ -145,9 +152,10 @@ public class GridButton extends JButton {
 	 */
 	public void turnOn() {
 		if (!on) {
-			this.setBackground(Color.ORANGE);
-			this.setOpaque(true);
-			this.setBorderPainted(true);
+			this.img = new ImageIcon("./res/ButtonOn.png");
+			Image newimg = this.img.getImage();
+			newimg = newimg.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+			this.setIcon(new ImageIcon(newimg));
 			on = true;
 		}
 	}
@@ -158,9 +166,10 @@ public class GridButton extends JButton {
 	 */
 	public void turnOff() {
 		if (on) {
-			this.setBackground(null);
-			this.setBorderPainted(true);
-			this.setOpaque(false);
+			this.img = new ImageIcon("./res/ButtonOff.png");
+			Image newimg = this.img.getImage();
+			newimg = newimg.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+			this.setIcon(new ImageIcon(newimg));
 			on = false;
 		}
 	}

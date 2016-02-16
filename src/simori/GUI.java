@@ -1,17 +1,19 @@
 package simori;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
-import javax.swing.JButton;
-import java.awt.GridLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JToggleButton;
+import javax.swing.SwingUtilities;
 
 /**
  * I class that creates basic Layout for Sprint 1. Class creates main board for
@@ -24,7 +26,8 @@ import java.awt.event.ActionListener;
  * @version 1.0
  * @date 05-02-2016
  */
-public class GUI {
+public class GUI 
+{
 	private JPanel gui = new JPanel();
 	private JPanel grid = new JPanel();
 	// uneditable label
@@ -33,22 +36,22 @@ public class GUI {
 	JTextField LCD = new JTextField(15);
 
 	// Left buttons
-	JButton L1 = new JButton("L1");
-	JButton L2 = new JButton("L2");
-	JButton L3 = new JButton("L3");
-	JButton L4 = new JButton("L4");
+	JToggleButton L1 = new JToggleButton("L1");
+	JToggleButton L2 = new JToggleButton("L2");
+	JToggleButton L3 = new JToggleButton("L3");
+	JToggleButton L4 = new JToggleButton("L4");
 
 	// Right buttons
-	JButton R1 = new JButton("R1");
-	JButton R2 = new JButton("R2");
-	JButton R3 = new JButton("R3");
-	JButton R4 = new JButton("R4");
+	JToggleButton R1 = new JToggleButton("R1");
+	JToggleButton R2 = new JToggleButton("R2");
+	JToggleButton R3 = new JToggleButton("R3");
+	JToggleButton R4 = new JToggleButton("R4");
 
 	// ON/OFF button
-	JButton ON = new JButton("ON");
+	JToggleButton ON = new JToggleButton("ON");
 
 	// OK button
-	JButton OK = new JButton("OK");
+	JToggleButton OK = new JToggleButton("OK");
 
 	// Array for 16x16 grid buttons
 	GridButton buttons[] = new GridButton[16 * 16];
@@ -89,7 +92,7 @@ public class GUI {
 
 		// Create and add grid buttons
 		for (int i = 0; i < 16 * 16; i++) {
-			buttons[i] = new GridButton(i % 16, (int) i / 16, this);
+			buttons[i] = new GridButton(i % 16, (int) i / 16);
 			grid.add(buttons[i]);
 		}
 

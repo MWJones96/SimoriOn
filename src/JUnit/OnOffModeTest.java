@@ -12,12 +12,11 @@ import simori.GridButton;
 public class OnOffModeTest {
 	public OnOffMode test;
 	public GridButton button;
-	public GUI gui;
 
 	@Before
 	public void setUp() throws Exception {
 		this.test = new OnOffMode();
-		this.button = new GridButton(2,3,gui );
+		this.button = new GridButton(2,3);
 	}
 
 	@After
