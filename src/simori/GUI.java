@@ -87,7 +87,7 @@ public class GUI
 		R3.setBounds(625, 300, 50, 50); R4.setBounds(625, 400, 50, 50);
 
 		// Set position/size of top/bottom buttons
-		ON.setBounds(320, 40, 50, 50); OK.setBounds(550, 605, 50, 50); LCD.setBounds(200, 605, 300, 50);
+		ON.setBounds(325, 40, 50, 50); OK.setBounds(550, 605, 50, 50); LCD.setBounds(200, 605, 300, 50);
 		LCD.setEditable(false); display.setBounds(150, 605, 300, 50);
 
 		// Create and add grid buttons
@@ -126,6 +126,8 @@ public class GUI
 				{
 					ON.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffON.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 					SimoriOn.getInstance().setMode(new OnOffMode());
+					turnOffFunctionButtons();
+					turnOffAllButtons();
 				}
 			}
 			
