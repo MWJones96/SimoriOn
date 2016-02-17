@@ -32,9 +32,8 @@ public class GridButton extends JButton
 	// Contains all buttons that are currently selected on the grid
 	private static ArrayList<GridButton> buttonsSelected = new ArrayList<GridButton>();
 	
-	private ImageIcon imgOn = new ImageIcon(new ImageIcon("./res/ButtonOn.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
-	private ImageIcon imgOff = new ImageIcon(new ImageIcon("./res/ButtonOff.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
-	private ImageIcon imgDisabled = new ImageIcon(new ImageIcon("./res/ButtonDisabled.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+	private ImageIcon imgOn = new ImageIcon(new ImageIcon("./res/ButtonOnGRID.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+	private ImageIcon imgOff = new ImageIcon(new ImageIcon("./res/ButtonOffGRID.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 
 	/**
 	 * constructor that is used that takes into account 3 arguments. performs
@@ -55,7 +54,6 @@ public class GridButton extends JButton
 		this.setOpaque(false);
 		this.setContentAreaFilled(false);
 		this.setBorderPainted(false);
-		this.setIcon(imgDisabled);
 
 		/*
 		 * when the button is clicked, the button clicked will be selected
@@ -163,11 +161,6 @@ public class GridButton extends JButton
 	 */
 	public void setToOffState() {
 		this.setIcon(imgOff);
-		on = false;
-	}
-	
-	public void setToDisabledState() {
-		this.setIcon(imgDisabled);
 		on = false;
 	}
 

@@ -1,19 +1,18 @@
 package simori;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 
 /**
  * I class that creates basic Layout for Sprint 1. Class creates main board for
@@ -28,8 +27,9 @@ import javax.swing.SwingUtilities;
  */
 public class GUI 
 {
-	//Panel containing all data to be sent to the frame; grid containing all main buttons
-	private JPanel panel, grid = new JPanel();
+	//Panel containing all data to be sent to the frame; grid containing all matrix buttons
+	JPanel panel = new JPanel(); 
+	JPanel grid = new JPanel();
 	
 	//A simple label
 	JLabel display = new JLabel("Action:"); 
@@ -38,13 +38,15 @@ public class GUI
 	JTextField LCD = new JTextField(15);
 
 	// Left buttons
-	JButton L1, L2, L3, L4 = new JButton();
+	FunctionButton L1 = new FunctionButton("L1"), L2 = new FunctionButton("L2"),
+				   L3 = new FunctionButton("L3"), L4 = new FunctionButton("L4");
 
 	// Right buttons
-	JButton R1, R2, R3, R4 = new JButton();
+	FunctionButton R1 = new FunctionButton("R1"), R2 = new FunctionButton("R2"),
+				   R3 = new FunctionButton("R3"), R4 = new FunctionButton("R4");
 
 	// ON/OFF button; OK button
-	JButton ON, OK = new JButton();
+	JButton ON = new JButton(), OK = new JButton();
 
 	// Array for 16x16 grid buttons
 	GridButton buttons[] = new GridButton[16 * 16];
@@ -59,26 +61,40 @@ public class GUI
 	 */
 	public GUI() 
 	{
-		// set default values for the grid and grid dimensions
+		L1.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL1.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		L2.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL2.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		L3.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL3.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		L4.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL4.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		
+		R1.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR1.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		R2.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR2.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		R3.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR3.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		R4.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR4.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		
+		ON.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffON.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		
+		//set default values for the grid and grid dimensions
 		panel.setLayout(null);
 		grid.setLayout(new GridLayout(16, 16)); grid.setBounds(100, 100, 500, 500);
 
 		// Set position/size of left buttons
-		L1.setBounds(20, 100, 55, 55); L2.setBounds(20, 200, 55, 55);
-		L3.setBounds(20, 300, 55, 55); L4.setBounds(20, 400, 55, 55);
+		L1.setBounds(20, 100, 50, 50); L2.setBounds(20, 200, 50, 50);
+		L3.setBounds(20, 300, 50, 50); L4.setBounds(20, 400, 50, 50);
 
 		// Set position/size of right buttons
-		R1.setBounds(625, 100, 55, 55); R2.setBounds(625, 200, 55, 55);
-		R3.setBounds(625, 300, 55, 55); R4.setBounds(625, 400, 55, 55);
+		R1.setBounds(625, 100, 50, 50); R2.setBounds(625, 200, 50, 50);
+		R3.setBounds(625, 300, 50, 50); R4.setBounds(625, 400, 50, 50);
 
 		// Set position/size of top/bottom buttons
-		ON.setBounds(320, 50, 60, 50); OK.setBounds(482, 600, 60, 50); LCD.setBounds(150, 600, 300, 50);
-		LCD.setEditable(false); display.setBounds(100, 600, 300, 50);
+		ON.setBounds(320, 40, 50, 50); OK.setBounds(550, 605, 50, 50); LCD.setBounds(200, 605, 300, 50);
+		LCD.setEditable(false); display.setBounds(150, 605, 300, 50);
 
 		// Create and add grid buttons
 		for (int i = 0; i < 16 * 16; i++) 
 		{
 			buttons[i] = new GridButton(i % 16, (int) i / 16);
+			buttons[i].setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffGRID.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
 			grid.add(buttons[i]);
 		}
 
@@ -87,279 +103,53 @@ public class GUI
 		panel.add(R1); panel.add(R2); panel.add(R3); panel.add(R4);
 		panel.add(ON); panel.add(OK); panel.add(LCD); panel.add(display);
 		panel.add(grid);
-
-		// Event handlers for ON and OK
-		ON.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// If clicked in OnOfMode then switch to performance mode
-				// Else set all buttons to null colour
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-					SimoriOn.getInstance().setMode(new PerformanceMode());
-					ON.setBackground(Color.GREEN);
-					for(GridButton b : buttons)
-						b.setToOffState();
-				} else {
-					for(GridButton b : buttons)
-						b.setToDisabledState();
-					L1.setBackground(null);
-					L2.setBackground(null);
-					L3.setBackground(null);
-					L4.setBackground(null);
-					R1.setBackground(null);
-					R2.setBackground(null);
-					R3.setBackground(null);
-					R4.setBackground(null);
-					SimoriOn.getInstance().setMode(new OnOffMode());
-					ON.setBackground(null);
-				}
-				System.out.println("ON/OFF button clicked");
-				for (GridButton button : buttons) {
-					button.setToOffState();
-				}
-			}
-		});
-
-		OK.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("OK button clicked");
-			}
-		});
-
-		// Event handlers for L1-4
-		// If Left button clicked in OnOfMode then do nothing
-		// Else if clicked in select mode already then deselect Left button
-		// Else set Left and Right buttons to null colour
-		L1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("L1 button clicked");
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-					// If OnOffMode, then do nothing
-					return;
-				} else if (L1.getBackground() == Color.ORANGE) {
-					L1.setBackground(null);
-					SimoriOn.getInstance().setMode(new PerformanceMode());
-				} else {
-					SimoriOn.getInstance().setMode(new VoiceChangeMode());
-					L1.setBackground(Color.ORANGE);
-					R1.setBackground(null);
-					R2.setBackground(null);
-					R3.setBackground(null);
-					R4.setBackground(null);
-					L2.setBackground(null);
-					L3.setBackground(null);
-					L4.setBackground(null);
-					for (GridButton button : buttons) {
-						button.setToOffState();
-					}
-				}
-			}
-		});
-
-		L2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("L2 button clicked");
-
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-					// If OnOffMode, then do nothing
-					return;
-				} else if (L2.getBackground() == Color.ORANGE) {
-					L2.setBackground(null);
-				} else {
-					L2.setBackground(Color.ORANGE);
-					R1.setBackground(null);
-					R2.setBackground(null);
-					R3.setBackground(null);
-					R4.setBackground(null);
-					L1.setBackground(null);
-					L3.setBackground(null);
-					L4.setBackground(null);
-					for (GridButton button : buttons) {
-						button.setToOffState();
-					}
-				}
-			}
-		});
-
-		L3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("L3 button clicked");
-
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-					// If OnOffMode, then do nothing
-					return;
-				} else if (L3.getBackground() == Color.ORANGE) {
-					L3.setBackground(null);
-				} else {
-					L3.setBackground(Color.ORANGE);
-					R1.setBackground(null);
-					R2.setBackground(null);
-					R3.setBackground(null);
-					R4.setBackground(null);
-					L1.setBackground(null);
-					L2.setBackground(null);
-					L4.setBackground(null);
-					for (GridButton button : buttons) {
-						button.setToOffState();
-					}
-				}
-			}
-
-		});
-
-		L4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("L4 button clicked");
-
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-					// If OnOffMode, then do nothing
-					return;
-				} else if (L4.getBackground() == Color.ORANGE) {
-					L4.setBackground(null);
-				} else {
-					L4.setBackground(Color.ORANGE);
-					R1.setBackground(null);
-					R2.setBackground(null);
-					R3.setBackground(null);
-					R4.setBackground(null);
-					L1.setBackground(null);
-					L2.setBackground(null);
-					L3.setBackground(null);
-					for (GridButton button : buttons) {
-						button.setToOffState();
-					}
-				}
-			}
-		});
-
-		// Event handlers for R1-4
-		// If Right button clicked in OnOfMode then do nothing
-		// Else if clicked in select mode already then deselect Right button
-		// Else set Right and Left buttons to null colour
-		R1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("R1 button clicked");
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-					// If OnOffMode, then do nothing
-					return;
-				} else if (R1.getBackground() == Color.ORANGE) {
-					R1.setBackground(null);
-				} else {
-					R1.setBackground(Color.ORANGE);
-					R2.setBackground(null);
-					R3.setBackground(null);
-					R4.setBackground(null);
-					L1.setBackground(null);
-					L2.setBackground(null);
-					L3.setBackground(null);
-					L4.setBackground(null);
-					for (GridButton button : buttons) {
-						button.setToOffState();
-					}
-				}
-			}
-		});
-
-		R2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("R2 button clicked");
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-					// If OnOffMode, then do nothing
-					return;
-				} else if (R2.getBackground() == Color.ORANGE) {
-					R2.setBackground(null);
-				} else {
-					R2.setBackground(Color.ORANGE);
-					R1.setBackground(null);
-					R3.setBackground(null);
-					R4.setBackground(null);
-					L1.setBackground(null);
-					L2.setBackground(null);
-					L3.setBackground(null);
-					L4.setBackground(null);
-					for (GridButton button : buttons) {
-						button.setToOffState();
-					}
-				}
-			}
-		});
-
-		R3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("R3 button clicked");
-
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-					// If OnOffMode, then do nothing
-					return;
-				} else if (R3.getBackground() == Color.ORANGE) {
-					R3.setBackground(null);
-				} else {
-					R3.setBackground(Color.ORANGE);
-					R1.setBackground(null);
-					R2.setBackground(null);
-					R4.setBackground(null);
-					L1.setBackground(null);
-					L2.setBackground(null);
-					L3.setBackground(null);
-					L4.setBackground(null);
-					for (GridButton button : buttons) {
-						button.setToOffState();
-					}
-				}
-			}
-		});
-
-		R4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("R4 button clicked");
-
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-					// If OnOffMode, then do nothing
-					return;
-				} else if (R4.getBackground() == Color.ORANGE) {
-					R4.setBackground(null);
-				} else {
-					R4.setBackground(Color.ORANGE);
-					R1.setBackground(null);
-					R2.setBackground(null);
-					R3.setBackground(null);
-					L1.setBackground(null);
-					L2.setBackground(null);
-					L3.setBackground(null);
-					L4.setBackground(null);
-					for (GridButton button : buttons) {
-						button.setToOffState();
-					}
-				}
-			}
-		});
 		
-		Runnable runnable = new Runnable() {
+		ON.setOpaque(false);
+		ON.setContentAreaFilled(false);
+		ON.setBorderPainted(false);
+		
+		OK.setOpaque(false);
+		OK.setContentAreaFilled(false);
+		OK.setBorderPainted(false);
+		
+		ON.addActionListener(new ActionListener(){
 
-			public void run() {
-				JFrame frame = new JFrame("Simori-ON");
-				// set location in center of screen
-				frame.setLocation(400, 100);
-				frame.setPreferredSize(new Dimension(700, 690));
-				frame.setResizable(false);
-
-				// set screen size to adapt to different screen dimensions
-				// should stay in centre of screen when executed on all
-				// screens.
-				Toolkit screen = Toolkit.getDefaultToolkit();
-				Dimension screenSize = screen.getScreenSize();
-				int screenWidth = screenSize.width;
-				int screenHeight = screenSize.height;
-				frame.setLocation(screenWidth / 4, screenHeight / 8);
-				// Add gui panel to JFrame
-				frame.add(panel);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.pack();
-				frame.setLocationRelativeTo(null);
-				frame.setVisible(true);
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(SimoriOn.getInstance().getMode() instanceof OnOffMode)
+				{
+					ON.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOnON.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+					SimoriOn.getInstance().setMode(new PerformanceMode());
+				}
+				else
+				{
+					ON.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffON.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+					SimoriOn.getInstance().setMode(new OnOffMode());
+				}
 			}
-		};
-		SwingUtilities.invokeLater(runnable);
+			
+		});
 
+		JFrame frame = new JFrame("Simori-ON");
+		// set location in center of screen
+		frame.setLocation(400, 100);
+		frame.setPreferredSize(new Dimension(700, 690));
+		frame.setResizable(false);
+		// set screen size to adapt to different screen dimensions
+		// should stay in centre of screen when executed on all
+		// screens.
+		Toolkit screen = Toolkit.getDefaultToolkit();
+		Dimension screenSize = screen.getScreenSize();
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+		frame.setLocation(screenWidth / 4, screenHeight / 8);
+		// Add gui panel to JFrame
+		frame.add(panel);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
 	}
 
 	/**
@@ -380,6 +170,21 @@ public class GUI
 		return buttons[y * 16 + x];
 	}
 	
+	/**Turns off all function buttons L1-4,
+	 * and R1-4
+	 */
+	public void turnOffFunctionButtons()
+	{
+		L1.turnOff();
+		L2.turnOff();
+		L3.turnOff();
+		L4.turnOff();
+		R1.turnOff();
+		R2.turnOff();
+		R3.turnOff();
+		R4.turnOff();
+	}
+	
 	public void turnOnAllButtons()
 	{
 		for(GridButton b : buttons)
@@ -393,14 +198,6 @@ public class GUI
 		for(GridButton b : buttons)
 		{
 			b.setToOffState();
-		}
-	}
-	
-	public void disableAllButtons()
-	{
-		for(GridButton b : buttons)
-		{
-			b.setToDisabledState();
 		}
 	}
 
