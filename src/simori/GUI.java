@@ -93,7 +93,7 @@ public class GUI
 		// Create and add grid buttons
 		for (int i = 0; i < 16 * 16; i++) 
 		{
-			buttons[i] = new GridButton(i % 16, (int) i / 16);
+			buttons[i] = new GridButton(i % 16, (int) 15 - (i / 16));
 			buttons[i].setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffGRID.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
 			grid.add(buttons[i]);
 		}
