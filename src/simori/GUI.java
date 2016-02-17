@@ -1,20 +1,18 @@
 package simori;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
 
 /**
@@ -30,30 +28,23 @@ import javax.swing.SwingUtilities;
  */
 public class GUI 
 {
-	private JPanel gui = new JPanel();
-	private JPanel grid = new JPanel();
-	// uneditable label
-	JLabel display = new JLabel("Action:");
-	// empty text box with font-size : 15
+	//Panel containing all data to be sent to the frame; grid containing all main buttons
+	private JPanel panel, grid = new JPanel();
+	
+	//A simple label
+	JLabel display = new JLabel("Action:"); 
+	
+	//Displays information relevant to current function
 	JTextField LCD = new JTextField(15);
 
 	// Left buttons
-	JButton L1 = new JButton("L1");
-	JButton L2 = new JButton("L2");
-	JButton L3 = new JButton("L3");
-	JButton L4 = new JButton("L4");
+	JButton L1, L2, L3, L4 = new JButton();
 
 	// Right buttons
-	JButton R1 = new JButton("R1");
-	JButton R2 = new JButton("R2");
-	JButton R3 = new JButton("R3");
-	JButton R4 = new JButton("R4");
+	JButton R1, R2, R3, R4 = new JButton();
 
-	// ON/OFF button
-	JButton ON = new JButton("ON");
-
-	// OK button
-	JButton OK = new JButton("OK");
+	// ON/OFF button; OK button
+	JButton ON, OK = new JButton();
 
 	// Array for 16x16 grid buttons
 	GridButton buttons[] = new GridButton[16 * 16];
@@ -66,54 +57,36 @@ public class GUI
 	 * 
 	 * @return void - contructor sets default values so nothing is returned.
 	 */
-	public GUI() {
+	public GUI() 
+	{
 		// set default values for the grid and grid dimensions
-		gui.setLayout(null);
-		grid.setLayout(new GridLayout(16, 16));
-		grid.setBounds(100, 100, 500, 500);
+		panel.setLayout(null);
+		grid.setLayout(new GridLayout(16, 16)); grid.setBounds(100, 100, 500, 500);
 
 		// Set position/size of left buttons
-		L1.setBounds(20, 100, 55, 55);
-		L2.setBounds(20, 200, 55, 55);
-		L3.setBounds(20, 300, 55, 55);
-		L4.setBounds(20, 400, 55, 55);
+		L1.setBounds(20, 100, 55, 55); L2.setBounds(20, 200, 55, 55);
+		L3.setBounds(20, 300, 55, 55); L4.setBounds(20, 400, 55, 55);
 
 		// Set position/size of right buttons
-		R1.setBounds(625, 100, 55, 55);
-		R2.setBounds(625, 200, 55, 55);
-		R3.setBounds(625, 300, 55, 55);
-		R4.setBounds(625, 400, 55, 55);
+		R1.setBounds(625, 100, 55, 55); R2.setBounds(625, 200, 55, 55);
+		R3.setBounds(625, 300, 55, 55); R4.setBounds(625, 400, 55, 55);
 
 		// Set position/size of top/bottom buttons
-		ON.setBounds(320, 50, 60, 50);
-		OK.setBounds(482, 600, 60, 50);
-		LCD.setBounds(150, 600, 300, 50);
-		// prevents text within textbox being edited
-		LCD.setEditable(false);
-		display.setBounds(100, 600, 300, 50);
+		ON.setBounds(320, 50, 60, 50); OK.setBounds(482, 600, 60, 50); LCD.setBounds(150, 600, 300, 50);
+		LCD.setEditable(false); display.setBounds(100, 600, 300, 50);
 
 		// Create and add grid buttons
-		for (int i = 0; i < 16 * 16; i++) {
+		for (int i = 0; i < 16 * 16; i++) 
+		{
 			buttons[i] = new GridButton(i % 16, (int) i / 16);
 			grid.add(buttons[i]);
 		}
 
-		// Add L and R buttons to gui panel
-		gui.add(L1);
-		gui.add(L2);
-		gui.add(L3);
-		gui.add(L4);
-		gui.add(R1);
-		gui.add(R2);
-		gui.add(R3);
-		gui.add(R4);
-		gui.add(ON);
-		gui.add(OK);
-		gui.add(LCD);
-		gui.add(display);
-
-		// Add grid to gui panel
-		gui.add(grid);
+		// Add everything to the overall panel
+		panel.add(L1); panel.add(L2); panel.add(L3); panel.add(L4);
+		panel.add(R1); panel.add(R2); panel.add(R3); panel.add(R4);
+		panel.add(ON); panel.add(OK); panel.add(LCD); panel.add(display);
+		panel.add(grid);
 
 		// Event handlers for ON and OK
 		ON.addActionListener(new ActionListener() {
@@ -359,6 +332,33 @@ public class GUI
 				}
 			}
 		});
+		
+		Runnable runnable = new Runnable() {
+
+			public void run() {
+				JFrame frame = new JFrame("Simori-ON");
+				// set location in center of screen
+				frame.setLocation(400, 100);
+				frame.setPreferredSize(new Dimension(700, 690));
+				frame.setResizable(false);
+
+				// set screen size to adapt to different screen dimensions
+				// should stay in centre of screen when executed on all
+				// screens.
+				Toolkit screen = Toolkit.getDefaultToolkit();
+				Dimension screenSize = screen.getScreenSize();
+				int screenWidth = screenSize.width;
+				int screenHeight = screenSize.height;
+				frame.setLocation(screenWidth / 4, screenHeight / 8);
+				// Add gui panel to JFrame
+				frame.add(panel);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.pack();
+				frame.setLocationRelativeTo(null);
+				frame.setVisible(true);
+			}
+		};
+		SwingUtilities.invokeLater(runnable);
 
 	}
 
@@ -368,7 +368,7 @@ public class GUI
 	 * @return gui that will be used for the entire UI.
 	 */
 	public JPanel getGui() {
-		return this.gui;
+		return this.panel;
 	}
 	
 	public GridButton[] getButtons()
@@ -430,38 +430,5 @@ public class GUI
 			getButton(x, i).setToOnState();
 		}
 
-	}
-
-	public static GUI makeGUI() {
-		final GUI g = new GUI();
-
-		// run the GUI within its own thread and not in main thread.
-		Runnable runnable = new Runnable() {
-
-			public void run() {
-				JFrame frame = new JFrame("Simori-ON");
-				// set location in center of screen
-				frame.setLocation(400, 100);
-				frame.setPreferredSize(new Dimension(700, 690));
-				frame.setResizable(false);
-
-				// set screen size to adapt to different screen dimensions
-				// should stay in centre of screen when executed on all
-				// screens.
-				Toolkit screen = Toolkit.getDefaultToolkit();
-				Dimension screenSize = screen.getScreenSize();
-				int screenWidth = screenSize.width;
-				int screenHeight = screenSize.height;
-				frame.setLocation(screenWidth / 4, screenHeight / 8);
-				// Add gui panel to JFrame
-				frame.add(g.getGui());
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.pack();
-				frame.setLocationRelativeTo(null);
-				frame.setVisible(true);
-			}
-		};
-		SwingUtilities.invokeLater(runnable);
-		return g;
 	}
 }
