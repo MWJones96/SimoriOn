@@ -3,10 +3,12 @@ package simori;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -36,22 +38,22 @@ public class GUI
 	JTextField LCD = new JTextField(15);
 
 	// Left buttons
-	JToggleButton L1 = new JToggleButton("L1");
-	JToggleButton L2 = new JToggleButton("L2");
-	JToggleButton L3 = new JToggleButton("L3");
-	JToggleButton L4 = new JToggleButton("L4");
+	JButton L1 = new JButton("L1");
+	JButton L2 = new JButton("L2");
+	JButton L3 = new JButton("L3");
+	JButton L4 = new JButton("L4");
 
 	// Right buttons
-	JToggleButton R1 = new JToggleButton("R1");
-	JToggleButton R2 = new JToggleButton("R2");
-	JToggleButton R3 = new JToggleButton("R3");
-	JToggleButton R4 = new JToggleButton("R4");
+	JButton R1 = new JButton("R1");
+	JButton R2 = new JButton("R2");
+	JButton R3 = new JButton("R3");
+	JButton R4 = new JButton("R4");
 
 	// ON/OFF button
-	JToggleButton ON = new JToggleButton("ON");
+	JButton ON = new JButton("ON");
 
 	// OK button
-	JToggleButton OK = new JToggleButton("OK");
+	JButton OK = new JButton("OK");
 
 	// Array for 16x16 grid buttons
 	GridButton buttons[] = new GridButton[16 * 16];
@@ -121,7 +123,11 @@ public class GUI
 				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
 					SimoriOn.getInstance().setMode(new PerformanceMode());
 					ON.setBackground(Color.GREEN);
+					for(GridButton b : buttons)
+						b.setToOffState();
 				} else {
+					for(GridButton b : buttons)
+						b.setToDisabledState();
 					L1.setBackground(null);
 					L2.setBackground(null);
 					L3.setBackground(null);
@@ -135,7 +141,7 @@ public class GUI
 				}
 				System.out.println("ON/OFF button clicked");
 				for (GridButton button : buttons) {
-					button.turnOff();
+					button.setToOffState();
 				}
 			}
 		});
@@ -170,7 +176,7 @@ public class GUI
 					L3.setBackground(null);
 					L4.setBackground(null);
 					for (GridButton button : buttons) {
-						button.turnOff();
+						button.setToOffState();
 					}
 				}
 			}
@@ -195,7 +201,7 @@ public class GUI
 					L3.setBackground(null);
 					L4.setBackground(null);
 					for (GridButton button : buttons) {
-						button.turnOff();
+						button.setToOffState();
 					}
 				}
 			}
@@ -220,7 +226,7 @@ public class GUI
 					L2.setBackground(null);
 					L4.setBackground(null);
 					for (GridButton button : buttons) {
-						button.turnOff();
+						button.setToOffState();
 					}
 				}
 			}
@@ -246,7 +252,7 @@ public class GUI
 					L2.setBackground(null);
 					L3.setBackground(null);
 					for (GridButton button : buttons) {
-						button.turnOff();
+						button.setToOffState();
 					}
 				}
 			}
@@ -274,7 +280,7 @@ public class GUI
 					L3.setBackground(null);
 					L4.setBackground(null);
 					for (GridButton button : buttons) {
-						button.turnOff();
+						button.setToOffState();
 					}
 				}
 			}
@@ -298,7 +304,7 @@ public class GUI
 					L3.setBackground(null);
 					L4.setBackground(null);
 					for (GridButton button : buttons) {
-						button.turnOff();
+						button.setToOffState();
 					}
 				}
 			}
@@ -323,7 +329,7 @@ public class GUI
 					L3.setBackground(null);
 					L4.setBackground(null);
 					for (GridButton button : buttons) {
-						button.turnOff();
+						button.setToOffState();
 					}
 				}
 			}
@@ -348,7 +354,7 @@ public class GUI
 					L3.setBackground(null);
 					L4.setBackground(null);
 					for (GridButton button : buttons) {
-						button.turnOff();
+						button.setToOffState();
 					}
 				}
 			}
@@ -364,20 +370,49 @@ public class GUI
 	public JPanel getGui() {
 		return this.gui;
 	}
+	
+	public GridButton[] getButtons()
+	{
+		return buttons;
+	}
 
 	public GridButton getButton(int x, int y) {
 		return buttons[y * 16 + x];
+	}
+	
+	public void turnOnAllButtons()
+	{
+		for(GridButton b : buttons)
+		{
+			b.setToOnState();
+		}
+	}
+	
+	public void turnOffAllButtons()
+	{
+		for(GridButton b : buttons)
+		{
+			b.setToOffState();
+		}
+	}
+	
+	public void disableAllButtons()
+	{
+		for(GridButton b : buttons)
+		{
+			b.setToDisabledState();
+		}
 	}
 
 	public void highlightColumnAndRow(int x, int y) {
 		// Turn off all buttons
 		for (int i = 0; i < this.buttons.length; i++) {
-			buttons[i].turnOff();
+			buttons[i].setToOffState();
 		}
 		// Highlight buttons in the same row and column
 		for (int i = 0; i < 16; i++) {
-			getButton(x, i).turnOn();
-			getButton(i, y).turnOn();
+			getButton(x, i).setToOnState();
+			getButton(i, y).setToOnState();
 		}
 	}
 
@@ -386,13 +421,13 @@ public class GUI
 		// Turn off all buttons
 		for (GridButton button : buttons) {
 			if (!(GridButton.getButtonsSelected().contains(button))) {
-				button.turnOff();
+				button.setToOffState();
 			}
 		}
 
 		// Highlight every 5 buttons in the same column
 		for (int i = 0; i < 16; i += 5) {
-			getButton(x, i).turnOn();
+			getButton(x, i).setToOnState();
 		}
 
 	}

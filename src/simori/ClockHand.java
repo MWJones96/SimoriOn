@@ -61,7 +61,7 @@ public class ClockHand implements Runnable {
 
 				if (!running.get()) {
 					for (GridButton button : gui.buttons) {
-						button.turnOff();
+						button.setToOffState();
 					}
 					break;
 				}

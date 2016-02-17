@@ -39,10 +39,10 @@ public class PerformanceMode implements Mode {
 		System.out.println("Button clicked; co-ords: " + button.getCoordsX()
 				+ ", " + button.getCoordsY());
 		if (!button.getState()) {
-			button.turnOn();
+			button.setToOnState();
 			GridButton.addButtonsSelected(button);
 		} else {
-			button.turnOff();
+			button.setToOffState();
 			GridButton.removeButtonsSelected(button);
 
 		}

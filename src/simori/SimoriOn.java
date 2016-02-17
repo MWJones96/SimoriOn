@@ -28,10 +28,10 @@ public class SimoriOn {
 	 * singleton pattern
 	 */
 	protected SimoriOn() {
-		mode = new OnOffMode();
 		bpm = 60; // TEMP
 		layers = new Layer[16];
 		gui = GUI.makeGUI();
+		mode = new OnOffMode();
 	}
 
 	/**

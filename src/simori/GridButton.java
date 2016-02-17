@@ -31,8 +31,10 @@ public class GridButton extends JButton
 	private boolean on = false;
 	// Contains all buttons that are currently selected on the grid
 	private static ArrayList<GridButton> buttonsSelected = new ArrayList<GridButton>();
-	//The image currently on the button
-	private ImageIcon img;
+	
+	private ImageIcon imgOn = new ImageIcon(new ImageIcon("./res/ButtonOn.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+	private ImageIcon imgOff = new ImageIcon(new ImageIcon("./res/ButtonOff.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+	private ImageIcon imgDisabled = new ImageIcon(new ImageIcon("./res/ButtonDisabled.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 
 	/**
 	 * constructor that is used that takes into account 3 arguments. performs
@@ -46,14 +48,14 @@ public class GridButton extends JButton
 	 *            is the interface where the grid will be placed.
 	 */
 	public GridButton(int x, int y) {
+		this.setBorderPainted(false);
 		this.x = x;
 		this.y = y;
 		// compatable with other OS's.
-		this.setOpaque(true);
-		this.img = new ImageIcon("./res/ButtonDisabled.png");
-		Image newimg = this.img.getImage();
-		newimg = newimg.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-		this.setIcon(new ImageIcon(newimg));
+		this.setOpaque(false);
+		this.setContentAreaFilled(false);
+		this.setBorderPainted(false);
+		this.setIcon(imgDisabled);
 
 		/*
 		 * when the button is clicked, the button clicked will be selected
@@ -150,28 +152,23 @@ public class GridButton extends JButton
 	 * Turns on the GUI button that was selected and sets its colour to orange
 	 * and its state to on
 	 */
-	public void turnOn() {
-		if (!on) {
-			this.img = new ImageIcon("./res/ButtonOn.png");
-			Image newimg = this.img.getImage();
-			newimg = newimg.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			this.setIcon(new ImageIcon(newimg));
-			on = true;
-		}
+	public void setToOnState() {
+		this.setIcon(imgOn);
+		on = true;
 	}
 
 	/**
 	 * Turns off the GUI button that was selected and sets its colour to null
 	 * (gray) and its state to off
 	 */
-	public void turnOff() {
-		if (on) {
-			this.img = new ImageIcon("./res/ButtonOff.png");
-			Image newimg = this.img.getImage();
-			newimg = newimg.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			this.setIcon(new ImageIcon(newimg));
-			on = false;
-		}
+	public void setToOffState() {
+		this.setIcon(imgOff);
+		on = false;
+	}
+	
+	public void setToDisabledState() {
+		this.setIcon(imgDisabled);
+		on = false;
 	}
 
 }
