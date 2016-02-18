@@ -18,6 +18,7 @@ public class VoiceChangeMode implements Mode {
 		if (SimoriOn.getClockHand() != null) {
 			SimoriOn.getClockHand().running.set(false);
 		}
+		SimoriOn.getInstance().getGui().turnOffAllButtons();
 	}
 
 	/**
@@ -29,7 +30,7 @@ public class VoiceChangeMode implements Mode {
 
 		System.out.println("Matrix button processed in Voice Change Mode");
 
-		// Highligh row and column of the button
+		// Highlight row and column of the button
 		button.getGUI().highlightColumnAndRow(button.getCoordsX(),
 				button.getCoordsY());
 	}

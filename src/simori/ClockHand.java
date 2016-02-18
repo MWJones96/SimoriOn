@@ -14,7 +14,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ClockHand implements Runnable {
 
 	private GUI gui;
-	private int loopPoint = 16;
+	private int loopPoint;
+	private int velocity;
+
 	public AtomicBoolean running = new AtomicBoolean();
 
 	/**
@@ -27,6 +29,8 @@ public class ClockHand implements Runnable {
 
 	public ClockHand(GUI gui) {
 		this.gui = gui;
+		this.loopPoint = 16;
+		this.velocity = 64;
 	}
 
 	/**
@@ -53,7 +57,7 @@ public class ClockHand implements Runnable {
 					// If selected button is in the current column, play sound
 					if (button.getCoordsX() == i) {
 						// Sound test
-						(new Thread(new Sounds(50 - button.getCoordsY(), 64)))
+						(new Thread(new Sounds(50 - button.getCoordsY(), velocity)))
 								.start();
 
 					}

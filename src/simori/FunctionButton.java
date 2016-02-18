@@ -76,23 +76,24 @@ public class FunctionButton extends JButton
 				{
 					state = true;
 					SimoriOn.getInstance().getGui().turnOffFunctionButtons();
+					SimoriOn.getInstance().getGui().turnOffAllButtons();
 					turnOn();
 					if(buttonName == "L1")
 						SimoriOn.getInstance().setMode(new VoiceChangeMode());
 					if(buttonName == "L2")
-						SimoriOn.getInstance().setMode(new VoiceChangeMode());
+						SimoriOn.getInstance().setMode(new VelocityChangeMode());
 					if(buttonName == "L3")
-						SimoriOn.getInstance().setMode(new VoiceChangeMode());
+						SimoriOn.getInstance().setMode(new LoopSpeedChangeMode());
 					if(buttonName == "L4")
-						SimoriOn.getInstance().setMode(new VoiceChangeMode());
+						SimoriOn.getInstance().setMode(new LoopPointChangeMode());
 					if(buttonName == "R1")
-						SimoriOn.getInstance().setMode(new VoiceChangeMode());
+						SimoriOn.getInstance().setMode(new LayerChangeMode());
 					if(buttonName == "R2")
-						SimoriOn.getInstance().setMode(new VoiceChangeMode());
+						SimoriOn.getInstance().setMode(new SaveConfigurationMode());
 					if(buttonName == "R3")
-						SimoriOn.getInstance().setMode(new VoiceChangeMode());
+						SimoriOn.getInstance().setMode(new LoadConfigurationMode());
 					if(buttonName == "R4")
-						SimoriOn.getInstance().setMode(new VoiceChangeMode());
+						SimoriOn.getInstance().setMode(new MasterSlaveMode());
 				}
 			}	
 		});

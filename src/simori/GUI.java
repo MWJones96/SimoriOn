@@ -205,9 +205,7 @@ public class GUI
 
 	public void highlightColumnAndRow(int x, int y) {
 		// Turn off all buttons
-		for (int i = 0; i < this.buttons.length; i++) {
-			buttons[i].setToOffState();
-		}
+		turnOffAllButtons();
 		// Highlight buttons in the same row and column
 		for (int i = 0; i < 16; i++) {
 			getButton(x, i).setToOnState();
