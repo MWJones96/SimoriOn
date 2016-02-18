@@ -9,8 +9,8 @@ public class VelocityChangeMode implements Mode
 
 	public VelocityChangeMode()
 	{
-		if (SimoriOn.getInstance().getClockHand() != null) {
-			SimoriOn.getInstance().getClockHand().running.set(false);
+		if (SimoriOn.getClockHand() != null) {
+			SimoriOn.getClockHand().running.set(false);
 		}
 	}
 	@Override
