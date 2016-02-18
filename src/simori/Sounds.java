@@ -94,8 +94,8 @@ public class Sounds implements Runnable {
 		Instrument[] instruments = synthesizer.getDefaultSoundbank()
 				.getInstruments();
 
-		synthesizer.loadInstrument(instruments[PIANO]);
-		midiChannel.programChange(PIANO);
+		synthesizer.loadInstrument(instruments[20]);
+		midiChannel.programChange(20);
 		midiChannel.noteOn(note, velocity);
 		delay(FUDGE_FACTOR * velocity);
 		midiChannel.noteOff(note, velocity);

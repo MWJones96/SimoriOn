@@ -47,13 +47,14 @@ public class GridButton extends JButton
 	 *            is the interface where the grid will be placed.
 	 */
 	public GridButton(int x, int y) {
+		this.setOpaque(false);
+		this.setContentAreaFilled(false);
+		this.setBorderPainted(false);
+		
 		this.setBorderPainted(false);
 		this.x = x;
 		this.y = y;
 		// compatable with other OS's.
-		this.setOpaque(false);
-		this.setContentAreaFilled(false);
-		this.setBorderPainted(false);
 
 		/*
 		 * when the button is clicked, the button clicked will be selected

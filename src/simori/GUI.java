@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -145,6 +146,10 @@ public class GUI
 		Dimension screenSize = screen.getScreenSize();
 		int screenWidth = screenSize.width;
 		int screenHeight = screenSize.height;
+		
+		//Sets favicon of the frame
+		frame.setIconImage(new ImageIcon("./res/ButtonOnGRID.png").getImage());
+		
 		frame.setLocation(screenWidth / 4, screenHeight / 8);
 		// Add gui panel to JFrame
 		frame.add(panel);
@@ -161,6 +166,11 @@ public class GUI
 	 */
 	public JPanel getGui() {
 		return this.panel;
+	}
+	
+	public void writeToLCD(String text)
+	{
+		LCD.setText(text);
 	}
 	
 	public GridButton[] getButtons()

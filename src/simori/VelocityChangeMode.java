@@ -32,6 +32,8 @@ public class VelocityChangeMode implements Mode
 			} else {
 				velocity = 127;
 			}
+			
+			SimoriOn.getInstance().getGui().writeToLCD(Integer.toString(velocity));
 			System.out.println("Set velocity to " + velocity);
 		}
 
@@ -39,6 +41,8 @@ public class VelocityChangeMode implements Mode
 		SimoriOn.getInstance().getGui().OK.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				if (SimoriOn.getInstance().getMode() instanceof VelocityChangeMode) {
+					SimoriOn.getInstance().getGui().LCD.setText(null);
+					
 					SimoriOn.getClockHand().setVelocity(velocity);
 					SimoriOn.getInstance().setMode(new PerformanceMode());
 					SimoriOn.getInstance().getGui().turnOffFunctionButtons();
