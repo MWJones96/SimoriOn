@@ -22,9 +22,8 @@ public class ClockHand implements Runnable {
 	/**
 	 * Constructor that is used to set the default constructor for which the
 	 * clockhand will run on.
-	 * 
-	 * @param gui
-	 *            - this is the GUI interface that the clockhand will use.
+	 *
+	 * @param gui - this is the GUI interface that the clockhand will use.
 	 */
 
 	public ClockHand(GUI gui) {
@@ -33,12 +32,28 @@ public class ClockHand implements Runnable {
 		this.velocity = 64;
 	}
 
+	public void setVelocity(int velocity){
+		this.velocity = velocity;
+	}
+
+	public int getVelocity(){
+		return velocity;
+	}
+
+	public void setLoopPoint(int loopPoint){
+		this.loopPoint = loopPoint;
+	}
+
+	public int getLoopPoint() {
+		return loopPoint;
+	}
+
 	/**
 	 * method will run the clockhand within its own thread. it causes the
 	 * clockhand to move from the left hand side of the grid to the right hand
 	 * side of the grid. whilst in ON mode, it should highlight the appropriate
 	 * column as the clockhand oscillates.
-	 * 
+	 *
 	 * @return none - method is void and therefore nothing returned.
 	 */
 	public void run() {
@@ -79,4 +94,3 @@ public class ClockHand implements Runnable {
 		}
 	}
 }
-// Dennis

@@ -33,6 +33,7 @@ public class VoiceChangeMode implements Mode {
 		// Highlight row and column of the button
 		button.getGUI().highlightColumnAndRow(button.getCoordsX(),
 				button.getCoordsY());
+
 	}
 
 }

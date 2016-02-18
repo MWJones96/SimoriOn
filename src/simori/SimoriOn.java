@@ -103,4 +103,5 @@ public class SimoriOn {
 	public static ClockHand getClockHand() {
 		return clockhand;
 	}
+
 }
