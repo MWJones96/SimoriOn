@@ -169,7 +169,7 @@ public class GUI
 	}
 
 	public GridButton getButton(int x, int y) {
-		return buttons[y * 16 + x];
+		return buttons[240 - (y * 16) + x];
 	}
 	
 	/**Turns off all function buttons L1-4,
