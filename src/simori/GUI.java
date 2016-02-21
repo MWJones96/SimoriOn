@@ -249,4 +249,19 @@ public class GUI
 		}
 
 	}
+                public void highlightOneColumn(int x) {
+
+		// Turn off all buttons
+		for (GridButton button : buttons) {
+			if (!(GridButton.getButtonsSelected().contains(button))) {
+				button.setToOffState();
+			}
+		}
+
+		// Highlight every button in the same column
+		for (int i = 0; i < 16; i += 1) {
+			getButton(x, i).setToOnState();
+		}
+
+	}
 }
