@@ -112,11 +112,11 @@ public class GUI
 		OK.setOpaque(false);
 		OK.setContentAreaFilled(false);
 		OK.setBorderPainted(false);
-		
+
 		ON.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) 
+			public void actionPerformed(ActionEvent e)
 			{
 				if(SimoriOn.getInstance().getMode() instanceof OnOffMode)
 				{
@@ -131,7 +131,18 @@ public class GUI
 					turnOffAllButtons();
 				}
 			}
-			
+
+		});
+
+		
+		OK.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				SimoriOn.getInstance().getMode().processOKButton();
+			}
+
 		});
 
 		JFrame frame = new JFrame("Simori-ON");
