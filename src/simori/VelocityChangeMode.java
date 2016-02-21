@@ -53,4 +53,8 @@ public class VelocityChangeMode implements Mode
 
 	}
 
+	public void processOKButton(){
+
+	}
+
 }

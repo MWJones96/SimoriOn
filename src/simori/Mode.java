@@ -20,4 +20,5 @@ public interface Mode {
 	 *            is an instance of the GridButton class
 	 */
 	public abstract void processMatrixButton(GridButton button);
+	public void processOKButton();
 }

@@ -36,4 +36,8 @@ public class VoiceChangeMode implements Mode {
 
 	}
 
+	public void processOKButton(){
+
+	}
+
 }

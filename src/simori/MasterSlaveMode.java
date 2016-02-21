@@ -9,4 +9,8 @@ public class MasterSlaveMode implements Mode
 		
 	}
 
+	public void processOKButton(){
+
+	}
+
 }

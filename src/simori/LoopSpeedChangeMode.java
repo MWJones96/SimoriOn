@@ -9,4 +9,8 @@ public class LoopSpeedChangeMode implements Mode
 		
 	}
 
+	public void processOKButton(){
+
+	}
+
 }

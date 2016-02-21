@@ -9,4 +9,8 @@ public class LoadConfigurationMode implements Mode
 		
 	}
 
+	public void processOKButton(){
+
+	}
+
 }

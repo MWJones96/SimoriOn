@@ -48,4 +48,8 @@ public class PerformanceMode implements Mode {
 		}
 	}
 
+	public void processOKButton(){
+
+	}
+
 }

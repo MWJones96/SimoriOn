@@ -9,4 +9,8 @@ public class SaveConfigurationMode implements Mode
 		
 	}
 
+	public void processOKButton(){
+
+	}
+
 }

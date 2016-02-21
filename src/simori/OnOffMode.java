@@ -35,4 +35,8 @@ public class OnOffMode implements Mode {
 				+ button.getCoordsY());
 	}
 
+	public void processOKButton(){
+
+	}
+
 }

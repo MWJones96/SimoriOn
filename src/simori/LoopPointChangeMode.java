@@ -9,4 +9,8 @@ public class LoopPointChangeMode implements Mode
 		
 	}
 
+	public void processOKButton(){
+
+	}
+
 }
