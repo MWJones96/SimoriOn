@@ -69,6 +69,14 @@ public class SimoriOn {
 	}
 
 	/**
+	 * Return the current bpm
+	 * @return bpm
+     */
+	public int getBPM(){
+		return this.bpm;
+	}
+
+	/**
 	 * method that returns the mode that the simoriOn is currently in
 	 * 
 	 * @return mode
