@@ -1,6 +1,8 @@
 package simori;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -14,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 /**
  * I class that creates basic Layout for Sprint 1. Class creates main board for
@@ -89,7 +92,11 @@ public class GUI
 
 		// Set position/size of top/bottom buttons
 		ON.setBounds(325, 40, 50, 50); OK.setBounds(550, 605, 50, 50); LCD.setBounds(200, 605, 300, 50);
-		LCD.setEditable(false); display.setBounds(150, 605, 300, 50);
+		display.setBounds(150, 605, 300, 50);
+		
+		LCD.setEditable(false); LCD.setBackground(Color.BLACK); 
+		LCD.setFont(new Font("Techno", Font.BOLD, 12));
+		LCD.setForeground(Color.GREEN); LCD.setHorizontalAlignment(SwingConstants.CENTER);
 
 		// Create and add grid buttons
 		for (int i = 0; i < 16 * 16; i++) 

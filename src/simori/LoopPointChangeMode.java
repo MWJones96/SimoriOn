@@ -1,7 +1,8 @@
 package simori;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 
 public class LoopPointChangeMode implements Mode
 {
@@ -40,13 +41,29 @@ public class LoopPointChangeMode implements Mode
 	}
 
         	public void processOKButton(){
-                // Once OK button pressed in LoopPoint Mode (L4) go back to performance mode with set LoopPoint    
-		SimoriOn.getInstance().getGui().LCD.setText(null);
-
-		SimoriOn.getClockHand().setLoopPoint(loop);
-		SimoriOn.getInstance().setMode(new PerformanceMode());
-		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
-	}
+                // Once OK button pressed in LoopPoint Mode (L4) go back to performance mode with set LoopPoint   
+        		new Runnable(){
+        			public void run()
+        			{
+        				System.out.println("Ohhaimark");
+        				SimoriOn.getInstance().getGui().OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOnOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+        				try {
+							Thread.sleep(200);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+        				SimoriOn.getInstance().getGui().OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+        				
+        			}
+        		}.run();
+        		
+        		
+        		SimoriOn.getInstance().getGui().LCD.setText(null);
+        		SimoriOn.getClockHand().setLoopPoint(loop);
+        		SimoriOn.getInstance().setMode(new PerformanceMode());
+        		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
+        	}
 
 }
 
