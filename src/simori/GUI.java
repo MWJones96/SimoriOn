@@ -94,8 +94,9 @@ public class GUI
 		ON.setBounds(325, 40, 50, 50); OK.setBounds(550, 605, 50, 50); LCD.setBounds(200, 605, 300, 50);
 		display.setBounds(150, 605, 300, 50);
 		
+		//Changes TextBox to look more like an LCD
 		LCD.setEditable(false); LCD.setBackground(Color.BLACK); 
-		LCD.setFont(new Font("Techno", Font.BOLD, 12));
+		LCD.setFont(new Font("Techno", Font.BOLD, 20));
 		LCD.setForeground(Color.GREEN); LCD.setHorizontalAlignment(SwingConstants.CENTER);
 
 		// Create and add grid buttons

@@ -14,12 +14,20 @@ public class SimoriOn {
 	// Self instance (Singleton pattern)
 	private static SimoriOn instance = null;
 
-	// The current mode
+	// The current mode of operation
 	private Mode mode;
 	// The speed of the metronome (in beats per minute)
-	private int bpm;
+	private int loopSpeed;
+	//The point where the clock hand will loop
+	private int loopPoint;
+	//The length of the note
+	private int velocity;
 	private Layer[] layers;
+	//Which layer is currently being selected
+	private Layer currentLayer;
+	//The GUI associated with the device
 	private GUI gui;
+	//The clockhand for the device
 	private static ClockHand clockhand;
 
 	/**

@@ -1,5 +1,9 @@
 package simori;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 public class LoopSpeedChangeMode implements Mode
 {
 
@@ -28,13 +32,14 @@ public class LoopSpeedChangeMode implements Mode
 		}
 
 		// Write out speed onto the LCD
-		SimoriOn.getInstance().getGui().writeToLCD(Integer.toString(this.speed));
+		SimoriOn.getInstance().getGui().writeToLCD("Loop Speed: " + Integer.toString(this.speed));
 
 		System.out.println("BPM Selected: " + this.speed);
 		
 	}
 
-	public void processOKButton(){
+	public void processOKButton()
+	{
 		System.out.println("SET BPM To " + this.speed);
 
 		SimoriOn.getInstance().getGui().LCD.setText(null);

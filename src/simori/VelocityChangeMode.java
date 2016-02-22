@@ -33,7 +33,7 @@ public class VelocityChangeMode implements Mode
 				velocity = 127;
 			}
 			
-			SimoriOn.getInstance().getGui().writeToLCD(Integer.toString(velocity));
+			SimoriOn.getInstance().getGui().writeToLCD("Velocity: " + Integer.toString(velocity));
 			System.out.println("Set velocity to " + velocity);
 		}
 

@@ -34,7 +34,7 @@ public class LoopPointChangeMode implements Mode
 				loop = 15;
 			}
 			
-			SimoriOn.getInstance().getGui().writeToLCD(Integer.toString(loop));
+			SimoriOn.getInstance().getGui().writeToLCD("Loop point: " + Integer.toString(loop));
 			System.out.println("Set Loop Point to " + loop);
 		}
 
