@@ -7,3 +7,4 @@ manifest.mf
 bin
 bin/
 .idea/
+classes/
