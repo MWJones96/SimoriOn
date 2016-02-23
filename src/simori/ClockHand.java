@@ -63,7 +63,7 @@ public class ClockHand implements Runnable {
 		while (running.get()) {
 
 			for (int i = 0; i < loopPoint; i++) {
-				gui.highlightColumn(i);
+				gui.highlightClockColumn(i);
 
 				// Iterate through all selected buttons
 				for (int j = 0; j < GridButton.getButtonsSelected().size(); j++) {

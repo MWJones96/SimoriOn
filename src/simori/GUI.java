@@ -216,14 +216,6 @@ public class GUI
 		R4.turnOff();
 	}
 	
-	public void turnOnAllButtons()
-	{
-		for(GridButton b : buttons)
-		{
-			b.setToOnState();
-		}
-	}
-	
 	public void turnOffAllButtons()
 	{
 		for(GridButton b : buttons)
@@ -242,34 +234,44 @@ public class GUI
 		}
 	}
 
-	public void highlightColumn(int x) {
-
+	/**
+	 * 
+	 * @param x
+	 */
+	public void highlightClockColumn(int x) 
+	{
 		// Turn off all buttons
 		for (GridButton button : buttons) {
 			if (!(GridButton.getButtonsSelected().contains(button))) {
 				button.setToOffState();
 			}
 		}
-
+	
 		// Highlight every 5 buttons in the same column
 		for (int i = 0; i < 16; i += 5) {
 			getButton(x, i).setToOnState();
 		}
-
+	
 	}
-                public void highlightOneColumn(int x) {
 
+	/**
+	 * 
+	 * @param x
+	 */
+	public void highlightOneColumn(int x) 
+	{
 		// Turn off all buttons
-		for (GridButton button : buttons) {
+		for (GridButton button : buttons) 
+		{
 			if (!(GridButton.getButtonsSelected().contains(button))) {
 				button.setToOffState();
 			}
 		}
-
+		
 		// Highlight every button in the same column
 		for (int i = 0; i < 16; i += 1) {
 			getButton(x, i).setToOnState();
 		}
-
+		
 	}
 }
