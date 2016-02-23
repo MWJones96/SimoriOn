@@ -30,6 +30,9 @@ public class SimoriOn {
 	//The clockhand for the device
 	private static ClockHand clockhand;
 
+	// The sounds processor instance
+	private SoundProcessor soundProcessor;
+
 	/**
 	 * constructor that sets the default values for the main grid. protected in
 	 * order to be accessed by other classes within the package via the
@@ -40,6 +43,7 @@ public class SimoriOn {
 		loopSpeed = 60; // TEMP
 		layers = new Layer[16];
 		gui = new GUI();
+		soundProcessor = new SoundProcessor();
 	}
 
 	/**
@@ -74,6 +78,14 @@ public class SimoriOn {
 	 */
 	public void setLoopSpeed(int bpm) {
 		this.loopSpeed = bpm;
+	}
+
+	/**
+	 * Retrieve the sound processor
+	 * @return SoundProcessor
+     */
+	public SoundProcessor getSoundProcessor(){
+		return this.soundProcessor;
 	}
 
 	/**

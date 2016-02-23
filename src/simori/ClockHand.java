@@ -72,8 +72,9 @@ public class ClockHand implements Runnable {
 					// If selected button is in the current column, play sound
 					if (button.getCoordsX() == i) {
 						// Sound test
-						(new Thread(new Sounds(50 - button.getCoordsY(), velocity)))
-								.start();
+						//(new Thread(new Sounds(50 - button.getCoordsY(), velocity))).start();
+						// New test - use sound processor
+						SimoriOn.getInstance().getSoundProcessor().playSound(35+button.getCoordsY(), velocity);
 
 					}
 				}
