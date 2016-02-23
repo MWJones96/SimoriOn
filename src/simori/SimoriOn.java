@@ -37,7 +37,7 @@ public class SimoriOn {
 	 */
 	protected SimoriOn() {
 		mode = new OnOffMode();
-		bpm = 60; // TEMP
+		loopSpeed = 60; // TEMP
 		layers = new Layer[16];
 		gui = new GUI();
 	}
@@ -69,19 +69,19 @@ public class SimoriOn {
 	/**
 	 * method that sets the BPM of the clockhand.
 	 * 
-	 * @param bpm
+	 * @param loopSpeed
 	 *            is the bpm, of type int.
 	 */
-	public void setBPM(int bpm) {
-		this.bpm = bpm;
+	public void setLoopSpeed(int bpm) {
+		this.loopSpeed = bpm;
 	}
 
 	/**
 	 * Return the current bpm
-	 * @return bpm
+	 * @return loopSpeed
      */
-	public int getBPM(){
-		return this.bpm;
+	public int getLoopSpeed(){
+		return this.loopSpeed;
 	}
 
 	/**

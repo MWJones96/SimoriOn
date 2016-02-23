@@ -32,28 +32,28 @@ import javax.swing.SwingConstants;
 public class GUI 
 {
 	//Panel containing all data to be sent to the frame; grid containing all matrix buttons
-	JPanel panel = new JPanel(); 
-	JPanel grid = new JPanel();
+	public JPanel panel = new JPanel(); 
+	public JPanel grid = new JPanel();
 	
 	//A simple label
-	JLabel display = new JLabel("Action:"); 
+	public JLabel display = new JLabel("Action:"); 
 	
 	//Displays information relevant to current function
-	JTextField LCD = new JTextField(15);
+	public JTextField LCD = new JTextField(15);
 
 	// Left buttons
-	FunctionButton L1 = new FunctionButton("L1"), L2 = new FunctionButton("L2"),
+	public FunctionButton L1 = new FunctionButton("L1"), L2 = new FunctionButton("L2"),
 				   L3 = new FunctionButton("L3"), L4 = new FunctionButton("L4");
 
 	// Right buttons
-	FunctionButton R1 = new FunctionButton("R1"), R2 = new FunctionButton("R2"),
+	public FunctionButton R1 = new FunctionButton("R1"), R2 = new FunctionButton("R2"),
 				   R3 = new FunctionButton("R3"), R4 = new FunctionButton("R4");
 
 	// ON/OFF button; OK button
-	JButton ON = new JButton(), OK = new JButton();
+	public JButton ON = new JButton(), OK = new JButton();
 
 	// Array for 16x16 grid buttons
-	GridButton buttons[] = new GridButton[16 * 16];
+	public GridButton buttons[] = new GridButton[16 * 16];
 
 	/**
 	 * Constructor for GUI without any parameters. It is used in order to create

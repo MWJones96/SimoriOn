@@ -110,4 +110,9 @@ public class FunctionButton extends JButton
 		state = false;
 		this.setIcon(offState);
 	}
+	
+	public boolean getState()
+	{
+		return this.state;
+	}
 }
