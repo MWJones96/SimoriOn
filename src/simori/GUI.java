@@ -95,9 +95,9 @@ public class GUI
 		display.setBounds(150, 605, 300, 50);
 		
 		//Changes TextBox to look more like an LCD
-		LCD.setEditable(false); LCD.setBackground(Color.BLACK); 
-		LCD.setFont(new Font("Techno", Font.BOLD, 20));
-		LCD.setForeground(Color.GREEN); LCD.setHorizontalAlignment(SwingConstants.CENTER);
+		LCD.setEditable(false); LCD.setBackground(Color.LIGHT_GRAY); 
+		LCD.setFont(new Font("Arial", Font.BOLD, 12));
+		LCD.setForeground(Color.BLACK); LCD.setHorizontalAlignment(SwingConstants.CENTER);
 
 		// Create and add grid buttons
 		for (int i = 0; i < 16 * 16; i++) 
@@ -149,6 +149,21 @@ public class GUI
 			public void actionPerformed(ActionEvent e)
 			{
 				SimoriOn.getInstance().getMode().processOKButton();
+				new Thread(){
+					
+					public void run()
+					{
+						OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOnOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+						try {
+							Thread.sleep(250);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+					}
+					
+				}.start();
 			}
 
 		});
