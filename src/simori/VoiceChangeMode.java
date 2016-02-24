@@ -1,5 +1,7 @@
 package simori;
 
+import javax.sound.midi.Instrument;
+
 /**
  * class that has been created to allow the user to select the voice of the
  * performance mode.
@@ -10,6 +12,9 @@ package simori;
  */
 public class VoiceChangeMode implements Mode {
 
+	private Instrument[] allInstruments;
+	private int instrument;
+
 	/**
 	 * constructor that checks to see if the clockhand is in existance yet. if
 	 * it is not, then running will be set to false, and will not move.
@@ -19,6 +24,8 @@ public class VoiceChangeMode implements Mode {
 			SimoriOn.getClockHand().running.set(false);
 		}
 		SimoriOn.getInstance().getGui().turnOffAllButtons();
+
+		this.allInstruments = SimoriOn.getInstance().getSoundProcessor().getSynth().getDefaultSoundbank().getInstruments();
 	}
 
 	/**
@@ -31,12 +38,27 @@ public class VoiceChangeMode implements Mode {
 		System.out.println("Matrix button processed in Voice Change Mode");
 
 		// Highlight row and column of the button
-		button.getGUI().highlightColumnAndRow(button.getCoordsX(),
-				button.getCoordsY());
+		button.getGUI().highlightColumnAndRow(button.getCoordsX(), button.getCoordsY());
+
+		// Set instrument variable
+		if (button.getCoordsX() * button.getCoordsY() <= 128) {
+			this.instrument = button.getCoordsX() * button.getCoordsY();
+		} else {
+			this.instrument = 128;
+		}
+
+		// Write out instrument name onto LCD
+		SimoriOn.getInstance().getGui().writeToLCD(allInstruments[instrument].getName());
 
 	}
 
 	public void processOKButton(){
+
+		SimoriOn.getInstance().getGui().LCD.setText(null);
+
+		SimoriOn.getInstance().setInstrument(this.instrument);
+		SimoriOn.getInstance().setMode(new PerformanceMode());
+		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 
 	}
 

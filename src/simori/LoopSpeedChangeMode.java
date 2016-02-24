@@ -1,9 +1,5 @@
 package simori;
 
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
-
 public class LoopSpeedChangeMode implements Mode
 {
 

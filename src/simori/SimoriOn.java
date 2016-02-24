@@ -99,6 +99,10 @@ public class SimoriOn {
 		return this.currentInstrument;
 	}
 
+	public void setInstrument(int instrument){
+		this.currentInstrument = instrument;
+	}
+
 	/**
 	 * Return the current bpm
 	 * @return loopSpeed

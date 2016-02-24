@@ -37,6 +37,10 @@ public class SoundProcessor {
         (new Thread(sound)).start();
     }
 
+    public Synthesizer getSynth(){
+        return this.synth;
+    }
+
     /**
      * Runnable class for creating individual sounds
      */
