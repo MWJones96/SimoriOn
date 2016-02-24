@@ -33,6 +33,9 @@ public class SimoriOn {
 	// The sounds processor instance
 	private SoundProcessor soundProcessor;
 
+	// Holds instrument selected
+	private int currentInstrument = 1;
+
 	/**
 	 * constructor that sets the default values for the main grid. protected in
 	 * order to be accessed by other classes within the package via the
@@ -86,6 +89,14 @@ public class SimoriOn {
      */
 	public SoundProcessor getSoundProcessor(){
 		return this.soundProcessor;
+	}
+
+	/**
+	 * Retrieve currently selected instrument number
+	 * @return int
+     */
+	public int getCurrentInstrument(){
+		return this.currentInstrument;
 	}
 
 	/**

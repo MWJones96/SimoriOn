@@ -11,6 +11,10 @@ import javax.sound.midi.Synthesizer;
 public class SoundProcessor {
 
     private Synthesizer synth;
+    private MidiChannel[] midiChannels;
+
+    private final static int PERCUSSION_CHANNEL = 9;
+    private final static int OTHER_CHNANEL = 5;
 
     public SoundProcessor(){
         // Create the synthesizer
@@ -21,10 +25,13 @@ public class SoundProcessor {
             System.out.println(ex);
             System.exit(1);
         }
+
+        midiChannels = synth.getChannels();
     }
 
     public void playSound(int note, int velocity){
-        Sound sound = new Sound(this.synth, note, velocity);
+        int instrument = SimoriOn.getInstance().getCurrentInstrument();
+        Sound sound = new Sound(this.synth, this.midiChannels[ OTHER_CHNANEL ], instrument, note, velocity);
 
         // Create new thread to play that sound
         (new Thread(sound)).start();
@@ -38,21 +45,23 @@ public class SoundProcessor {
         private int note = 50;
         private int velocity = 64;
         private Synthesizer synth;
+        private MidiChannel midiChannel;
+        private int instrument;
 
-        public Sound(Synthesizer synth, int note, int velocity){
+        public Sound(Synthesizer synth, MidiChannel midiChannel, int instrument, int note, int velocity){
             this.note = note;
             this.velocity = velocity;
             this.synth = synth;
+            this.midiChannel = midiChannel;
+            this.instrument = instrument;
         }
 
         public void run(){
-            MidiChannel[] midiChannels = synth.getChannels();
-            MidiChannel midiChannel = midiChannels[9];
-            Instrument[] instruments = synth.getDefaultSoundbank()
-                    .getInstruments();
+            Instrument[] instruments = synth.getDefaultSoundbank().getInstruments();
 
-            synth.loadInstrument(instruments[20]);
-            midiChannel.programChange(20);
+            synth.loadInstrument(instruments[instrument]);
+            midiChannel.programChange(instrument);
+
             midiChannel.noteOn(note, velocity);
             delay(10 * velocity);
             midiChannel.noteOff(note, velocity);
