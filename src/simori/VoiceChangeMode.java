@@ -23,7 +23,7 @@ public class VoiceChangeMode implements Mode {
 		if (SimoriOn.getClockHand() != null) {
 			SimoriOn.getClockHand().running.set(false);
 		}
-		SimoriOn.getInstance().getGui().turnOffAllButtons();
+		SimoriOn.getInstance().getGui().turnOffGridButtons();
 
 		this.allInstruments = SimoriOn.getInstance().getSoundProcessor().getSynth().getDefaultSoundbank().getInstruments();
 	}
@@ -52,10 +52,9 @@ public class VoiceChangeMode implements Mode {
 
 	}
 
-	public void processOKButton(){
-
+	public void processOKButton()
+	{
 		SimoriOn.getInstance().getGui().LCD.setText(null);
-
 		SimoriOn.getInstance().setInstrument(this.instrument);
 		SimoriOn.getInstance().setMode(new PerformanceMode());
 		SimoriOn.getInstance().getGui().turnOffFunctionButtons();

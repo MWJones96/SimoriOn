@@ -136,7 +136,7 @@ public class GUI
 					ON.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffON.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 					SimoriOn.getInstance().setMode(new OnOffMode());
 					turnOffFunctionButtons();
-					turnOffAllButtons();
+					turnOffGridButtons();
 				}
 			}
 
@@ -149,6 +149,8 @@ public class GUI
 			public void actionPerformed(ActionEvent e)
 			{
 				SimoriOn.getInstance().getMode().processOKButton();
+				
+				//Implements button flash as a thread, so that other processes won't be stopped for 250ms
 				new Thread(){
 					
 					public void run()
@@ -231,7 +233,10 @@ public class GUI
 		R4.turnOff();
 	}
 	
-	public void turnOffAllButtons()
+	/**Turns of all of the grid buttons
+	 * 
+	 */
+	public void turnOffGridButtons()
 	{
 		for(GridButton b : buttons)
 		{
@@ -241,7 +246,7 @@ public class GUI
 
 	public void highlightColumnAndRow(int x, int y) {
 		// Turn off all buttons
-		turnOffAllButtons();
+		turnOffGridButtons();
 		// Highlight buttons in the same row and column
 		for (int i = 0; i < 16; i++) {
 			getButton(x, i).setToOnState();

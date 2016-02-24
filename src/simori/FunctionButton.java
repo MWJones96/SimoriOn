@@ -76,7 +76,7 @@ public class FunctionButton extends JButton
 				{
 					state = true;
 					SimoriOn.getInstance().getGui().turnOffFunctionButtons();
-					SimoriOn.getInstance().getGui().turnOffAllButtons();
+					SimoriOn.getInstance().getGui().turnOffGridButtons();
 					turnOn();
 					if(buttonName == "L1")
 						SimoriOn.getInstance().setMode(new VoiceChangeMode());

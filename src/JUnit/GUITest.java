@@ -58,7 +58,7 @@ public class GUITest
 		for(int y = 0; y < 16; y++)
 			assertTrue(test.getGui().getButton(0, y).getState());
 		
-		test.getGui().turnOffAllButtons();
+		test.getGui().turnOffGridButtons();
 	}
 	
 	public void testHighlightAndColumn()
@@ -68,7 +68,7 @@ public class GUITest
 		for(int y = 0; y < 16; y++)
 			assertTrue(test.getGui().getButton(0, y).getState());
 		
-		test.getGui().turnOffAllButtons();
+		test.getGui().turnOffGridButtons();
 	}
 
 	
@@ -80,7 +80,7 @@ public class GUITest
 		for(int y = 0; y < 16; y += 5)
 			assertTrue(test.getGui().getButton(0, y).getState());
 				
-		test.getGui().turnOffAllButtons();
+		test.getGui().turnOffGridButtons();
 	}
 	
 
