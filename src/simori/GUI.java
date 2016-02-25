@@ -25,7 +25,7 @@ import javax.swing.SwingConstants;
  * its own thread. Buttons include: 4 buttons for the left, 4 buttons for the
  * right ON/OFF button and 16x16 grid buttons.
  * 
- * @author Team G
+ * @author Team G -everyone worked closely together to get the GUI fully functional
  * @version 1.0
  * @date 05-02-2016
  */

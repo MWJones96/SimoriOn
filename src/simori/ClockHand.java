@@ -29,19 +29,36 @@ public class ClockHand implements Runnable {
 		this.loopPoint = 16;
 		this.velocity = 64;
 	}
-
+	
+	/**
+	 * method that sets the veolocity for the main clockhand
+	 * @param velocity
+	 */
 	public void setVelocity(int velocity){
 		this.velocity = velocity;
 	}
 
+	/**
+	 * method that will get the velocity back after it has been set 
+	 * @return
+	 */
 	public int getVelocity(){
 		return velocity;
 	}
 
+	/**
+	 * method that will reset the clockhand after a specific column
+	 * is selected wihtin the GUI. 
+	 * @param loopPoint
+	 */
 	public void setLoopPoint(int loopPoint){
 		this.loopPoint = loopPoint;
 	}
 
+	/**
+	 * method that will get the loop point value back 
+	 * @return
+	 */
 	public int getLoopPoint() {
 		return loopPoint;
 	}
