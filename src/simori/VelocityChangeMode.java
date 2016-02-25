@@ -3,16 +3,32 @@ package simori;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * this is a class that is used under Performance mode when the L2 button is clicked. here, when the grid button 
+ * is pressed, the specific column and row will be selected based on the button clicked.  this will choose a node velocity
+ * which can be between 0-127 and appears on the LCD. 
+ * @author Team G
+ *
+ */
 public class VelocityChangeMode implements Mode
 {
 	private int velocity;
 
+	/**
+	 * constructor that creates the clockhand in a non runnable state. 
+	 */
 	public VelocityChangeMode()
 	{
 		if (SimoriOn.getClockHand() != null) {
 			SimoriOn.getClockHand().running.set(false);
 		}
 	}
+	/**
+	 * method that checks firstly that the button has been pressed and the coordinates of the 
+	 * button that has been clicked. once it has, then based upon the click, the velocity will be 
+	 * chosenw ithin the givne range. 
+	 * @param button
+	 */
 	@Override
 	public void processMatrixButton(GridButton button) {
 		// TODO Auto-generated method stub

@@ -204,16 +204,32 @@ public class GUI
 		return this.panel;
 	}
 	
+	/**
+	 * method that will write the selected value to the mini lcd display 
+	 * that exists at the bottom of the screen
+	 * @param text
+	 */
 	public void writeToLCD(String text)
 	{
 		LCD.setText(text);
 	}
 	
+	/**
+	 * method that will return the buttons as an array which have been selected
+	 * @return
+	 */
 	public GridButton[] getButtons()
 	{
 		return buttons;
 	}
 
+	/**
+	 * method that gets the specific coordinates of a button that has ben cicked on the 
+	 * GUI, as a result, it has to use have a type of GridButton
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public GridButton getButton(int x, int y) {
 		return buttons[240 - (y * 16) + x];
 	}
@@ -233,7 +249,8 @@ public class GUI
 		R4.turnOff();
 	}
 	
-	/**Turns of all of the grid buttons
+	/**Turns off all of the grid buttons
+	 *  completely, hindering all functioanlity. 
 	 * 
 	 */
 	public void turnOffGridButtons()
@@ -243,7 +260,13 @@ public class GUI
 			b.setToOffState();
 		}
 	}
-
+	
+	/**
+	 * method that will highlight a specific column and row based on the gridbutton that
+	 * has been selected. this can be used in multiple classes 
+	 * @param x
+	 * @param y
+	 */
 	public void highlightColumnAndRow(int x, int y) {
 		// Turn off all buttons
 		turnOffGridButtons();
@@ -255,7 +278,8 @@ public class GUI
 	}
 
 	/**
-	 * 
+	 * method that will hgihglght the clock column as it traverses through 
+	 * the grid during the clcok hand movement. 
 	 * @param x
 	 */
 	public void highlightClockColumn(int x) 
@@ -275,7 +299,8 @@ public class GUI
 	}
 
 	/**
-	 * 
+	 * method that allows for a specific column to be hihglighted, based  upon 
+	 * the x value that has been pressed by the mouse on the gridnbutton
 	 * @param x
 	 */
 	public void highlightOneColumn(int x) 

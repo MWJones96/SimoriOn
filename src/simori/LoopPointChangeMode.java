@@ -3,7 +3,14 @@ package simori;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-
+/**
+ * this is a class that is used within the performance mode, when the L4 button is pressed. 
+ * We clear the buttons. when a column is clicked by pressing an x coordinate of the gridbutton column to 
+ * be set to that column by highlighting it. this therefore allows the clockhand to loop earler than usual. 
+ * @author carl saptarshi Dennis Luo
+ * 
+ *
+ */
 public class LoopPointChangeMode implements Mode
 {
         private int loop;
@@ -16,6 +23,13 @@ public class LoopPointChangeMode implements Mode
 		}
 	}
         
+   /**
+    * method that is overriden from the Mode Interface to demonstrate that the 
+    * matrix button has been processed in this specific mode. here, the method will highlight 
+    * a specific column when the method is called. therefore an instance of the gridbutton will
+    * be needed
+    * @param button
+    */
 	@Override
 	public void processMatrixButton(GridButton button) {
 		// TODO Auto-generated method stub
@@ -39,7 +53,11 @@ public class LoopPointChangeMode implements Mode
 		}
 
 	}
-
+			/**
+			 *method that is called when the OK button is pressed and will cause the okay button to flash
+			 *quickly on and then off again, without any delay
+			 *
+			 */
         	public void processOKButton(){
                 // Once OK button pressed in LoopPoint Mode (L4) go back to performance mode with set LoopPoint   
         		new Runnable(){
@@ -53,7 +71,7 @@ public class LoopPointChangeMode implements Mode
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-        				SimoriOn.getInstance().getGui().OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+        				SimoriOn.getInstanf all of the grid buce().getGui().OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
         				
         			}
         		}.run();

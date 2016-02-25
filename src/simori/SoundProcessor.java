@@ -6,6 +6,9 @@ import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Synthesizer;
 
 /**
+ * this is the class that deals withthe changing voice mode as part of Performance mode. this mode can be 
+ * activated using the L1 button being pressed. based ont eh specification, 128 and 47 instruments are being implemented
+ * in the MIDI spec. once the voice is chosen, it appears on the GUI LCD bar.
  * Created by Giedrius on 23/02/2016.
  */
 public class SoundProcessor {
@@ -15,7 +18,8 @@ public class SoundProcessor {
 
     private final static int PERCUSSION_CHANNEL = 9;
     private final static int OTHER_CHNANEL = 5;
-
+    
+    //constructor that is used in order to create a synth. 
     public SoundProcessor(){
         // Create the synthesizer
         try {
@@ -28,7 +32,13 @@ public class SoundProcessor {
 
         midiChannels = synth.getChannels();
     }
-
+    
+    /**
+     * method that will play the sound based upon the note given and the velocity inputed, based
+     * on what buttons are presseed. 
+     * @param note
+     * @param velocity
+     */
     public void playSound(int note, int velocity){
         int instrument = SimoriOn.getInstance().getCurrentInstrument();
         Sound sound = new Sound(this.synth, this.midiChannels[ OTHER_CHNANEL ], instrument, note, velocity);
@@ -52,6 +62,14 @@ public class SoundProcessor {
         private MidiChannel midiChannel;
         private int instrument;
 
+        /**
+         * constructor that is used to play unique sounds. 
+         * @param synth
+         * @param midiChannel
+         * @param instrument
+         * @param note
+         * @param velocity
+         */
         public Sound(Synthesizer synth, MidiChannel midiChannel, int instrument, int note, int velocity){
             this.note = note;
             this.velocity = velocity;
