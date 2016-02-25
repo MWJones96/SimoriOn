@@ -14,7 +14,7 @@ import javax.swing.JButton;
  * are associated with the state of the button for example if L1 is clicked
  * then L1 will turn orange and when clicked again will be turned off and 
  * go back to the default colour, grey.
- * @author Matthew Jones (Carl Saptarshi)
+ * @author team G
  *
  */
 public class FunctionButton extends JButton

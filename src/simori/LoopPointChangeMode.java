@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
  * this is a class that is used within the performance mode, when the L4 button is pressed. 
  * We clear the buttons. when a column is clicked by pressing an x coordinate of the gridbutton column to 
  * be set to that column by highlighting it. this therefore allows the clockhand to loop earler than usual. 
- * @author carl saptarshi Dennis Luo
+ * @author Team G
  * 
  *
  */

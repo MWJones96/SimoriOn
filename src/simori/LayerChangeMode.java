@@ -1,5 +1,10 @@
 package simori;
 
+/**
+ * 
+ * @author
+ * 
+ */
 public class LayerChangeMode implements Mode
 {
 
