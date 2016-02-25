@@ -20,7 +20,7 @@ public class PerformanceMode implements Mode {
 	public PerformanceMode() {
 		GridButton.clearButtonsSelected();
 		if (SimoriOn.getClockHand() == null) {
-			SimoriOn.setClockHand(new ClockHand(SimoriOn.getInstance().getGui()));
+			SimoriOn.setClockHand(new ClockHand());
 			(new Thread(SimoriOn.getClockHand())).start();
 		} else {
 			(new Thread(SimoriOn.getClockHand())).start();

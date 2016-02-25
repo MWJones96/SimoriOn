@@ -13,7 +13,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ClockHand implements Runnable {
 
-	private GUI gui;
 	private int loopPoint;
 	private int velocity;
 
@@ -26,8 +25,7 @@ public class ClockHand implements Runnable {
 	 * @param gui - this is the GUI interface that the clockhand will use.
 	 */
 
-	public ClockHand(GUI gui) {
-		this.gui = gui;
+	public ClockHand() {
 		this.loopPoint = 16;
 		this.velocity = 64;
 	}
@@ -63,7 +61,7 @@ public class ClockHand implements Runnable {
 		while (running.get()) {
 
 			for (int i = 0; i < loopPoint; i++) {
-				gui.highlightClockColumn(i);
+				SimoriOn.getInstance().getGui().highlightClockColumn(i);
 
 				// Iterate through all selected buttons
 				for (int j = 0; j < GridButton.getButtonsSelected().size(); j++) {
@@ -80,7 +78,7 @@ public class ClockHand implements Runnable {
 				}
 
 				if (!running.get()) {
-					for (GridButton button : gui.buttons) {
+					for (GridButton button : SimoriOn.getInstance().getGui().buttons) {
 						button.setToOffState();
 					}
 					break;

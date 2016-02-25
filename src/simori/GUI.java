@@ -173,7 +173,7 @@ public class GUI
 		JFrame frame = new JFrame("Simori-ON");
 		// set location in center of screen
 		frame.setLocation(400, 100);
-		frame.setPreferredSize(new Dimension(700, 690));
+		frame.setPreferredSize(new Dimension(700, 695));
 		frame.setResizable(false);
 		// set screen size to adapt to different screen dimensions
 		// should stay in centre of screen when executed on all

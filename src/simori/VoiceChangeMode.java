@@ -48,10 +48,13 @@ public class VoiceChangeMode implements Mode {
 		}
 
 		// Write out instrument name onto LCD
-		SimoriOn.getInstance().getGui().writeToLCD(allInstruments[instrument].getName());
+		SimoriOn.getInstance().getGui().writeToLCD("Instrument: " + allInstruments[instrument].getName());
 
 	}
-
+	
+	/**
+	 * @inheritDoc
+	 */
 	public void processOKButton()
 	{
 		SimoriOn.getInstance().getGui().LCD.setText(null);
