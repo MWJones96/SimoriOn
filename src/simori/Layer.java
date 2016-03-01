@@ -8,8 +8,35 @@ package simori;
  * @date 07/02/2016
  */
 public class Layer {
+	// Holds instrument selected
+	private int currentInstrument = 1;
+
+
 	// Array containing information about whether each button is on or off
-	private boolean[] buttonArray = new boolean[16 * 16];
+	private boolean[][] buttonArray = new boolean[16][16];
+
+	public Layer(){
+		System.out.println("Creating layer");
+		for(int i=0;i<16;i++){
+			for(int j=0;j<16;j++){
+				this.buttonArray[i][j] = false;
+			}
+		}
+	}
+
+	public boolean getButtonState(int x, int y){
+		return this.buttonArray[x][y];
+	}
+
+	public void setButtonState(int x, int y, boolean state){
+		this.buttonArray[x][y] = state;
+	}
+
+	public boolean[] getButtonsColumn(int x){
+		System.out.println(x);
+		System.out.println(this.buttonArray[x].length);
+		return this.buttonArray[x];
+	}
 
 	/**
 	 * method that returns on/off the current layer on the GUI (i.e.
@@ -17,7 +44,7 @@ public class Layer {
 	 * 
 	 * @return buttonArray is the x coordinate for each box
 	 */
-	public boolean[] getLayer() {
+	public boolean[][] getButtonArray() {
 		return buttonArray;
 	}
 
@@ -27,11 +54,31 @@ public class Layer {
 	 * 
 	 * @param array
 	 */
-	public void setLayer(boolean[] array) {
+	public void setButtonArray(boolean[][] array) {
 		if (array.length != 16 * 16)
 			throw new IllegalArgumentException(
 					"Array is not the appropriate size.");
 		buttonArray = array;
+	}
+
+	/**
+	 * Retrieve currently selected instrument number
+	 * @return int
+	 */
+	public int getCurrentInstrument(){
+		return this.currentInstrument;
+	}
+
+	public void setInstrument(int instrument){
+		this.currentInstrument = instrument;
+	}
+
+	public void turnOffAll(){
+		for(int i=0; i<this.buttonArray.length;i++){
+			for(int j=0; j<this.buttonArray[i].length;j++){
+				this.buttonArray[i][j] = false;
+			}
+		}
 	}
 
 }

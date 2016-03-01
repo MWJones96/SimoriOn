@@ -71,7 +71,7 @@ public class LoopPointChangeMode implements Mode
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-        				SimoriOn.getInstanf all of the grid buce().getGui().OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+        				SimoriOn.getInstance().getGui().OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
         				
         			}
         		}.run();

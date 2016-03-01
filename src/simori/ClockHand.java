@@ -22,7 +22,6 @@ public class ClockHand implements Runnable {
 	 * Constructor that is used to set the default constructor for which the
 	 * clockhand will run on.
 	 *
-	 * @param gui - this is the GUI interface that the clockhand will use.
 	 */
 
 	public ClockHand() {
@@ -81,7 +80,7 @@ public class ClockHand implements Runnable {
 				SimoriOn.getInstance().getGui().highlightClockColumn(i);
 
 				// Iterate through all selected buttons
-				for (int j = 0; j < GridButton.getButtonsSelected().size(); j++) {
+				/*for (int j = 0; j < GridButton.getButtonsSelected().size(); j++) {
 					GridButton button = GridButton.getButtonsSelected().get(j);
 
 					// If selected button is in the current column, play sound
@@ -91,6 +90,15 @@ public class ClockHand implements Runnable {
 						// New test - use sound processor
 						SimoriOn.getInstance().getSoundProcessor().playSound(35+button.getCoordsY(), velocity);
 
+					}
+				}*/
+				for(int l=0; l<SimoriOn.getInstance().getLayers().length;l++) {
+					for (int j = 0; j < SimoriOn.getInstance().getLayer(l).getButtonsColumn(i).length; j++) {
+						if (SimoriOn.getInstance().getLayer(l).getButtonsColumn(i)[j]) {
+							System.out.println("Creating sound");
+							// New test - use sound processor
+							SimoriOn.getInstance().getSoundProcessor().playSound(35 + j, velocity, l);
+						}
 					}
 				}
 
@@ -103,7 +111,7 @@ public class ClockHand implements Runnable {
 
 				try {
 					// Sleep for an appropriate amount
-					System.out.println(Math.round(60000 / SimoriOn.getInstance().getLoopSpeed()));
+					//System.out.println(Math.round(60000 / SimoriOn.getInstance().getLoopSpeed()));
 					// 60000 ms (1min) / bpm (beats per minute) / 4 (4 steps per beat)
 					Thread.sleep(Math.round(60000 / SimoriOn.getInstance().getLoopSpeed()/4));
 				} catch (InterruptedException e) {

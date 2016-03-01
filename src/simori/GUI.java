@@ -259,6 +259,9 @@ public class GUI
 		{
 			b.setToOffState();
 		}
+		/*for(int i=0;i<SimoriOn.getInstance().getLayers().length;i++){
+			SimoriOn.getInstance().getLayer(i).turnOffAll();
+		}*/
 	}
 	
 	/**

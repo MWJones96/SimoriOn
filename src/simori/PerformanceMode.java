@@ -41,9 +41,11 @@ public class PerformanceMode implements Mode {
 		if (!button.getState()) {
 			button.setToOnState();
 			GridButton.addButtonsSelected(button);
+			SimoriOn.getInstance().getCurrentLayer().setButtonState(button.getCoordsX(), button.getCoordsY(), true);
 		} else {
 			button.setToOffState();
 			GridButton.removeButtonsSelected(button);
+			SimoriOn.getInstance().getCurrentLayer().setButtonState(button.getCoordsX(), button.getCoordsY(), false);
 
 		}
 	}

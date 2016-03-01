@@ -58,7 +58,7 @@ public class VoiceChangeMode implements Mode {
 	public void processOKButton()
 	{
 		SimoriOn.getInstance().getGui().LCD.setText(null);
-		SimoriOn.getInstance().setInstrument(this.instrument);
+		SimoriOn.getInstance().getCurrentLayer().setInstrument(this.instrument);
 		SimoriOn.getInstance().setMode(new PerformanceMode());
 		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 

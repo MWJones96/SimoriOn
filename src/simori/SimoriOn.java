@@ -22,7 +22,7 @@ public class SimoriOn {
 	private int loopPoint;
 	//The length of the note
 	private int velocity;
-	private Layer[] layers;
+	private Layer[] layers = new Layer[16];
 	//Which layer is currently being selected
 	private Layer currentLayer;
 	//The GUI associated with the device
@@ -33,9 +33,6 @@ public class SimoriOn {
 	// The sounds processor instance
 	private SoundProcessor soundProcessor;
 
-	// Holds instrument selected
-	private int currentInstrument = 1;
-
 	/**
 	 * constructor that sets the default values for the main grid. protected in
 	 * order to be accessed by other classes within the package via the
@@ -44,7 +41,10 @@ public class SimoriOn {
 	protected SimoriOn() {
 		mode = new OnOffMode();
 		loopSpeed = 60; // TEMP
-		layers = new Layer[16];
+		for(int i=0;i<16;i++){
+			layers[i] = new Layer();
+		}
+		currentLayer = layers[0];
 		gui = new GUI();
 		soundProcessor = new SoundProcessor();
 	}
@@ -91,16 +91,23 @@ public class SimoriOn {
 		return this.soundProcessor;
 	}
 
-	/**
-	 * Retrieve currently selected instrument number
-	 * @return int
-     */
-	public int getCurrentInstrument(){
-		return this.currentInstrument;
+	public Layer getCurrentLayer(){
+		return this.currentLayer;
 	}
 
-	public void setInstrument(int instrument){
-		this.currentInstrument = instrument;
+	public Layer[] getLayers(){
+		return this.layers;
+	}
+
+	public Layer getLayer(int i){
+		return this.layers[i];
+	}
+
+	public void setCurrentLayer(Layer layer){
+		this.currentLayer = layer;
+	}
+	public void setCurrentLayer(int index){
+		this.currentLayer = this.layers[index];
 	}
 
 	/**

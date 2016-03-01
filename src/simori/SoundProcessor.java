@@ -17,7 +17,7 @@ public class SoundProcessor {
     private MidiChannel[] midiChannels;
 
     private final static int PERCUSSION_CHANNEL = 9;
-    private final static int OTHER_CHNANEL = 5;
+    private final static int OTHER_CHANNEL = 5;
     
     //constructor that is used in order to create a synth. 
     public SoundProcessor(){
@@ -39,9 +39,19 @@ public class SoundProcessor {
      * @param note
      * @param velocity
      */
-    public void playSound(int note, int velocity){
-        int instrument = SimoriOn.getInstance().getCurrentInstrument();
-        Sound sound = new Sound(this.synth, this.midiChannels[ OTHER_CHNANEL ], instrument, note, velocity);
+    public void playSound(int note, int velocity, int layerIndex){
+        int instrument = SimoriOn.getInstance().getLayer(layerIndex).getCurrentInstrument();
+
+        Sound sound;
+        // Check if instrument is percussion
+        if(instrument > 127){
+            // If instrument number is higher than 127, that means it's a percussion instrument
+            // Change instrument into a note and change which channel to use
+            note = instrument - 127;
+            sound = new Sound(this.synth, this.midiChannels[ PERCUSSION_CHANNEL ], instrument, note, velocity);
+        }else{
+            sound = new Sound(this.synth, this.midiChannels[ OTHER_CHANNEL ], instrument, note, velocity);
+        }
 
         // Create new thread to play that sound
         (new Thread(sound)).start();
