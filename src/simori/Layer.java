@@ -55,7 +55,7 @@ public class Layer {
 	 * @param array
 	 */
 	public void setButtonArray(boolean[][] array) {
-		if (array.length != 16 * 16)
+		if (array.length != 16 || array[0].length != 16)
 			throw new IllegalArgumentException(
 					"Array is not the appropriate size.");
 		buttonArray = array;
