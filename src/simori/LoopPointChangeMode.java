@@ -5,8 +5,8 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 /**
  * this is a class that is used within the performance mode, when the L4 button is pressed. 
- * We clear the buttons. when a column is clicked by pressing an x coordinate of the gridbutton column to 
- * be set to that column by highlighting it. this therefore allows the clockhand to loop earler than usual. 
+ * Clears the buttons and changes where the clockhand end looping point. When button clicked the corresponding x column of the gridbutton column is 
+ * set and highlighted. This therefore allows the clockhand to loop earlier than usual. 
  * @author Team G
  * 
  *
@@ -32,6 +32,8 @@ public class LoopPointChangeMode implements Mode
     */
 	@Override
 	public void processMatrixButton(GridButton button) {
+                // Ensure all buttons are turned off 
+                button.getGUI().turnOffGridButtons();
 		// TODO Auto-generated method stub
 		System.out.println("Matrix button processed in Loop Point Mode");
 
@@ -63,7 +65,7 @@ public class LoopPointChangeMode implements Mode
         		new Runnable(){
         			public void run()
         			{
-        				System.out.println("Ohhaimark");
+        				System.out.println("");
         				SimoriOn.getInstance().getGui().OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOnOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
         				try {
 							Thread.sleep(200);
@@ -78,7 +80,7 @@ public class LoopPointChangeMode implements Mode
         		
         		
         		SimoriOn.getInstance().getGui().LCD.setText(null);
-        		SimoriOn.getClockHand().setLoopPoint(loop);
+        		SimoriOn.getClockHand().setLoopPoint(loop+1);
         		SimoriOn.getInstance().setMode(new PerformanceMode());
         		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
         	}

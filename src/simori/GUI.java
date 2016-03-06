@@ -322,4 +322,24 @@ public class GUI
 		}
 		
 	}
+        /**
+	 * method that allows for a specific row to be highlighted, based  upon 
+	 * the y value that has been pressed by the mouse on the gridbutton
+	 * @param x
+	 */
+        public void highlightOneRow(int y) 
+	{
+		// Turn off all buttons
+		for (GridButton button : buttons) 
+		{
+			if (!(GridButton.getButtonsSelected().contains(button))) {
+				button.setToOffState();
+			}
+		}
+		
+		// Highlight every button in the same row
+		for (int i = 0; i < 16; i += 1) {
+			getButton(i, y).setToOnState();
+		}
+        }
 }
