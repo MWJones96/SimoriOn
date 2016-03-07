@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 /**
- * I class that creates basic Layout for Sprint 1. Class creates main board for
+ * A class that creates basic Layout for Sprint 1. Class creates main board for
  * Simori-ON and simulates all buttons, but does not include full functionality
  * for Sprint 1. Class uses the Runnable interface to allow GUI to run within
  * its own thread. Buttons include: 4 buttons for the left, 4 buttons for the
@@ -30,11 +30,7 @@ import javax.swing.SwingConstants;
  * @date 05-02-2016
  */
 public class GUI 
-{
-	//Panel containing all data to be sent to the frame; grid containing all matrix buttons
-	public JPanel panel = new JPanel(); 
-	public JPanel grid = new JPanel();
-	
+{	
 	//A simple label
 	public JLabel display = new JLabel("Action:"); 
 	
@@ -43,11 +39,11 @@ public class GUI
 
 	// Left buttons
 	public FunctionButton L1 = new FunctionButton("L1"), L2 = new FunctionButton("L2"),
-				   L3 = new FunctionButton("L3"), L4 = new FunctionButton("L4");
+				   		  L3 = new FunctionButton("L3"), L4 = new FunctionButton("L4");
 
 	// Right buttons
 	public FunctionButton R1 = new FunctionButton("R1"), R2 = new FunctionButton("R2"),
-				   R3 = new FunctionButton("R3"), R4 = new FunctionButton("R4");
+				   		  R3 = new FunctionButton("R3"), R4 = new FunctionButton("R4");
 
 	// ON/OFF button; OK button
 	public JButton ON = new JButton(), OK = new JButton();
@@ -77,10 +73,6 @@ public class GUI
 		
 		ON.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffON.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 		OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		
-		//set default values for the grid and grid dimensions
-		panel.setLayout(null);
-		grid.setLayout(new GridLayout(16, 16)); grid.setBounds(100, 100, 500, 500);
 
 		// Set position/size of left buttons
 		L1.setBounds(20, 100, 50, 50); L2.setBounds(20, 200, 50, 50);
@@ -98,20 +90,6 @@ public class GUI
 		LCD.setEditable(false); LCD.setBackground(Color.LIGHT_GRAY); 
 		LCD.setFont(new Font("Arial", Font.BOLD, 12));
 		LCD.setForeground(Color.BLACK); LCD.setHorizontalAlignment(SwingConstants.CENTER);
-
-		// Create and add grid buttons
-		for (int i = 0; i < 16 * 16; i++) 
-		{
-			buttons[i] = new GridButton(i % 16, (int) 15 - (i / 16));
-			buttons[i].setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffGRID.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
-			grid.add(buttons[i]);
-		}
-
-		// Add everything to the overall panel
-		panel.add(L1); panel.add(L2); panel.add(L3); panel.add(L4);
-		panel.add(R1); panel.add(R2); panel.add(R3); panel.add(R4);
-		panel.add(ON); panel.add(OK); panel.add(LCD); panel.add(display);
-		panel.add(grid);
 		
 		ON.setOpaque(false);
 		ON.setContentAreaFilled(false);
@@ -169,39 +147,6 @@ public class GUI
 			}
 
 		});
-
-		JFrame frame = new JFrame("Simori-ON");
-		// set location in center of screen
-		frame.setLocation(400, 100);
-		frame.setPreferredSize(new Dimension(700, 695));
-		frame.setResizable(false);
-		// set screen size to adapt to different screen dimensions
-		// should stay in centre of screen when executed on all
-		// screens.
-		Toolkit screen = Toolkit.getDefaultToolkit();
-		Dimension screenSize = screen.getScreenSize();
-		int screenWidth = screenSize.width;
-		int screenHeight = screenSize.height;
-		
-		//Sets favicon of the frame
-		frame.setIconImage(new ImageIcon("./res/ButtonOnGRID.png").getImage());
-		
-		frame.setLocation(screenWidth / 4, screenHeight / 8);
-		// Add gui panel to JFrame
-		frame.add(panel);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-	}
-
-	/**
-	 * get method to return gui instance from JPanel.
-	 * 
-	 * @return gui that will be used for the entire UI.
-	 */
-	public JPanel getGui() {
-		return this.panel;
 	}
 	
 	/**
