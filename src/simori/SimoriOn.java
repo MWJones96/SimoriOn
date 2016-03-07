@@ -1,5 +1,14 @@
 package simori;
 
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  * this class uses the singleton design pattern to enable methods to be
  * referenced from anywhere within the package using a single instance. the
@@ -10,27 +19,30 @@ package simori;
  * @date 9/02/16
  * 
  */
-public class SimoriOn {
+public class SimoriOn 
+{
 	// Self instance (Singleton pattern)
 	private static SimoriOn instance = null;
 
 	// The current mode of operation
 	private Mode mode;
-	// The speed of the metronome (in beats per minute)
+	
+	// The speed of the clock hand (in beats per minute)
 	private int loopSpeed;
-	//The point where the clock hand will loop
-	private int loopPoint;
-	//The length of the note
-	private int velocity;
+	
+	//The layers that are in the device
 	private Layer[] layers = new Layer[16];
-	//Which layer is currently being selected
+	
+	//The layer which is currently being sent to the GUI
 	private Layer currentLayer;
+	
 	//The GUI associated with the device
 	private GUI gui;
-	//The clockhand for the device
-	private static ClockHand clockhand;
+	
+	//The clock hand for the device
+	private static ClockHand clockHand;
 
-	// The sounds processor instance
+	//The sounds processor instance
 	private SoundProcessor soundProcessor;
 
 	/**
@@ -38,7 +50,7 @@ public class SimoriOn {
 	 * order to be accessed by other classes within the package via the
 	 * singleton pattern
 	 */
-	protected SimoriOn() {
+	private SimoriOn() {
 		mode = new OnOffMode();
 		loopSpeed = 60; // TEMP
 		for(int i=0;i<16;i++){
@@ -62,96 +74,128 @@ public class SimoriOn {
 		}
 		return instance;
 	}
-
-	/**
-	 * method that will be used in order to set the mode
-	 * 
-	 * @param mode
-	 *            is an instance of the Mode class.
+	
+	/**Makes the display which houses the GUI
 	 */
-	public void setMode(Mode mode) {
+	public void makeDisplay()
+	{
+		new Runnable()
+		{
+			public void run()
+			{	
+				JFrame frame = new JFrame("Simori-ON");
+				
+				//Panel containing all data to be sent to the frame; grid containing all matrix buttons
+				JPanel panel = new JPanel(), grid = new JPanel();
+				
+				//set default values for the grid and grid dimensions
+				panel.setLayout(null);
+				grid.setLayout(new GridLayout(16, 16)); grid.setBounds(100, 100, 500, 500);
+				
+				// Create and add grid buttons
+				for (int i = 0; i < 16 * 16; i++) 
+				{
+					gui.buttons[i] = new GridButton(i % 16, (int) 15 - (i / 16));
+					gui.buttons[i].setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffGRID.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
+					grid.add(gui.buttons[i]);
+				}
+				
+				// Add everything to the overall panel
+				panel.add(gui.L1); panel.add(gui.L2); panel.add(gui.L3); panel.add(gui.L4);
+				panel.add(gui.R1); panel.add(gui.R2); panel.add(gui.R3); panel.add(gui.R4);
+				panel.add(gui.ON); panel.add(gui.OK); panel.add(gui.LCD); panel.add(gui.display);
+				panel.add(grid);
+				
+				
+				// set location in center of screen
+				frame.setLocation(400, 100);
+				frame.setPreferredSize(new Dimension(700, 695));
+				frame.setResizable(false);
+				// set screen size to adapt to different screen dimensions
+				// should stay in centre of screen when executed on all
+				// screens.
+				Toolkit screen = Toolkit.getDefaultToolkit();
+				Dimension screenSize = screen.getScreenSize();
+				int screenWidth = screenSize.width;
+				int screenHeight = screenSize.height;
+				
+				//Sets fav-icon of the frame
+				frame.setIconImage(new ImageIcon("./res/ButtonOnGRID.png").getImage());
+				
+				frame.setLocation(screenWidth / 4, screenHeight / 8);
+				// Add gui panel to JFrame
+				frame.add(panel);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.pack();
+				frame.setLocationRelativeTo(null);
+				frame.setVisible(true);
+			}
+		}.run();
+	}
+
+	public void setMode(Mode mode) 
+	{
 		this.mode = mode;
 	}
 
-	/**
-	 * method that sets the BPM of the clockhand.
-	 * 
-	 * @param loopSpeed
-	 *            is the bpm, of type int.
-	 */
-	public void setLoopSpeed(int bpm) {
+	public void setLoopSpeed(int bpm) 
+	{
 		this.loopSpeed = bpm;
 	}
 
-	/**
-	 * Retrieve the sound processor
-	 * @return SoundProcessor
-     */
-	public SoundProcessor getSoundProcessor(){
+	public SoundProcessor getSoundProcessor()
+	{
 		return this.soundProcessor;
 	}
 
-	public Layer getCurrentLayer(){
+	public Layer getCurrentLayer()
+	{
 		return this.currentLayer;
 	}
 
-	public Layer[] getLayers(){
+	public Layer[] getLayers()
+	{
 		return this.layers;
 	}
 
-	public Layer getLayer(int i){
+	public Layer getLayer(int i)
+	{
 		return this.layers[i];
 	}
 
-	public void setCurrentLayer(Layer layer){
+	public void setCurrentLayer(Layer layer)
+	{
 		this.currentLayer = layer;
 	}
-	public void setCurrentLayer(int index){
+	public void setCurrentLayer(int index)
+	{
 		this.currentLayer = this.layers[index];
 	}
 
-	/**
-	 * Return the current bpm
-	 * @return loopSpeed
-     */
-	public int getLoopSpeed(){
+	public int getLoopSpeed()
+	{
 		return this.loopSpeed;
 	}
 
-	/**
-	 * method that returns the mode that the simoriOn is currently in
-	 * 
-	 * @return mode
-	 */
-	public Mode getMode() {
+	public Mode getMode() 
+	{
 		return mode;
 	}
 
-	/**
-	 * method that will return the GUI that is currently being used.
-	 * 
-	 * @return
-	 */
-	public GUI getGui() {
+	public GUI getGui() 
+	{
 		return gui;
 	}
 
-	/**
-	 * method that sets the objet to the clockhand variable being used.
-	 * 
-	 * @param c
-	 */
-	public static void setClockHand(ClockHand c) {
-		clockhand = c;
-	}
 
-	/**
-	 * method that returns the clockhand that is being used.
-	 * 
-	 * @return clockhand that is bieng used
-	 */
-	public static ClockHand getClockHand() {
-		return clockhand;
+	public static ClockHand getClockHand() 
+	{
+		return clockHand;
+	}
+	
+	public static void setClockHand(ClockHand c) 
+	{
+		clockHand = c;
 	}
 
 }
