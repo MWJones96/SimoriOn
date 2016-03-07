@@ -33,8 +33,6 @@ public class Layer {
 	}
 
 	public boolean[] getButtonsColumn(int x){
-		System.out.println(x);
-		System.out.println(this.buttonArray[x].length);
 		return this.buttonArray[x];
 	}
 
