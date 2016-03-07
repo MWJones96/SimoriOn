@@ -10,7 +10,7 @@ import javax.swing.JButton;
 /**
  * this method is used as part of the GUI to return the buttons as 
  * toggle buttons rather than JButtons. we have used .png files to simulate
- * the left hand L1-3 an R1-3 buttons as well for the on-off buttons that 
+ * the left hand L1-4 an R1-4 buttons as well for the on-off buttons that 
  * are associated with the state of the button for example if L1 is clicked
  * then L1 will turn orange and when clicked again will be turned off and 
  * go back to the default colour, grey.
@@ -19,6 +19,8 @@ import javax.swing.JButton;
  */
 public class FunctionButton extends JButton
 {
+	private static final long serialVersionUID = 1L;
+	
 	private ImageIcon onState;
 	private ImageIcon offState;
 	

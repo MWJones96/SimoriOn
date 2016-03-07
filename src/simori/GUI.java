@@ -113,8 +113,7 @@ public class GUI
 				{
 					ON.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffON.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 					SimoriOn.getInstance().setMode(new OnOffMode());
-					turnOffFunctionButtons();
-					turnOffGridButtons();
+					SimoriOn.getInstance().resetDevice();
 				}
 			}
 
@@ -287,4 +286,11 @@ public class GUI
 			getButton(i, y).setToOnState();
 		}
         }
+
+		public void resetGui() 
+		{
+			LCD.setText(null);
+			turnOffGridButtons();
+			turnOffFunctionButtons();
+		}
 }

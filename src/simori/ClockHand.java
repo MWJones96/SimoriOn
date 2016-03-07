@@ -11,55 +11,30 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @date 09/02/2016.
  */
 
-public class ClockHand implements Runnable {
-
+public class ClockHand implements Runnable 
+{
+	//The final point at which the clock hand will go before looping back
 	private int loopPoint;
-	private int velocity;
+	
+	//The speed at which the clock will loop (in beats per minute)
+	private int loopSpeed;
+	
+	//The velocity of the note
+	private byte velocity;
 
 	public AtomicBoolean running = new AtomicBoolean();
 
 	/**
 	 * Constructor that is used to set the default constructor for which the
-	 * clockhand will run on.
+	 * clock hand will run on.
 	 *
 	 */
 
-	public ClockHand() {
+	public ClockHand() 
+	{
 		this.loopPoint = 16;
+		this.loopSpeed = 60;
 		this.velocity = 64;
-	}
-	
-	/**
-	 * method that sets the veolocity for the main clockhand
-	 * @param velocity
-	 */
-	public void setVelocity(int velocity){
-		this.velocity = velocity;
-	}
-
-	/**
-	 * method that will get the velocity back after it has been set 
-	 * @return
-	 */
-	public int getVelocity(){
-		return velocity;
-	}
-
-	/**
-	 * method that will reset the clockhand after a specific column
-	 * is selected wihtin the GUI. 
-	 * @param loopPoint
-	 */
-	public void setLoopPoint(int loopPoint){
-		this.loopPoint = loopPoint;
-	}
-
-	/**
-	 * method that will get the loop point value back 
-	 * @return
-	 */
-	public int getLoopPoint() {
-		return loopPoint;
 	}
 
 	/**
@@ -70,54 +45,93 @@ public class ClockHand implements Runnable {
 	 *
 	 * @return none - method is void and therefore nothing returned.
 	 */
-	public void run() {
-		System.out.println("Clockhand thread started");
+	@Override
+	public void run() 
+	{
+		System.out.println("Clock hand thread started");
 		running.set(true);
 
-		while (running.get()) {
-
-			for (int i = 0; i < loopPoint; i++) {
+		while (running.get())
+		{
+			//Cycle through all of the columns, then cycle through all the layers, then all the notes in the column
+			
+			for (int i = 0; i < loopPoint; i++) 
+			{
 				SimoriOn.getInstance().getGui().highlightClockColumn(i);
 
-				// Iterate through all selected buttons
-				/*for (int j = 0; j < GridButton.getButtonsSelected().size(); j++) {
-					GridButton button = GridButton.getButtonsSelected().get(j);
-
-					// If selected button is in the current column, play sound
-					if (button.getCoordsX() == i) {
-						// Sound test
-						//(new Thread(new Sounds(50 - button.getCoordsY(), velocity))).start();
-						// New test - use sound processor
-						SimoriOn.getInstance().getSoundProcessor().playSound(35+button.getCoordsY(), velocity);
-
-					}
-				}*/
-				for(int l=0; l<SimoriOn.getInstance().getLayers().length;l++) {
-					for (int j = 0; j < SimoriOn.getInstance().getLayer(l).getButtonsColumn(i).length; j++) {
-						if (SimoriOn.getInstance().getLayer(l).getButtonsColumn(i)[j]) {
+				for(int j = 0; j < SimoriOn.getInstance().getLayers().length; j++) 
+				{
+					for (int k = 0; k < SimoriOn.getInstance().getLayer(j).getButtonsColumn(i).length; k++) 
+					{
+						if (SimoriOn.getInstance().getLayer(j).getButtonsColumn(i)[k]) 
+						{
 							System.out.println("Creating sound");
 							// New test - use sound processor
-							SimoriOn.getInstance().getSoundProcessor().playSound(35 + j, velocity, l);
+							SimoriOn.getInstance().getSoundProcessor().playSound(35 + k, velocity, j);
 						}
 					}
 				}
-
-				if (!running.get()) {
-					for (GridButton button : SimoriOn.getInstance().getGui().buttons) {
-						button.setToOffState();
-					}
+				
+				if(!running.get())
 					break;
-				}
-
-				try {
+				
+				try 
+				{
 					// Sleep for an appropriate amount
 					//System.out.println(Math.round(60000 / SimoriOn.getInstance().getLoopSpeed()));
 					// 60000 ms (1min) / bpm (beats per minute) / 4 (4 steps per beat)
 					Thread.sleep(Math.round(60000 / SimoriOn.getInstance().getLoopSpeed()/4));
-				} catch (InterruptedException e) {
+				} 
+				catch (InterruptedException e) 
+				{
 					e.printStackTrace();
 				}
 			}
+			
 		}
+		
+		//After the clock hand has been turned off, clear the matrix buttons
+		for (GridButton button : SimoriOn.getInstance().getGui().buttons) 
+		{
+			button.setToOffState();
+		}
+		
+	}
+	
+	/**
+	 * method that sets the velocity for the main clock hand
+	 * @param velocity
+	 */
+	public void setVelocity(int velocity)
+	{
+		this.loopSpeed = velocity;
+	}
+
+	/**
+	 * method that will get the velocity back after it has been set 
+	 * @return
+	 */
+	public int getVelocity()
+	{
+		return velocity;
+	}
+
+	/**
+	 * method that will reset the clockhand after a specific column
+	 * is selected wihtin the GUI. 
+	 * @param loopPoint
+	 */
+	public void setLoopPoint(int loopPoint)
+	{
+		this.loopPoint = loopPoint;
+	}
+
+	/**
+	 * method that will get the loop point value back 
+	 * @return
+	 */
+	public int getLoopPoint()
+	{
+		return loopPoint;
 	}
 }

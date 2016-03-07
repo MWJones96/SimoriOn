@@ -53,8 +53,9 @@ public class SimoriOn
 	private SimoriOn() 
 	{
 		mode = new OnOffMode();
-		loopSpeed = 60; // TEMP
-		for(int i=0;i<16;i++){
+		loopSpeed = 60; // Default
+		for(int i = 0; i < 16; i++)
+		{
 			layers[i] = new Layer();
 		}
 		currentLayer = layers[0];
@@ -143,7 +144,17 @@ public class SimoriOn
 	 */
 	public void resetDevice()
 	{
-		instance = new SimoriOn();
+		mode = new OnOffMode();
+		loopSpeed = 60; // Default
+		for(int i = 0; i < 16; i++)
+		{
+			layers[i] = new Layer();
+		}
+		currentLayer = layers[0];
+		soundProcessor = new SoundProcessor();
+		setClockHand(new ClockHand());
+		
+		gui.resetGui();
 	}
 
 	public void setMode(Mode mode) 
@@ -180,6 +191,7 @@ public class SimoriOn
 	{
 		this.currentLayer = layer;
 	}
+	
 	public void setCurrentLayer(int index)
 	{
 		this.currentLayer = this.layers[index];
@@ -199,7 +211,6 @@ public class SimoriOn
 	{
 		return gui;
 	}
-
 
 	public static ClockHand getClockHand() 
 	{
