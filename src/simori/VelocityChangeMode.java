@@ -1,8 +1,5 @@
 package simori;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 /**
  * this is a class that is used under Performance mode when the L2 button is clicked. here, when the grid button 
  * is pressed, the specific column and row will be selected based on the button clicked.  this will choose a node velocity
