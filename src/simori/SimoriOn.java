@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 
 /**
  * this class uses the singleton design pattern to enable methods to be
- * referenced from anywhere within the package using a single instance. the
- * simori-on class is the main class.
+ * referenced from anywhere within the package using a single instance. The
+ * Simori-ON class is the main class.
  * 
  * @author Team G
  * @Verson 1.1;
@@ -50,7 +50,8 @@ public class SimoriOn
 	 * order to be accessed by other classes within the package via the
 	 * singleton pattern
 	 */
-	private SimoriOn() {
+	private SimoriOn() 
+	{
 		mode = new OnOffMode();
 		loopSpeed = 60; // TEMP
 		for(int i=0;i<16;i++){
@@ -67,7 +68,8 @@ public class SimoriOn
 	 * 
 	 * @return
 	 */
-	public static SimoriOn getInstance() {
+	public static SimoriOn getInstance() 
+	{
 		// Singleton pattern..
 		if (instance == null) {
 			instance = new SimoriOn();
@@ -131,6 +133,17 @@ public class SimoriOn
 				frame.setVisible(true);
 			}
 		}.run();
+	}
+	
+	/**Resets all of the attributes of SimoriON without
+	 * redrawing all of the GUI elements.
+	 * 
+	 * Used when the device is switched off/for testing purposes
+	 * 
+	 */
+	public void resetDevice()
+	{
+		instance = new SimoriOn();
 	}
 
 	public void setMode(Mode mode) 
