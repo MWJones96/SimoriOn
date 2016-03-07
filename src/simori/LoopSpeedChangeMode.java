@@ -54,8 +54,7 @@ public class LoopSpeedChangeMode implements Mode
 		System.out.println("SET BPM To " + this.speed);
 
 		SimoriOn.getInstance().getGui().LCD.setText(null);
-
-		SimoriOn.getInstance().setLoopSpeed(this.speed);
+		SimoriOn.getClockHand().setLoopSpeed(this.speed);
 		SimoriOn.getInstance().setMode(new PerformanceMode());
 		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 	}

@@ -27,9 +27,6 @@ public class SimoriOn
 	// The current mode of operation
 	private Mode mode;
 	
-	// The speed of the clock hand (in beats per minute)
-	private int loopSpeed;
-	
 	//The layers that are in the device
 	private Layer[] layers = new Layer[16];
 	
@@ -53,7 +50,6 @@ public class SimoriOn
 	private SimoriOn() 
 	{
 		mode = new OnOffMode();
-		loopSpeed = 60; // Default
 		for(int i = 0; i < 16; i++)
 		{
 			layers[i] = new Layer();
@@ -145,7 +141,6 @@ public class SimoriOn
 	public void resetDevice()
 	{
 		mode = new OnOffMode();
-		loopSpeed = 60; // Default
 		for(int i = 0; i < 16; i++)
 		{
 			layers[i] = new Layer();
@@ -153,18 +148,12 @@ public class SimoriOn
 		currentLayer = layers[0];
 		soundProcessor = new SoundProcessor();
 		setClockHand(new ClockHand());
-		
 		gui.resetGui();
 	}
 
 	public void setMode(Mode mode) 
 	{
 		this.mode = mode;
-	}
-
-	public void setLoopSpeed(int bpm) 
-	{
-		this.loopSpeed = bpm;
 	}
 
 	public SoundProcessor getSoundProcessor()
@@ -195,11 +184,6 @@ public class SimoriOn
 	public void setCurrentLayer(int index)
 	{
 		this.currentLayer = this.layers[index];
-	}
-
-	public int getLoopSpeed()
-	{
-		return this.loopSpeed;
 	}
 
 	public Mode getMode() 

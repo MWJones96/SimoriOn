@@ -80,7 +80,7 @@ public class ClockHand implements Runnable
 					// Sleep for an appropriate amount
 					//System.out.println(Math.round(60000 / SimoriOn.getInstance().getLoopSpeed()));
 					// 60000 ms (1min) / bpm (beats per minute) / 4 (4 steps per beat)
-					Thread.sleep(Math.round(60000 / SimoriOn.getInstance().getLoopSpeed()/4));
+					Thread.sleep(Math.round(60000 / loopSpeed/4));
 				} 
 				catch (InterruptedException e) 
 				{
@@ -133,5 +133,15 @@ public class ClockHand implements Runnable
 	public int getLoopPoint()
 	{
 		return loopPoint;
+	}
+	
+	public void setLoopSpeed(int loopSpeed)
+	{
+		this.loopSpeed = loopSpeed;
+	}
+
+	public int getLoopSpeed()
+	{
+		return loopSpeed;
 	}
 }

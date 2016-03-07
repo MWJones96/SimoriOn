@@ -128,10 +128,12 @@ public class GUI
 				SimoriOn.getInstance().getMode().processOKButton();
 				
 				//Implements button flash as a thread, so that other processes won't be stopped for 250ms
-				new Thread(){
-					
+				new Thread()
+				{	
+					@Override
 					public void run()
 					{
+						writeLayerToGUI(SimoriOn.getInstance().getCurrentLayer());
 						OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOnOK.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 						try {
 							Thread.sleep(250);
@@ -143,6 +145,7 @@ public class GUI
 					}
 					
 				}.start();
+				
 			}
 
 		});
@@ -287,10 +290,22 @@ public class GUI
 		}
         }
 
-		public void resetGui() 
+		public void resetGui()
 		{
 			LCD.setText(null);
 			turnOffGridButtons();
 			turnOffFunctionButtons();
+		}
+		
+		public void writeLayerToGUI(Layer layer)
+		{
+			for(int x = 0; x < 16; x++)
+			{
+				for(int y = 0; y < 16; y++)
+				{
+					if(layer.getButtonState(x, y))
+						buttons[240 - (y * 16) + x].setToOnState();
+				}
+			}
 		}
 }

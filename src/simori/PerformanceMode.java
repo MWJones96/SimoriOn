@@ -18,7 +18,6 @@ public class PerformanceMode implements Mode {
 	 * clock hand that will move now in performance mode.
 	 */
 	public PerformanceMode() {
-		GridButton.clearButtonsSelected();
 		if (SimoriOn.getClockHand() == null) {
 			SimoriOn.setClockHand(new ClockHand());
 			(new Thread(SimoriOn.getClockHand())).start();
