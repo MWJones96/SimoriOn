@@ -42,42 +42,42 @@ public class FunctionButton extends JButton
 		this.setBorderPainted(false);
 		
 		//CANNOT USE SWITCH STATEMENT FOR STRINGS, AS IS JAVA 7 FEATURE
-		if(name == "L1")
+		if(name.equals("L1"))
 		{
 			onState = new ImageIcon(new ImageIcon("./res/ButtonOnL1.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 			offState = new ImageIcon(new ImageIcon("./res/ButtonOffL1.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		}
-		else if(name == "L2")
+		else if(name.equals("L2"))
 		{
 			onState = new ImageIcon(new ImageIcon("./res/ButtonOnL2.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 			offState = new ImageIcon(new ImageIcon("./res/ButtonOffL2.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		}
-		else if(name == "L3")
+		else if(name.equals("L3"))
 		{
 			onState = new ImageIcon(new ImageIcon("./res/ButtonOnL3.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 			offState = new ImageIcon(new ImageIcon("./res/ButtonOffL3.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		}
-		else if(name == "L4")
+		else if(name.equals("L4"))
 		{
 			onState = new ImageIcon(new ImageIcon("./res/ButtonOnL4.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 			offState = new ImageIcon(new ImageIcon("./res/ButtonOffL4.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		}
-		else if(name == "R1")
+		else if(name.equals("R1"))
 		{
 			onState = new ImageIcon(new ImageIcon("./res/ButtonOnR1.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 			offState = new ImageIcon(new ImageIcon("./res/ButtonOffR1.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		}
-		else if(name == "R2")
+		else if(name.equals("R2"))
 		{
 			onState = new ImageIcon(new ImageIcon("./res/ButtonOnR2.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 			offState = new ImageIcon(new ImageIcon("./res/ButtonOffR2.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		}
-		else if(name == "R3")
+		else if(name.equals("R3"))
 		{
 			onState = new ImageIcon(new ImageIcon("./res/ButtonOnR3.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 			offState = new ImageIcon(new ImageIcon("./res/ButtonOffR3.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		}
-		else if(name == "R4")
+		else if(name.equals("R4"))
 		{
 			onState = new ImageIcon(new ImageIcon("./res/ButtonOnR4.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 			offState = new ImageIcon(new ImageIcon("./res/ButtonOffR4.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
@@ -95,21 +95,21 @@ public class FunctionButton extends JButton
 					SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 					SimoriOn.getInstance().getGui().turnOffGridButtons();
 					turnOn();
-					if(buttonName == "L1")
+					if(buttonName.equals("L1"))
 						SimoriOn.getInstance().setMode(new VoiceChangeMode());
-					if(buttonName == "L2")
+					if(buttonName.equals("L2"))
 						SimoriOn.getInstance().setMode(new VelocityChangeMode());
-					if(buttonName == "L3")
+					if(buttonName.equals("L3"))
 						SimoriOn.getInstance().setMode(new LoopSpeedChangeMode());
-					if(buttonName == "L4")
+					if(buttonName.equals("L4"))
 						SimoriOn.getInstance().setMode(new LoopPointChangeMode());
-					if(buttonName == "R1")
+					if(buttonName.equals("R1"))
 						SimoriOn.getInstance().setMode(new LayerChangeMode());
-					if(buttonName == "R2")
+					if(buttonName.equals("R2"))
 						SimoriOn.getInstance().setMode(new SaveConfigurationMode());
-					if(buttonName == "R3")
+					if(buttonName.equals("R3"))
 						SimoriOn.getInstance().setMode(new LoadConfigurationMode());
-					if(buttonName == "R4")
+					if(buttonName.equals("R4"))
 						SimoriOn.getInstance().setMode(new MasterSlaveMode());
 				}
 			}	
