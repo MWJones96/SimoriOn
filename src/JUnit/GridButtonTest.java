@@ -3,13 +3,18 @@ package JUnit;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
+
+import simori.GridButton;
+import simori.SimoriOn;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class GridButtonTest {
 
-public SimoriOn test;
+	public SimoriOn test;
 	@Before
 	public void setUp() throws Exception
 	{
@@ -22,16 +27,10 @@ public SimoriOn test;
 
 	
 	@Test
-	public void testGdridButtonConstructor(int x, int y){
-		GridButton gb = new GridButton(x,y);
-		GridButton egb = new GridButton(x,y);
+	public void testGdridButtonConstructor(){
+		GridButton gb = new GridButton(0, 0);
+		GridButton egb = new GridButton(0, 0);
 		
 		assertEquals(gb,egb);
 	}
-	
-	@Test
-	public void testValidButton(){
-		assertEquals((3,4),(3,4));
-	}
-	
 }

@@ -23,7 +23,7 @@ public class ClockHandTest {
 	@Test
 	public void testRunning()
 	{
-		test.getClockHand().run();
+		SimoriOn.getClockHand().run();
 		
 		//Tests relevant buttons for state on
 		for(int y = 0; y < 16; y += 5)
@@ -44,7 +44,7 @@ public class ClockHandTest {
 		assertFalse(test.getGui().getButton(0, 14).getState());
 		
 		try {
-			Thread.sleep(Math.round(60000 / SimoriOn.getInstance().getLoopSpeed()/4));
+			Thread.sleep(Math.round(60000 / SimoriOn.getClockHand().getLoopSpeed()/4));
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
