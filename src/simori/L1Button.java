@@ -6,10 +6,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 
+/**
+ * class that is used to represent that button for when L1 is pressed. 
+ * this class is a child class from the FunctionButton Parent class. 
+ * this class represents the button and its functionalities for L1 to 
+ * encapsulate it more. 
+ * @author team G
+ *
+ */
+
 public class L1Button extends FunctionButton
 {
 	private static final long serialVersionUID = 1L;
 	
+	//calls upon parent constructor from FunctionButton
 	public L1Button()
 	{
 		super();

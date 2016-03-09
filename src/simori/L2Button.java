@@ -6,6 +6,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 
+/**
+ * class that is used to represent that button for when L2 is pressed. 
+ * this class is a child class from the FunctionButton Parent class. 
+ * this class represents the button and its functionalities for L2 to 
+ * encapsulate it more. 
+ * @author team G
+ *
+ */
 public class L2Button extends FunctionButton
 {
 	private static final long serialVersionUID = 1L;
