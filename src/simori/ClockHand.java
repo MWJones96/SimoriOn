@@ -4,8 +4,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * ClockHand thread class - the object is created when the ON/OFF button is
- * clicked while in ON/OFF mode. Highlights the columns in sequence and sleeps
- * for a fixed amount of time between columns.
+ * clicked while in ON/OFF mode. A “clock hand” continuously loops from left to
+ * right at a set speed as far as a set loop point, playing the notes described
+ * by each layer on its channel, using its voice with its velocity. Notes in
+ * higher rows have higher pitch.
  * 
  * @author Team G
  * @date 09/02/2016.
@@ -56,14 +58,15 @@ public class ClockHand implements Runnable {
 				SimoriOn.getInstance().getGui().highlightClockColumn(i);
 
 				for (int j = 0; j < SimoriOn.getInstance().getLayers().length; j++) {
-					for (int k = 0; k < SimoriOn.getInstance().getLayer(j)
-							.getButtonsColumn(i).length; k++) {
-						if (SimoriOn.getInstance().getLayer(j)
-								.getButtonsColumn(i)[k]) {
+					for (int k = 0; k < SimoriOn.getInstance().getLayer(j).getButtonsColumn(i).length; k++) {
+						if (SimoriOn.getInstance().getLayer(j).getButtonsColumn(i)[k]) {
 							System.out.println("Creating sound");
 							// New test - use sound processor
-							SimoriOn.getInstance().getSoundProcessor()
-									.playSound(35 + k, velocity * 2 /*Low velocities are too quiet to be heard*/, j);
+							SimoriOn.getInstance().getSoundProcessor().playSound(35 + k,
+									velocity * 2 /*
+													 * Low velocities are too quiet
+													 * to be heard
+													 */, j);
 						}
 					}
 				}

@@ -1,8 +1,9 @@
 package simori;
 
 /**
- * class to set up the main performance mode. this is the default mode that the
- * Simori-ON goes into once in ON mode.
+ * Pressing a matrix button causes it to be set and illuminated in orange. Pressing
+ * this button again, causes it to be cleared and not illuminated. The corresponding changes
+ * are made to the current layer.
  * 
  * @author team G
  * @Verson 1.2;

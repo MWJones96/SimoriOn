@@ -1,8 +1,9 @@
 package simori;
 
 /**
- * class that changes the state of the ON/OFF button to be able to switch
- * between on and off when the button is clicked.
+ *A Simori-ON may be switched on by pressing the “ON” button, after which it continues to
+ *Performance Mode. Simori-ON may be switched off by pressing the “ON” button, after which it continues 
+ *to On/Off Mode
  * 
  * @author team G
  * 

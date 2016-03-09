@@ -2,9 +2,9 @@ package simori;
 
 /**
  * this is a class that is used under Performance mode when the L2 button is
- * clicked. here, when the grid button is pressed, the specific column and row
- * will be selected based on the button clicked. this will choose a node
- * velocity which can be between 0-127 and appears on the LCD.
+ * clicked. In this mode Pressing a matrix button causes it and all those in the
+ * same vertical/horizontal line (only) to be set. See Figure 5. The coordinates
+ * of the pressed matrix button are used to choose a note velocity
  * 
  * @author Team G
  * 
@@ -34,17 +34,16 @@ public class VelocityChangeMode implements Mode {
 		System.out.println("Matrix button processed in Velocity Change Mode");
 
 		// Highlight row and column of the button
-		button.getGUI().highlightColumnAndRow(button.getCoordsX(),
-				button.getCoordsY());
+		button.getGUI().highlightColumnAndRow(button.getCoordsX(), button.getCoordsY());
 
 		// Set the velocity to x*y based on the button pressed
 		if (SimoriOn.getClockHand() != null) {
 
-			//Every two squares corresponds to a distinct velocity value, from 0 to 127
-			velocity = (int)((button.getCoordsY() * 16 + button.getCoordsX()) / 2);
+			// Every two squares corresponds to a distinct velocity value, from
+			// 0 to 127
+			velocity = (int) ((button.getCoordsY() * 16 + button.getCoordsX()) / 2);
 
-			SimoriOn.getInstance().getGui()
-					.writeToLCD("Velocity: " + Integer.toString(velocity));
+			SimoriOn.getInstance().getGui().writeToLCD("Velocity: " + Integer.toString(velocity));
 			System.out.println("Set velocity to " + velocity);
 		}
 
