@@ -29,7 +29,8 @@ public class PerformanceMode implements Mode {
 	/**
 	 * overriding method from the Mode class that prints out the coordinate of
 	 * the button clicked in the grid when in the ON mode. if clicked once, the
-	 * button will be slected, and if clicked again, then it will be deselected.
+	 * button will be selected, and if clicked again, then it will be
+	 * de-selected.
 	 */
 	@Override
 	public void processMatrixButton(GridButton button) {
@@ -40,16 +41,25 @@ public class PerformanceMode implements Mode {
 		if (!button.getState()) {
 			button.setToOnState();
 			GridButton.addButtonsSelected(button);
-			SimoriOn.getInstance().getCurrentLayer().setButtonState(button.getCoordsX(), button.getCoordsY(), true);
+			SimoriOn.getInstance()
+					.getCurrentLayer()
+					.setButtonState(button.getCoordsX(), button.getCoordsY(),
+							true);
 		} else {
 			button.setToOffState();
 			GridButton.removeButtonsSelected(button);
-			SimoriOn.getInstance().getCurrentLayer().setButtonState(button.getCoordsX(), button.getCoordsY(), false);
+			SimoriOn.getInstance()
+					.getCurrentLayer()
+					.setButtonState(button.getCoordsX(), button.getCoordsY(),
+							false);
 
 		}
 	}
 
-	public void processOKButton(){
+	/**
+	 * method that will reset when the OK button is pressed.
+	 */
+	public void processOKButton() {
 
 	}
 

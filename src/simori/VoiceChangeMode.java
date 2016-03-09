@@ -25,11 +25,12 @@ public class VoiceChangeMode implements Mode {
 		}
 		SimoriOn.getInstance().getGui().turnOffGridButtons();
 
-		this.allInstruments = SimoriOn.getInstance().getSoundProcessor().getSynth().getDefaultSoundbank().getInstruments();
+		this.allInstruments = SimoriOn.getInstance().getSoundProcessor()
+				.getSynth().getDefaultSoundbank().getInstruments();
 	}
 
 	/**
-	 * ovveriding method from the Mode class to enable functionality of the
+	 * overriding method from the Mode class to enable functionality of the
 	 * buttons.
 	 */
 	@Override
@@ -38,7 +39,8 @@ public class VoiceChangeMode implements Mode {
 		System.out.println("Matrix button processed in Voice Change Mode");
 
 		// Highlight row and column of the button
-		button.getGUI().highlightColumnAndRow(button.getCoordsX(), button.getCoordsY());
+		button.getGUI().highlightColumnAndRow(button.getCoordsX(),
+				button.getCoordsY());
 
 		// Set instrument variable
 		if (button.getCoordsX() * button.getCoordsY() <= 128) {
@@ -48,15 +50,19 @@ public class VoiceChangeMode implements Mode {
 		}
 
 		// Write out instrument name onto LCD
-		SimoriOn.getInstance().getGui().writeToLCD("Instrument: " + allInstruments[instrument].getName());
+		SimoriOn.getInstance()
+				.getGui()
+				.writeToLCD(
+						"Instrument: " + allInstruments[instrument].getName());
 
 	}
-	
+
 	/**
-	 * @inheritDoc
+	 * method that is used when the OK button is pressed. this sets the LCD back
+	 * to NULL and get the current instrument that is being used. now it will
+	 * also back to the performance mode.
 	 */
-	public void processOKButton()
-	{
+	public void processOKButton() {
 		SimoriOn.getInstance().getGui().LCD.setText(null);
 		SimoriOn.getInstance().getCurrentLayer().setInstrument(this.instrument);
 		SimoriOn.getInstance().setMode(new PerformanceMode());

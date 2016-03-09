@@ -1,7 +1,7 @@
 package simori;
 
 /**
- * an interface that contains one method. this is a basic template that buttons
+ * Interface that contains one method. this is a basic template that buttons
  * that need some form of functionality should have allows for some
  * functionality of a button on the grid.
  * 
@@ -20,5 +20,6 @@ public interface Mode {
 	 *            is an instance of the GridButton class
 	 */
 	public abstract void processMatrixButton(GridButton button);
+
 	public void processOKButton();
 }

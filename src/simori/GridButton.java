@@ -16,8 +16,7 @@ import javax.swing.JButton;
  * @author Team G
  * @date 09/02/2016
  */
-public class GridButton extends JButton
-{
+public class GridButton extends JButton {
 	private static final long serialVersionUID = 1L;
 	// The X and Y co-ord of the button
 	private final int x;
@@ -26,9 +25,13 @@ public class GridButton extends JButton
 	private boolean on = false;
 	// Contains all buttons that are currently selected on the grid
 	private static ArrayList<GridButton> buttonsSelected = new ArrayList<GridButton>();
-	
-	private ImageIcon imgOn = new ImageIcon(new ImageIcon("./res/ButtonOnGRID.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
-	private ImageIcon imgOff = new ImageIcon(new ImageIcon("./res/ButtonOffGRID.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+
+	private ImageIcon imgOn = new ImageIcon(new ImageIcon(
+			"./res/ButtonOnGRID.png").getImage().getScaledInstance(30, 30,
+			Image.SCALE_SMOOTH));
+	private ImageIcon imgOff = new ImageIcon(new ImageIcon(
+			"./res/ButtonOffGRID.png").getImage().getScaledInstance(30, 30,
+			Image.SCALE_SMOOTH));
 
 	/**
 	 * constructor that is used that takes into account 3 arguments. performs
@@ -45,7 +48,7 @@ public class GridButton extends JButton
 		this.setOpaque(false);
 		this.setContentAreaFilled(false);
 		this.setBorderPainted(false);
-		
+
 		this.setBorderPainted(false);
 		this.x = x;
 		this.y = y;
@@ -74,22 +77,22 @@ public class GridButton extends JButton
 	}
 
 	/**
-	 * method that is used whilst clicking. when a button is cliked, it should
+	 * method that is used while clicking. when a button is clicked, it should
 	 * stay highlighted.
 	 * 
 	 * @param b
-	 *            the button to be slected
+	 *            the button to be selected
 	 */
 	public static void addButtonsSelected(GridButton b) {
 		buttonsSelected.add(b);
 	}
 
 	/**
-	 * method that is used whilst clicking. when a button is cliked, it should
-	 * the colour will reutrn to default state.
+	 * method that is used while clicking. when a button is clicked, it should
+	 * the colour will return to default state.
 	 * 
 	 * @param b
-	 *            the button to be deselected
+	 *            the button to be de-selected
 	 */
 	public static void removeButtonsSelected(GridButton b) {
 		buttonsSelected.remove(b);
@@ -104,7 +107,7 @@ public class GridButton extends JButton
 	}
 
 	/**
-	 * method that retreives the x coordinates for button selected and returns
+	 * method that retrieves the x coordinates for button selected and returns
 	 * the coordinate
 	 * 
 	 * @return x the x coordinate of button clicked
@@ -124,9 +127,9 @@ public class GridButton extends JButton
 	}
 
 	/**
-	 * method that retreives the gui object and returns the gui object
+	 * method that retrieves the GUI object and returns the GUI object
 	 * 
-	 * @return gui the interface object launched
+	 * @return GUI instance the interface object launched
 	 */
 	public GUI getGUI() {
 		return SimoriOn.getInstance().getGui();

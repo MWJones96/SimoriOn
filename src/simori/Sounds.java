@@ -38,7 +38,7 @@ public class Sounds implements Runnable {
 	}
 
 	/**
-	 * run method will play initiliase the synthesizer and then play the
+	 * run method will play initialise the synthesizer and then play the
 	 * appropriate instrument at that specific button.
 	 */
 	public void run() {
@@ -48,7 +48,7 @@ public class Sounds implements Runnable {
 	}
 
 	/**
-	 * a method that reutns the intance of the synthesizer for that specific
+	 * a method that returns the instance of the synthesizer for that specific
 	 * object.
 	 * 
 	 * @return

@@ -1,15 +1,14 @@
 package simori;
 
-public class MasterSlaveMode implements Mode
-{
+public class MasterSlaveMode implements Mode {
 
 	@Override
 	public void processMatrixButton(GridButton button) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public void processOKButton(){
+	public void processOKButton() {
 
 	}
 
