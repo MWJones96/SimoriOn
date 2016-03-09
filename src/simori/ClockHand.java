@@ -32,7 +32,7 @@ public class ClockHand implements Runnable {
 	public ClockHand() {
 		this.loopPoint = 16;
 		this.loopSpeed = 60;
-		this.velocity = 64;
+		this.velocity = 32;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class ClockHand implements Runnable {
 							System.out.println("Creating sound");
 							// New test - use sound processor
 							SimoriOn.getInstance().getSoundProcessor()
-									.playSound(35 + k, velocity * 3 /*Low velocities are too quiet to be heard*/, j);
+									.playSound(35 + k, velocity * 2 /*Low velocities are too quiet to be heard*/, j);
 						}
 					}
 				}

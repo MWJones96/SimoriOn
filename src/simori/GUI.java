@@ -30,14 +30,12 @@ public class GUI {
 	public JTextField LCD = new JTextField(15);
 
 	// Left buttons
-	public FunctionButton L1 = new FunctionButton("L1"),
-			L2 = new FunctionButton("L2"), L3 = new FunctionButton("L3"),
-			L4 = new FunctionButton("L4");
+	public FunctionButton L1 = new L1Button(), L2 = new L2Button(),
+						  L3 = new L3Button(), L4 = new L4Button();
 
 	// Right buttons
-	public FunctionButton R1 = new FunctionButton("R1"),
-			R2 = new FunctionButton("R2"), R3 = new FunctionButton("R3"),
-			R4 = new FunctionButton("R4");
+	public FunctionButton R1 = new R1Button(), R2 = new R2Button(),
+						  R3 = new R3Button(), R4 = new R4Button();
 
 	// ON/OFF button; OK button
 	public JButton ON = new JButton(), OK = new JButton();
