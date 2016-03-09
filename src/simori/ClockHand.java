@@ -19,7 +19,7 @@ public class ClockHand implements Runnable {
 	private int loopSpeed;
 
 	// The velocity of the note
-	private byte velocity;
+	private int velocity;
 
 	public AtomicBoolean running = new AtomicBoolean();
 
@@ -63,7 +63,7 @@ public class ClockHand implements Runnable {
 							System.out.println("Creating sound");
 							// New test - use sound processor
 							SimoriOn.getInstance().getSoundProcessor()
-									.playSound(35 + k, velocity, j);
+									.playSound(35 + k, velocity * 3 /*Low velocities are too quiet to be heard*/, j);
 						}
 					}
 				}
@@ -98,7 +98,7 @@ public class ClockHand implements Runnable {
 	 * @param velocity
 	 */
 	public void setVelocity(int velocity) {
-		this.loopSpeed = velocity;
+		this.velocity = velocity;
 	}
 
 	/**

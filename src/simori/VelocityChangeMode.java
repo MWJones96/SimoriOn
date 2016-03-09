@@ -60,7 +60,6 @@ public class VelocityChangeMode implements Mode {
 	 */
 	public void processOKButton() {
 		SimoriOn.getInstance().getGui().LCD.setText(null);
-
 		SimoriOn.getClockHand().setVelocity(velocity);
 		SimoriOn.getInstance().setMode(new PerformanceMode());
 		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
