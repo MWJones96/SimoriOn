@@ -13,7 +13,7 @@ public class VelocityChangeMode implements Mode {
 	private int velocity;
 
 	/**
-	 * constructor that creates the clockhand in a non runnable state.
+	 * constructor that creates the clock hand in a non-runnable state.
 	 */
 	public VelocityChangeMode() {
 		if (SimoriOn.getClockHand() != null) {
@@ -40,6 +40,7 @@ public class VelocityChangeMode implements Mode {
 		// Set the velocity to x*y based on the button pressed
 		if (SimoriOn.getClockHand() != null) {
 
+			//Every two squares corresponds to a distinct velocity value, from 0 to 127
 			velocity = (int)((button.getCoordsY() * 16 + button.getCoordsX()) / 2);
 
 			SimoriOn.getInstance().getGui()

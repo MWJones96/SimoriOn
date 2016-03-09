@@ -43,10 +43,10 @@ public class VoiceChangeMode implements Mode {
 				button.getCoordsY());
 
 		// Set instrument variable
-		if (button.getCoordsX() * button.getCoordsY() <= 128) {
-			this.instrument = button.getCoordsX() * button.getCoordsY();
+		if (button.getCoordsX() * button.getCoordsY() < allInstruments.length) {
+			this.instrument = (int)(button.getCoordsY() * 16 + button.getCoordsX());
 		} else {
-			this.instrument = 128;
+			this.instrument = allInstruments.length - 1;
 		}
 
 		// Write out instrument name onto LCD
