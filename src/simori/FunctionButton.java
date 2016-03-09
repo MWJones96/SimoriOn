@@ -29,8 +29,6 @@ public class FunctionButton extends JButton {
 	/**
 	 * constructor that will take the default state of the functional button
 	 * that is - before the button has been clicked, give it the default state.
-	 * 
-	 * @param name
 	 */
 	public FunctionButton() {
 		this.setOpaque(false);

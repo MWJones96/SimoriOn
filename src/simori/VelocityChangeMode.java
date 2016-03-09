@@ -40,12 +40,7 @@ public class VelocityChangeMode implements Mode {
 		// Set the velocity to x*y based on the button pressed
 		if (SimoriOn.getClockHand() != null) {
 
-			if (button.getCoordsX() * button.getCoordsY() <= 127) {
-				velocity = button.getCoordsX() * button.getCoordsY();
-
-			} else {
-				velocity = 127;
-			}
+			velocity = (int)((button.getCoordsY() * 16 + button.getCoordsX()) / 2);
 
 			SimoriOn.getInstance().getGui()
 					.writeToLCD("Velocity: " + Integer.toString(velocity));
