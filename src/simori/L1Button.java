@@ -23,9 +23,9 @@ public class L1Button extends FunctionButton
 	public L1Button()
 	{
 		super();
-		onState = new ImageIcon(new ImageIcon("./res/ButtonOnL1.png")
+		onState = new ImageIcon(new ImageIcon("res/ButtonOnL1.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-		offState = new ImageIcon(new ImageIcon("./res/ButtonOffL1.png")
+		offState = new ImageIcon(new ImageIcon("res/ButtonOffL1.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		
 		this.addActionListener(new ActionListener() {

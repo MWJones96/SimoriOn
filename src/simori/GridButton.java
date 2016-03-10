@@ -26,11 +26,9 @@ public class GridButton extends JButton {
 	// Contains all buttons that are currently selected on the grid
 	private static ArrayList<GridButton> buttonsSelected = new ArrayList<GridButton>();
 
-	private ImageIcon imgOn = new ImageIcon(new ImageIcon(
-			"./res/ButtonOnGRID.png").getImage().getScaledInstance(30, 30,
+	private ImageIcon imgOn = new ImageIcon(new ImageIcon(GridButton.class.getClassLoader.getResource("./res/ButtonOnGRID.png").getImage().getScaledInstance(30, 30,
 			Image.SCALE_SMOOTH));
-	private ImageIcon imgOff = new ImageIcon(new ImageIcon(
-			"./res/ButtonOffGRID.png").getImage().getScaledInstance(30, 30,
+	private ImageIcon imgOff = new ImageIcon(new ImageIcon("./res/ButtonOffGRID.png").getImage().getScaledInstance(30, 30,
 			Image.SCALE_SMOOTH));
 
 	/**

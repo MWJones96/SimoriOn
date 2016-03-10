@@ -21,9 +21,9 @@ public class R4Button extends FunctionButton
 	public R4Button()
 	{
 		super();
-		onState = new ImageIcon(new ImageIcon("./res/ButtonOnR4.png")
+		onState = new ImageIcon(new ImageIcon("res/ButtonOnR4.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-		offState = new ImageIcon(new ImageIcon("./res/ButtonOffR4.png")
+		offState = new ImageIcon(new ImageIcon("res/ButtonOffR4.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		
 		this.addActionListener(new ActionListener() {

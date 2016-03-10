@@ -21,9 +21,9 @@ public class R3Button extends FunctionButton
 	public R3Button()
 	{
 		super();
-		onState = new ImageIcon(new ImageIcon("./res/ButtonOnR3.png")
+		onState = new ImageIcon(new ImageIcon("res/ButtonOnR3.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-		offState = new ImageIcon(new ImageIcon("./res/ButtonOffR3.png")
+		offState = new ImageIcon(new ImageIcon("res/ButtonOffR3.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		
 		this.addActionListener(new ActionListener() {

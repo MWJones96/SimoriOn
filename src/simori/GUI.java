@@ -183,7 +183,7 @@ public class GUI {
 	}
 
 	/**
-	 * method that gets the specific coordinates of a button that has ben cicked
+	 * method that gets the specific coordinates of a button that has been clicked
 	 * on the GUI, as a result, it has to use have a type of GridButton
 	 * 
 	 * @param x

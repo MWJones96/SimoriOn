@@ -21,9 +21,9 @@ public class R2Button extends FunctionButton
 	public R2Button()
 	{
 		super();
-		onState = new ImageIcon(new ImageIcon("./res/ButtonOnR2.png")
+		onState = new ImageIcon(new ImageIcon("res/ButtonOnR2.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-		offState = new ImageIcon(new ImageIcon("./res/ButtonOffR2.png")
+		offState = new ImageIcon(new ImageIcon("res/ButtonOffR2.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		
 		this.addActionListener(new ActionListener() {

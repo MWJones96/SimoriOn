@@ -20,9 +20,9 @@ public class R1Button extends FunctionButton
 	public R1Button()
 	{
 		super();
-		onState = new ImageIcon(new ImageIcon("./res/ButtonOnR1.png")
+		onState = new ImageIcon(new ImageIcon("res/ButtonOnR1.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-		offState = new ImageIcon(new ImageIcon("./res/ButtonOffR1.png")
+		offState = new ImageIcon(new ImageIcon("res/ButtonOffR1.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		
 		this.addActionListener(new ActionListener() {

@@ -21,9 +21,9 @@ public class L3Button extends FunctionButton
 	public L3Button()
 	{
 		super();
-		onState = new ImageIcon(new ImageIcon("./res/ButtonOnL3.png")
+		onState = new ImageIcon(new ImageIcon("res/ButtonOnL3.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-		offState = new ImageIcon(new ImageIcon("./res/ButtonOffL3.png")
+		offState = new ImageIcon(new ImageIcon("res/ButtonOffL3.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		
 		this.addActionListener(new ActionListener() {

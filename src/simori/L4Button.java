@@ -20,9 +20,9 @@ public class L4Button extends FunctionButton
 	public L4Button()
 	{
 		super();
-		onState = new ImageIcon(new ImageIcon("./res/ButtonOnL4.png")
+		onState = new ImageIcon(new ImageIcon("res/ButtonOnL4.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-		offState = new ImageIcon(new ImageIcon("./res/ButtonOffL4.png")
+		offState = new ImageIcon(new ImageIcon("res/ButtonOffL4.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		
 		this.addActionListener(new ActionListener() {

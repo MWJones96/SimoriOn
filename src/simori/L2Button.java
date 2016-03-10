@@ -21,9 +21,9 @@ public class L2Button extends FunctionButton
 	public L2Button()
 	{
 		super();
-		onState = new ImageIcon(new ImageIcon("./res/ButtonOnL2.png")
+		onState = new ImageIcon(new ImageIcon("res/ButtonOnL2.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-		offState = new ImageIcon(new ImageIcon("./res/ButtonOffL2.png")
+		offState = new ImageIcon(new ImageIcon("res/ButtonOffL2.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		
 		this.addActionListener(new ActionListener() {
