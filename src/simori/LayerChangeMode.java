@@ -46,10 +46,11 @@ public class LayerChangeMode implements Mode {
 	 * method to perform actions when the OK button is pressed.
 	 */
 	public void processOKButton() {
+            // Resume performance mode
+		SimoriOn.getInstance().setMode(new PerformanceMode());
 		// Set layer to corresponding y coordinate of button clicked
 		SimoriOn.getInstance().setCurrentLayer(Layer);
-		// Resume performance mode
-		SimoriOn.getInstance().setMode(new PerformanceMode());
+		
 		// Clear function button clicked
 		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 	}

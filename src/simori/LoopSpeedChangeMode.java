@@ -55,7 +55,7 @@ public class LoopSpeedChangeMode implements Mode {
 	}
 
 	/**
-	 * once the oK button is pressed, then it will go back to performance mode.
+	 * once the OK button is pressed, then it will go back to performance mode.
 	 */
 	public void processOKButton() {
 		System.out.println("SET BPM To " + this.speed);
