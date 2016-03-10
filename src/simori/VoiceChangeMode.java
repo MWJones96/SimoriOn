@@ -48,7 +48,7 @@ public class VoiceChangeMode implements Mode {
 		button.getGUI().highlightColumnAndRow(button.getCoordsX(), button.getCoordsY());
 
 		// Set instrument variable
-		if (button.getCoordsX() * button.getCoordsY() < allInstruments.length) {
+		if ((button.getCoordsY() * 16 + button.getCoordsX()) < allInstruments.length) {
 			this.instrument = (int) (button.getCoordsY() * 16 + button.getCoordsX());
 		} else {
 			this.instrument = allInstruments.length - 1;
@@ -70,6 +70,10 @@ public class VoiceChangeMode implements Mode {
 		SimoriOn.getInstance().setMode(new PerformanceMode());
 		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 
+	}
+
+	public int getInstrument() {
+		return instrument;
 	}
 
 }
