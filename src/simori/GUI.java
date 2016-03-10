@@ -242,16 +242,17 @@ public class GUI {
 	 * @param x
 	 */
 	public void highlightClockColumn(int x) {
-		// Turn off all buttons
-		for (GridButton button : buttons) {
-			if (!(GridButton.getButtonsSelected().contains(button))) {
-				button.setToOffState();
+		
+		// Turn off all buttons that aren't on the layer
+		for (int i = 0; i < 16 * 16; i++) {
+			if (!(SimoriOn.getInstance().getCurrentLayer().getButtonArray()[i % 16][(int)i/16])) {
+				SimoriOn.getInstance().getGui().getButton(i % 16, (int)i/16).setToOffState();
 			}
 		}
 
 		// Highlight every 5 buttons in the same column
-		for (int i = 0; i < 16; i += 5) {
-			getButton(x, i).setToOnState();
+		for (int j = 0; j < 16;j += 5) {
+			getButton(x, j).setToOnState();
 		}
 
 	}
