@@ -16,10 +16,14 @@ public class VoiceChangeModeTest {
 
 	@Before
 	public void setUp() throws Exception {
+
+		// Create SimoriOn and voice change mode instances
 		test = SimoriOn.getInstance();
 		test.makeDisplay();
 		vcm = new VoiceChangeMode();
 		test.setMode(vcm);
+
+		// Create grid button mock objects
 		gb1 = new GridButton(6, 4);
 		gb2 = new GridButton(14, 3);
 		gb3 = new GridButton(15, 15);
@@ -29,15 +33,21 @@ public class VoiceChangeModeTest {
 
 	@Test
 	public void testVoiceChangeMode(){
+
+		// Test for correctness of the instrument
+		// variable after a button is pressed
+
 		vcm.processMatrixButton(gb1);
 		assertEquals(vcm.getInstrument(), 70);
 
 		vcm.processMatrixButton(gb2);
 		assertEquals(vcm.getInstrument(), 62);
 
+		// Defaults to last element of allInstruments array
 		vcm.processMatrixButton(gb3);
 		assertEquals(vcm.getInstrument(), 234);
 
+		// Defaults to last element of allInstruments array
 		vcm.processMatrixButton(gb4);
 		assertEquals(vcm.getInstrument(), 234);
 
