@@ -38,7 +38,7 @@ public class LayerChangeMode implements Mode {
 		button.getGUI().highlightOneRow(Layer);
 		// Display on LCD the layer clicked based on y coordinate of button
 		SimoriOn.getInstance().getGui()
-				.writeToLCD("Layer: " + Integer.toString(Layer));
+				.writeToLCD("Layer: " + Integer.toString(Layer + 1));
 
 	}
 
