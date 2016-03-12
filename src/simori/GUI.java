@@ -297,7 +297,21 @@ public class GUI {
 			getButton(i, y).setToOnState();
 		}
 	}
-
+	
+	/**Highlights a 1x4 segment on the GUI. Used for Save and Load
+	 * Configuration mode to select letters in the alphabet along with
+	 * space and backspace.
+	 * 
+	 * @param x, y: co-ords clicked on the GUI
+	 */
+	public void highlightSegment(int x, int y)
+	{
+		getButton(x, (int) 4 * (y / 4) + ((y + 0) % 4)).setToOnState();
+		getButton(x, (int) 4 * (y / 4) + ((y + 1) % 4)).setToOnState();
+		getButton(x, (int) 4 * (y / 4) + ((y + 2) % 4)).setToOnState();
+		getButton(x, (int) 4 * (y / 4) + ((y + 3) % 4)).setToOnState();
+	}
+	
 	/**
 	 * method that will reset the GUI back to the original state of the GUI
 	 * 

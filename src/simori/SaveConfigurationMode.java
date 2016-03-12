@@ -37,8 +37,9 @@ public class SaveConfigurationMode implements Mode {
 	 */
 	@Override
 	public void processMatrixButton(GridButton button) {
+		SimoriOn.getInstance().getGui().highlightSegment(button.getCoordsX(), button.getCoordsY());
 		// TODO Auto-generated method stub
-		System.out
+		/*System.out
 				.println("Matrix button processed in Save Configuration Mode");
 
 		// Highlight row and column of the button
@@ -70,7 +71,7 @@ public class SaveConfigurationMode implements Mode {
 		else {
 			currentText += alph[(15 - y) / 3][x / 3] + "";
 		}
-		SimoriOn.getInstance().getGui().writeToLCD(currentText);
+		SimoriOn.getInstance().getGui().writeToLCD(currentText);*/
 
 	}
 
@@ -79,7 +80,6 @@ public class SaveConfigurationMode implements Mode {
 	 * performance mode.
 	 */
 	public void processOKButton() {
-
 	}
 
 }
