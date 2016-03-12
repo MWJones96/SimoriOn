@@ -1,5 +1,9 @@
 package simori;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
 /**
  * this is a class that is activated when the R2 button is clicked. this mode is
  * the Save Configuration mode. when a matrix button is pressed, is causes the
@@ -8,9 +12,9 @@ package simori;
  * filename, which is up to the user and be given a .song extension when saved.
  * once the OK button is pressed, the configuration is saved and go back to
  * performance mode.
- * 
+ *
  * @author team G
- * 
+ *
  */
 public class SaveConfigurationMode implements Mode {
 	char[][] alph = { { 'a', 'b', 'c', 'd', 'e' }, { 'f', 'g', 'h', 'i', 'j' },
@@ -79,6 +83,42 @@ public class SaveConfigurationMode implements Mode {
 	 * performance mode.
 	 */
 	public void processOKButton() {
+
+		try {
+
+			// Create new PrintWriter to write to selected filename
+			PrintWriter writer = new PrintWriter(currentText + ".song", "UTF-8");
+
+			// Get array of all layers
+			Layer[] layers = SimoriOn.getInstance().getLayers();
+
+			// For each layer iterate through the button array and print
+			// its binary values to the file
+			for (int i=0; i< layers.length; i++){
+
+				for (int j=0; j< 256; j++){
+					writer.print((layers[i].getButtonArray()[j % 16] [j / 16]) ? 1:0);
+				}
+				// Each line in the file represents a separate layer
+				writer.println();
+			}
+
+			// Close the PrintWriter when done
+			writer.close();
+
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (UnsupportedEncodingException e){
+			e.printStackTrace();
+		}
+		System.out.println("Saved configuration to " + currentText + ".song");
+
+		SimoriOn.getInstance().getGui().LCD.setText(null);
+		SimoriOn.getInstance().setMode(new PerformanceMode());
+		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 
 	}
 
