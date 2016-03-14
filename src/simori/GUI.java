@@ -297,11 +297,7 @@ public class GUI {
 			getButton(i, y).setToOnState();
 		}
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> d01bf718623af74fdef5500014b0dc3343a63bc2
 	/**Highlights a 1x4 segment on the GUI. Used for Save and Load
 	 * Configuration mode to select letters in the alphabet along with
 	 * space and backspace.
@@ -315,11 +311,7 @@ public class GUI {
 		getButton(x, (int) 4 * (y / 4) + ((y + 2) % 4)).setToOnState();
 		getButton(x, (int) 4 * (y / 4) + ((y + 3) % 4)).setToOnState();
 	}
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> d01bf718623af74fdef5500014b0dc3343a63bc2
 	/**
 	 * method that will reset the GUI back to the original state of the GUI
 	 * 
