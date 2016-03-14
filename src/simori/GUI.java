@@ -38,7 +38,7 @@ public class GUI {
 						  R3 = new R3Button(), R4 = new R4Button();
 
 	// ON/OFF button; OK button
-	public JButton ON = new JButton(), OK = new JButton();
+	public FunctionButton ON = new ONButton(), OK = new OKButton();
 
 	// Array for 16x16 grid buttons
 	public GridButton buttons[] = new GridButton[16 * 16];
@@ -106,60 +106,7 @@ public class GUI {
 
 		OK.setOpaque(false);
 		OK.setContentAreaFilled(false);
-		OK.setBorderPainted(false);
-
-		ON.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-					ON.setIcon(new ImageIcon(new ImageIcon(
-							"./res/ButtonOnON.png").getImage()
-							.getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-					SimoriOn.getInstance().setMode(new PerformanceMode());
-				} else {
-					ON.setIcon(new ImageIcon(new ImageIcon(
-							"./res/ButtonOffON.png").getImage()
-							.getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-					SimoriOn.getInstance().setMode(new OnOffMode());
-					SimoriOn.getInstance().resetDevice();
-				}
-			}
-
-		});
-
-		OK.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				SimoriOn.getInstance().getMode().processOKButton();
-
-				// Implements button flash as a thread, so that other processes
-				// won't be stopped for 250ms
-				new Thread() {
-					@Override
-					public void run() {
-						writeLayerToGUI(SimoriOn.getInstance()
-								.getCurrentLayer());
-						OK.setIcon(new ImageIcon(new ImageIcon(
-								"./res/ButtonOnOK.png").getImage()
-								.getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-						try {
-							Thread.sleep(250);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						OK.setIcon(new ImageIcon(new ImageIcon(
-								"./res/ButtonOffOK.png").getImage()
-								.getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-					}
-
-				}.start();
-
-			}
-
-		});
+		OK.setBorderPainted(false);	
 	}
 
 	/**
