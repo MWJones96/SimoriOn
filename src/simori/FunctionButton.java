@@ -1,8 +1,5 @@
 package simori;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -34,18 +31,6 @@ public class FunctionButton extends JButton {
 		this.setOpaque(false);
 		this.setContentAreaFilled(false);
 		this.setBorderPainted(false);
-
-		this.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
-				} else if (!state) {
-					state = true;
-					SimoriOn.getInstance().getGui().turnOffFunctionButtons();
-					SimoriOn.getInstance().getGui().turnOffGridButtons();
-					turnOn();
-				}
-			}
-		});
 	}
 
 	/**
