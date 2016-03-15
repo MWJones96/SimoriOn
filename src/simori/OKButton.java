@@ -30,6 +30,9 @@ public class OKButton extends FunctionButton
 				{
 					@Override
 					public void run() {
+						//If ON/OFF, then return
+						if(SimoriOn.getInstance().getMode() instanceof OnOffMode){return;}
+						
 						SimoriOn.getInstance().getGui().writeLayerToGUI(SimoriOn.getInstance()
 								.getCurrentLayer());
 						OKButton.this.setIcon(new ImageIcon(new ImageIcon(

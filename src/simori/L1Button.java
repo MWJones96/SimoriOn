@@ -30,6 +30,7 @@ public class L1Button extends FunctionButton
 		
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {}
 				else if (!state) {
 					state = true;

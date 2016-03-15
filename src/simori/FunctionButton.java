@@ -14,7 +14,7 @@ import javax.swing.JButton;
  * @author team G
  * 
  */
-public class FunctionButton extends JButton {
+public abstract class FunctionButton extends JButton {
 	private static final long serialVersionUID = 1L;
 
 	protected ImageIcon onState;
