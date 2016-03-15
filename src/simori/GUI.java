@@ -73,22 +73,22 @@ public class GUI {
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 
 		// Set position/size of left buttons
-		L1.setBounds(20, 100, 50, 50);
-		L2.setBounds(20, 200, 50, 50);
-		L3.setBounds(20, 300, 50, 50);
-		L4.setBounds(20, 400, 50, 50);
+		L1.setBounds(20, 80, 50, 50);
+		L2.setBounds(20, 180, 50, 50);
+		L3.setBounds(20, 280, 50, 50);
+		L4.setBounds(20, 380, 50, 50);
 
 		// Set position/size of right buttons
-		R1.setBounds(625, 100, 50, 50);
-		R2.setBounds(625, 200, 50, 50);
-		R3.setBounds(625, 300, 50, 50);
-		R4.setBounds(625, 400, 50, 50);
+		R1.setBounds(625, 80, 50, 50);
+		R2.setBounds(625, 180, 50, 50);
+		R3.setBounds(625, 280, 50, 50);
+		R4.setBounds(625, 380, 50, 50);
 
 		// Set position/size of top/bottom buttons
-		ON.setBounds(325, 40, 50, 50);
-		OK.setBounds(550, 605, 50, 50);
-		LCD.setBounds(200, 605, 300, 50);
-		display.setBounds(150, 605, 300, 50);
+		ON.setBounds(325, 20, 50, 50);
+		OK.setBounds(550, 585, 50, 50);
+		LCD.setBounds(200, 585, 300, 50);
+		display.setBounds(150, 585, 300, 50);
 
 		// Changes TextBox to look more like an LCD
 		LCD.setEditable(false);

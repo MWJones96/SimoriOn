@@ -3,7 +3,6 @@ package simori;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -85,7 +84,7 @@ public class SimoriOn {
 				// set default values for the grid and grid dimensions
 				panel.setLayout(null);
 				grid.setLayout(new GridLayout(16, 16));
-				grid.setBounds(100, 100, 500, 500);
+				grid.setBounds(100, 80, 500, 500);
 
 				// Create and add grid buttons
 				for (int i = 0; i < 16 * 16; i++) {
@@ -113,24 +112,16 @@ public class SimoriOn {
 
 				// set location in center of screen
 				frame.setLocation(400, 100);
-				frame.setPreferredSize(new Dimension(700, 695));
-				frame.setSize(new Dimension(700, 695));
-				frame.setMinimumSize(new Dimension(700, 695));
-				frame.setMaximumSize(new Dimension(700, 695));
+				frame.setPreferredSize(new Dimension(700, 675));
+				frame.setSize(new Dimension(700, 675));
+				frame.setMinimumSize(new Dimension(700, 675));
+				frame.setMaximumSize(new Dimension(700, 675));
 				frame.setResizable(false);
-				// set screen size to adapt to different screen dimensions
-				// should stay in centre of screen when executed on all
-				// screens.
-				Toolkit screen = Toolkit.getDefaultToolkit();
-				Dimension screenSize = screen.getScreenSize();
-				int screenWidth = screenSize.width;
-				int screenHeight = screenSize.height;
 
 				// Sets fav-icon of the frame
 				frame.setIconImage(new ImageIcon("./res/ButtonOnGRID.png")
 						.getImage());
 
-				frame.setLocation(screenWidth / 4, screenHeight / 8);
 				// Add gui panel to JFrame
 				frame.add(panel);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
