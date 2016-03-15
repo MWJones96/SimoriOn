@@ -100,36 +100,40 @@ public class LoadConfigurationMode implements Mode {
             BufferedReader reader = null;   
             try {
                 // Read file with inputted text
-                File file = new File("./songs/" + currentText + ".song", "UTF-8");
+                File file = new File("./songs/" + currentText + ".song");
                 reader = new BufferedReader(new FileReader(file));
 
                 String line;
-                // Read line by line and set button array for each layer accordingly
-               
+
                 // Get array of all layers
-		Layer[] layers = SimoriOn.getInstance().getLayers();
-               
+				Layer[] layers = SimoriOn.getInstance().getLayers();
+
+				// Layer number will be set to 0 for first line in the file
+				int layerNumber = -1;
+
+				// Read line by line and set button array for each layer accordingly
                 while ((line = reader.readLine()) != null) {
-                    
 
-			// For each layer iterate through the button array and print
-			// its binary values to the file
-			for (int i=0; i< layers.length; i++){
+                    layerNumber += 1;
+					String stringArray[] = line.split("");
+					boolean[][] boolArray = new boolean[16][16];
 
-				for (int j=0; j< 256; j++){
-					//reader.print((layers[i].setButtonArray()[j % 16] [j / 16]) ? 1:0);
-				}
-				// Each line in the file represents a separate layer
-				//reader.println();
-			}
+					for (int i=0; i<256; i++){
+						if (stringArray[i].equals("0")){
+							boolArray[i % 16] [i / 16] = false;
+						}
+						else if (stringArray[i].equals("1")) {
+							boolArray[i % 16] [i / 16] = true;
+						}
+					}
+					System.out.println();
 
-			// Close the BufferedReader when done
-			reader.close();
-
-                    
-                    
-                 
+					if (layerNumber < 16) {
+						layers[layerNumber].setButtonArray(boolArray);
+					}
                 }
+				// Close the BufferedReader when done
+				reader.close();
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -140,9 +144,10 @@ public class LoadConfigurationMode implements Mode {
                         e.printStackTrace();
                     }
                 }
-                SimoriOn.getInstance().getGui().LCD.setText("Now playing " + currentText + ".song");
-		SimoriOn.getInstance().setMode(new PerformanceMode());
-		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
+
+			SimoriOn.getInstance().getGui().LCD.setText("Now playing " + currentText + ".song");
+			SimoriOn.getInstance().setMode(new PerformanceMode());
+			SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 	}
 
 }
