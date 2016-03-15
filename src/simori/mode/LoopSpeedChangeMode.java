@@ -1,7 +1,7 @@
 package simori.mode;
 
-import simori.SimoriOn;
 import simori.button.GridButton;
+import simori.core.SimoriOn;
 
 /**
  * this is a class that is used within performance mode again when the L3 button
@@ -43,9 +43,12 @@ public class LoopSpeedChangeMode implements Mode {
 				button.getCoordsY());
 
 		// Set speed variable
-		if (button.getCoordsX() * button.getCoordsY() <= 160) {
-			this.speed = button.getCoordsX() * button.getCoordsY();
-		} else {
+		if (button.getCoordsY() * 16 + button.getCoordsX() <= 160) 
+		{
+			this.speed = button.getCoordsY() * 16 + button.getCoordsX();
+		} 
+		else 
+		{
 			this.speed = 160;
 		}
 

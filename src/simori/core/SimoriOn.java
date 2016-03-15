@@ -1,4 +1,4 @@
-package simori;
+package simori.core;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;

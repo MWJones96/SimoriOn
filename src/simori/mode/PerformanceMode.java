@@ -1,8 +1,8 @@
 package simori.mode;
 
-import simori.ClockHand;
-import simori.SimoriOn;
 import simori.button.GridButton;
+import simori.core.ClockHand;
+import simori.core.SimoriOn;
 
 /**
  * Pressing a matrix button causes it to be set and illuminated in orange. Pressing

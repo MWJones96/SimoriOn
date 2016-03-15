@@ -1,4 +1,4 @@
-package simori;
+package simori.core;
 
 /**
  * Application that initialises and runs the SimoriON

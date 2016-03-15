@@ -4,8 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import simori.SimoriOn;
 import simori.button.GridButton;
+import simori.core.SimoriOn;
 import simori.mode.VoiceChangeMode;
 
 import static org.junit.Assert.assertEquals;

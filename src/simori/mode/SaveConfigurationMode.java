@@ -4,9 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import simori.Layer;
-import simori.SimoriOn;
 import simori.button.GridButton;
+import simori.core.Layer;
+import simori.core.SimoriOn;
 
 /**
  * this is a class that is activated when the R2 button is clicked. this mode is
@@ -92,7 +92,6 @@ public class SaveConfigurationMode implements Mode {
 	 */
 	public void processOKButton() {
 		try {
-
 			// Create new PrintWriter to write to selected filename
 			PrintWriter writer = new PrintWriter("./songs/" + currentText + ".song", "UTF-8");
 

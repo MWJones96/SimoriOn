@@ -2,8 +2,8 @@ package simori.mode;
 
 import javax.sound.midi.Instrument;
 
-import simori.SimoriOn;
 import simori.button.GridButton;
+import simori.core.SimoriOn;
 
 /**
  * press the “L1” button. Pressing a matrix button causes it and all those in the same
@@ -51,10 +51,10 @@ public class VoiceChangeMode implements Mode {
 		button.getGUI().highlightColumnAndRow(button.getCoordsX(), button.getCoordsY());
 
 		// Set instrument variable
-		if ((button.getCoordsY() * 16 + button.getCoordsX()) < allInstruments.length) {
-			this.instrument = (int) (button.getCoordsY() * 16 + button.getCoordsX());
+		if ((button.getCoordsY() * 16 + button.getCoordsX()) < 128) {
+			this.instrument = button.getCoordsY() * 16 + button.getCoordsX();
 		} else {
-			this.instrument = allInstruments.length - 1;
+			this.instrument = 127;
 		}
 
 		// Write out instrument name onto LCD

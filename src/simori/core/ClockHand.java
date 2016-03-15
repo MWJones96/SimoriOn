@@ -1,4 +1,4 @@
-package simori;
+package simori.core;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

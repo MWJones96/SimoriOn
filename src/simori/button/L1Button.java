@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 
-import simori.SimoriOn;
+import simori.core.SimoriOn;
 import simori.mode.OnOffMode;
 import simori.mode.VoiceChangeMode;
 
@@ -34,6 +34,7 @@ public class L1Button extends FunctionButton
 		
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println(Thread.activeCount());
 				
 				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {}
 				else if (!state) {

@@ -1,4 +1,4 @@
-package simori;
+package simori.core;
 
 /**
  * Class that represents a particular layer of the Simori-ON device. One layer

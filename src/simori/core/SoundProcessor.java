@@ -1,4 +1,4 @@
-package simori;
+package simori.core;
 
 import javax.sound.midi.Instrument;
 import javax.sound.midi.MidiChannel;
@@ -128,8 +128,8 @@ public class SoundProcessor {
 		public void delay(int ms) {
 			try {
 				Thread.sleep(ms);
-			} catch (Exception ex) {
-				Thread.currentThread().interrupt();
+			} catch (InterruptedException ex) {
+				return;
 			}
 		}
 	}

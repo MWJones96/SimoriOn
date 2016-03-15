@@ -1,7 +1,7 @@
 package simori.mode;
 
-import simori.SimoriOn;
 import simori.button.GridButton;
+import simori.core.SimoriOn;
 
 /**
  * this is a class that is used under Performance mode when the L2 button is

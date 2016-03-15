@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 
-import simori.SimoriOn;
+import simori.core.SimoriOn;
 import simori.mode.OnOffMode;
 import simori.mode.PerformanceMode;
 
