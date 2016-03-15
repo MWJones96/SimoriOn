@@ -5,10 +5,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import simori.ClockHand;
-import simori.GUI;
-import simori.OnOffMode;
-import simori.GridButton;
+import simori.button.GridButton;
+import simori.core.ClockHand;
+import simori.core.GUI;
+import simori.mode.OnOffMode;
 
 public class OnOffModeTest {
 	public OnOffMode test;

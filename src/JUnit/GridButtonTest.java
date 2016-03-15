@@ -5,8 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import simori.GridButton;
-import simori.SimoriOn;
+import simori.button.GridButton;
+import simori.core.SimoriOn;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
