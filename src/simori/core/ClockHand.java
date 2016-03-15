@@ -6,7 +6,7 @@ import simori.button.GridButton;
 
 /**
  * ClockHand thread class - the object is created when the ON/OFF button is
- * clicked while in ON/OFF mode. A “clock hand” continuously loops from left to
+ * clicked while in ON/OFF mode. A 'clock hand' continuously loops from left to
  * right at a set speed as far as a set loop point, playing the notes described
  * by each layer on its channel, using its voice with its velocity. Notes in
  * higher rows have higher pitch.

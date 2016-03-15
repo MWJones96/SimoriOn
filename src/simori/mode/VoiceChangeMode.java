@@ -50,12 +50,11 @@ public class VoiceChangeMode implements Mode {
 		// Highlight row and column of the button
 		button.getGUI().highlightColumnAndRow(button.getCoordsX(), button.getCoordsY());
 
-		// Set instrument variable
-		if ((button.getCoordsY() * 16 + button.getCoordsX()) < 128) {
+		//Normal instrument
+		if(button.getCoordsY() * 16 + button.getCoordsX() < 128)
 			this.instrument = button.getCoordsY() * 16 + button.getCoordsX();
-		} else {
-			this.instrument = 127;
-		}
+		else
+			//Percussion
 
 		// Write out instrument name onto LCD
 		SimoriOn.getInstance().getGui().writeToLCD("Instrument: " + allInstruments[instrument].getName());

@@ -3,6 +3,7 @@ package simori.core;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -48,8 +49,10 @@ public class SimoriOn {
 	 * constructor that sets the default values for the main grid. protected in
 	 * order to be accessed by other classes within the package via the
 	 * singleton pattern
+	 * @throws IOException 
 	 */
-	private SimoriOn() {
+	private SimoriOn()
+	{
 		mode = new OnOffMode();
 		for (int i = 0; i < 16; i++) {
 			layers[i] = new Layer();
@@ -64,8 +67,10 @@ public class SimoriOn {
 	 * created. if not, then create one
 	 * 
 	 * @return
+	 * @throws IOException 
 	 */
-	public static SimoriOn getInstance() {
+	public static SimoriOn getInstance()
+	{
 		// Singleton pattern..
 		if (instance == null) {
 			instance = new SimoriOn();

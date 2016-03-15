@@ -1,5 +1,5 @@
-<<<<<<< HEAD:src/simori/LoadConfigurationMode.java
-package simori;
+package simori.mode;
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -8,11 +8,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.BufferedReader;
 
-=======
-package simori.mode;
-
 import simori.button.GridButton;
->>>>>>> 050228439284a9d5a2d90a5127ac29aa6bf8786f:src/simori/mode/LoadConfigurationMode.java
+import simori.core.Layer;
+import simori.core.SimoriOn;
+
 
 /**
  * this mode is activated when the R3 button is pressed. Pressing a matrix button causes it and all those
@@ -118,10 +117,10 @@ public class LoadConfigurationMode implements Mode {
 			for (int i=0; i< layers.length; i++){
 
 				for (int j=0; j< 256; j++){
-					reader.print((layers[i].setButtonArray()[j % 16] [j / 16]) ? 1:0);
+					//reader.print((layers[i].setButtonArray()[j % 16] [j / 16]) ? 1:0);
 				}
 				// Each line in the file represents a separate layer
-				reader.println();
+				//reader.println();
 			}
 
 			// Close the BufferedReader when done

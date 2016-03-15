@@ -43,9 +43,9 @@ public class LoopSpeedChangeMode implements Mode {
 				button.getCoordsY());
 
 		// Set speed variable
-		if (button.getCoordsY() * 16 + button.getCoordsX() <= 160) 
+		if (button.getCoordsY() * button.getCoordsX() < 160) 
 		{
-			this.speed = button.getCoordsY() * 16 + button.getCoordsX();
+			this.speed = button.getCoordsY() * button.getCoordsX();
 		} 
 		else 
 		{

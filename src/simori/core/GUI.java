@@ -3,6 +3,11 @@ package simori.core;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -60,30 +65,39 @@ public class GUI {
 	 * Simori-ON.
 	 * 
 	 * @return void - constructor sets default values so nothing is returned.
+	 * @throws IOException 
 	 */
-	public GUI() {
-		L1.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL1.png")
+	public GUI()
+	{
+		try
+		{	
+			L1.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL1.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		L2.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL2.png")
+			L2.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL2.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		L3.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL3.png")
-				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		L4.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL4.png")
-				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-
-		R1.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR1.png")
-				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		R2.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR2.png")
-				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		R3.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR3.png")
-				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		R4.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR4.png")
-				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-
-		ON.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffON.png")
-				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffOK.png")
-				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+			L3.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL3.png")
+					.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+			L4.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffL4.png")
+					.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+	
+			R1.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR1.png")
+					.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+			R2.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR2.png")
+					.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+			R3.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR3.png")
+					.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+			R4.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffR4.png")
+					.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+	
+			ON.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffON.png")
+					.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+			OK.setIcon(new ImageIcon(new ImageIcon("./res/ButtonOffOK.png")
+					.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		}
+		catch(Exception e)
+		{
+			System.out.println("File not found");
+		}
 
 		// Set position/size of left buttons
 		L1.setBounds(20, 80, 50, 50);
@@ -197,8 +211,10 @@ public class GUI {
 	 * grid during the clock hand movement.
 	 * 
 	 * @param x
+	 * @throws IOException 
 	 */
-	public void highlightClockColumn(int x) {
+	public void highlightClockColumn(int x)
+	{
 		
 		// Turn off all buttons that aren't on the layer
 		for (int i = 0; i < 16 * 16; i++) {
