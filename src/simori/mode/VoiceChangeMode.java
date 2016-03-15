@@ -1,6 +1,9 @@
-package simori;
+package simori.mode;
 
 import javax.sound.midi.Instrument;
+
+import simori.SimoriOn;
+import simori.button.GridButton;
 
 /**
  * press the “L1” button. Pressing a matrix button causes it and all those in the same

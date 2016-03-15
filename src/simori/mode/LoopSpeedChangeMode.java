@@ -1,4 +1,7 @@
-package simori;
+package simori.mode;
+
+import simori.SimoriOn;
+import simori.button.GridButton;
 
 /**
  * this is a class that is used within performance mode again when the L3 button

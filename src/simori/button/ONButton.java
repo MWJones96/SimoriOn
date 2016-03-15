@@ -1,10 +1,14 @@
-package simori;
+package simori.button;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+
+import simori.SimoriOn;
+import simori.mode.OnOffMode;
+import simori.mode.PerformanceMode;
 
 public class ONButton extends FunctionButton
 {

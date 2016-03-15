@@ -3,9 +3,11 @@ package JUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import simori.GridButton;
+
 import simori.SimoriOn;
-import simori.VoiceChangeMode;
+import simori.button.GridButton;
+import simori.mode.VoiceChangeMode;
+
 import static org.junit.Assert.assertEquals;
 
 public class VoiceChangeModeTest {

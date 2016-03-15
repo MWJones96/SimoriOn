@@ -1,28 +1,33 @@
-package simori;
+package simori.button;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+
+import simori.SimoriOn;
+import simori.mode.LoopSpeedChangeMode;
+import simori.mode.OnOffMode;
+
 /**
- * class that is used to represent that button for when L4 is pressed. 
+ * class that is used to represent that button for when L3 is pressed. 
  * this class is a child class from the FunctionButton Parent class. 
- * this class represents the button and its functionalities for L4 to 
+ * this class represents the button and its functionalities for L3 to 
  * encapsulate it more. 
  * @author team G
  *
  */
-public class L4Button extends FunctionButton
+public class L3Button extends FunctionButton
 {
 	private static final long serialVersionUID = 1L;
 
-	public L4Button()
+	public L3Button()
 	{
 		super();
-		onState = new ImageIcon(new ImageIcon("res/ButtonOnL4.png")
+		onState = new ImageIcon(new ImageIcon("res/ButtonOnL3.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-		offState = new ImageIcon(new ImageIcon("res/ButtonOffL4.png")
+		offState = new ImageIcon(new ImageIcon("res/ButtonOffL3.png")
 				.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		
 		this.addActionListener(new ActionListener() {
@@ -32,7 +37,7 @@ public class L4Button extends FunctionButton
 					state = true;
 					SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 					SimoriOn.getInstance().getGui().turnOffGridButtons();
-					SimoriOn.getInstance().setMode(new LoopPointChangeMode());
+					SimoriOn.getInstance().setMode(new LoopSpeedChangeMode());
 					turnOn();
 				}
 			}

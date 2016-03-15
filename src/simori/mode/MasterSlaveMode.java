@@ -1,4 +1,6 @@
-package simori;
+package simori.mode;
+
+import simori.button.GridButton;
 
 /**
  * this mode is actiavted after teh R4 button is pressed. 

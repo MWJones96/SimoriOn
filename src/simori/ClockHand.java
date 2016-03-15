@@ -2,6 +2,8 @@ package simori;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import simori.button.GridButton;
+
 /**
  * ClockHand thread class - the object is created when the ON/OFF button is
  * clicked while in ON/OFF mode. A “clock hand” continuously loops from left to

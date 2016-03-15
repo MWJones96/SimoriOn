@@ -1,4 +1,6 @@
-package simori;
+package simori.mode;
+
+import simori.button.GridButton;
 
 /**
  * this mode is activated when the R3 button is pressed. Pressing a matrix button causes it and all those

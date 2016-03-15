@@ -1,4 +1,4 @@
-package simori;
+package simori.button;
 
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
+import simori.GUI;
+import simori.SimoriOn;
 
 /**
  * class that represents the grid buttons on the GUI. the grid made uses a

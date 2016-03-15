@@ -1,10 +1,14 @@
-package simori;
+package simori.button;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+
+import simori.SimoriOn;
+import simori.mode.OnOffMode;
+import simori.mode.VoiceChangeMode;
 
 /**
  * class that is used to represent that button for when L1 is pressed. 

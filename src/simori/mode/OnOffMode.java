@@ -1,4 +1,7 @@
-package simori;
+package simori.mode;
+
+import simori.SimoriOn;
+import simori.button.GridButton;
 
 /**
  *A Simori-ON may be switched on by pressing the “ON” button, after which it continues to

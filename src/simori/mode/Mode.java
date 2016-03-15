@@ -1,4 +1,6 @@
-package simori;
+package simori.mode;
+
+import simori.button.GridButton;
 
 /**
  * Interface that contains one method. this is a basic template that buttons

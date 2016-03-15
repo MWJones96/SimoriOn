@@ -1,8 +1,11 @@
-package simori;
+package simori.mode;
 
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+
+import simori.SimoriOn;
+import simori.button.GridButton;
 
 /**
  * this is a class that is used within the performance mode, when the L4 button

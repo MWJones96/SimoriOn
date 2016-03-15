@@ -8,6 +8,19 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import simori.button.FunctionButton;
+import simori.button.GridButton;
+import simori.button.L1Button;
+import simori.button.L2Button;
+import simori.button.L3Button;
+import simori.button.L4Button;
+import simori.button.OKButton;
+import simori.button.ONButton;
+import simori.button.R1Button;
+import simori.button.R2Button;
+import simori.button.R3Button;
+import simori.button.R4Button;
+
 /**
  * A class that creates basic Layout for Sprint 1. Class creates main board for
  * Simori-ON and simulates all buttons, but does not include full functionality

@@ -1,8 +1,12 @@
-package simori;
+package simori.mode;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+
+import simori.Layer;
+import simori.SimoriOn;
+import simori.button.GridButton;
 
 /**
  * this is a class that is activated when the R2 button is clicked. this mode is

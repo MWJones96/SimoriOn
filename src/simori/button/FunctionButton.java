@@ -1,4 +1,4 @@
-package simori;
+package simori.button;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

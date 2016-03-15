@@ -8,6 +8,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import simori.button.GridButton;
+import simori.mode.Mode;
+import simori.mode.OnOffMode;
+
 /**
  * this class uses the singleton design pattern to enable methods to be
  * referenced from anywhere within the package using a single instance. The
