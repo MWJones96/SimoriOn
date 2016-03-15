@@ -77,7 +77,7 @@ public class SaveConfigurationMode implements Mode {
 			}
 		}
 		
-		SimoriOn.getInstance().getGui().LCD.setText(currentText);
+		SimoriOn.getInstance().getGui().LCD.setText("Save song as " + currentText);
 		
 		
 	}
