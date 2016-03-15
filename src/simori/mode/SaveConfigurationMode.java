@@ -77,7 +77,9 @@ public class SaveConfigurationMode implements Mode {
 			{
 				//Dealing with the leftover segments
 				//Deletes the previous character
-				currentText = currentText.substring(0, currentText.length() - 1);
+				if (!currentText.equals("")) {
+					currentText = currentText.substring(0, currentText.length() - 1);
+				}
 			}
 		}
 		
