@@ -1,8 +1,5 @@
 package simori.mode;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -41,6 +38,8 @@ public class LoadConfigurationMode implements Mode {
 			if (SimoriOn.getClockHand() != null) {
 				SimoriOn.getClockHand().running.set(false);
 			}
+			
+			SimoriOn.getInstance().getGui().writeToLCD("Song to load: ");
 		}
 
 	}
@@ -85,12 +84,10 @@ public class LoadConfigurationMode implements Mode {
 			}
 		}
 		
-		SimoriOn.getInstance().getGui().LCD.setText(currentText);
+		SimoriOn.getInstance().getGui().LCD.setText("Song to load: " + currentText);
 		
 		
 	}
-
-
 	
         /**
 	 * Once pressed, the file corresponding to the inputted text is loaded from the song folder and shown back on

@@ -37,6 +37,8 @@ public class SaveConfigurationMode implements Mode {
 			if (SimoriOn.getClockHand() != null) {
 				SimoriOn.getClockHand().running.set(false);
 			}
+			
+			SimoriOn.getInstance().getGui().writeToLCD("File to save: ");
 		}
 
 	}
@@ -83,7 +85,7 @@ public class SaveConfigurationMode implements Mode {
 			}
 		}
 		
-		SimoriOn.getInstance().getGui().LCD.setText("Save song as " + currentText);
+		SimoriOn.getInstance().getGui().writeToLCD("File to save: " + currentText);
 		
 		
 	}
