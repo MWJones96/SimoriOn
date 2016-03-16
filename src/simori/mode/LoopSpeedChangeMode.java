@@ -23,6 +23,8 @@ public class LoopSpeedChangeMode implements Mode {
 		if (SimoriOn.getClockHand() != null) {
 			SimoriOn.getClockHand().running.set(false);
 		}
+		
+		SimoriOn.getInstance().getGui().writeToLCD("Loop Speed: ");
 	}
 
 	/**

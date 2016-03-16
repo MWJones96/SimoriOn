@@ -9,7 +9,7 @@ package simori.core;
  */
 public class Layer {
 	// Holds instrument selected
-	private int currentInstrument = 1;
+	private int currentInstrument = 0;
 
 	// Array containing information about whether each button is on or off
 	private boolean[][] buttonArray = new boolean[16][16];
@@ -32,6 +32,14 @@ public class Layer {
 	 */
 	public boolean getButtonState(int x, int y) {
 		return this.buttonArray[x][y];
+	}
+	
+	public int getLayerIndex()
+	{
+		for(int i = 0; i < 16; i++)
+			if(this.equals(SimoriOn.getInstance().getLayers()[i]))
+				return (i + 1);
+		return 0;
 	}
 
 	/**

@@ -3,13 +3,11 @@ package simori.core;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -42,7 +40,7 @@ public class GUI {
 	public JLabel display = new JLabel("Action:");
 
 	// Displays information relevant to current function
-	public JTextField LCD = new JTextField(15);
+	public JTextArea LCD = new JTextArea(10, 10);
 
 	// Left buttons
 	public FunctionButton L1 = new L1Button(), L2 = new L2Button(),
@@ -122,7 +120,6 @@ public class GUI {
 		LCD.setBackground(Color.LIGHT_GRAY);
 		LCD.setFont(new Font("Arial", Font.BOLD, 12));
 		LCD.setForeground(Color.BLACK);
-		LCD.setHorizontalAlignment(SwingConstants.CENTER);
 
 		ON.setOpaque(false);
 		ON.setContentAreaFilled(false);

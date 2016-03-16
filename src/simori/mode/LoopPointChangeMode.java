@@ -28,6 +28,8 @@ public class LoopPointChangeMode implements Mode {
 		if (SimoriOn.getClockHand() != null) {
 			SimoriOn.getClockHand().running.set(false);
 		}
+		
+		SimoriOn.getInstance().getGui().writeToLCD("Loop Point: ");
 	}
 
 	/**
@@ -59,7 +61,7 @@ public class LoopPointChangeMode implements Mode {
 			}
 
 			SimoriOn.getInstance().getGui()
-					.writeToLCD("Loop point: " + Integer.toString(loop));
+					.writeToLCD("Loop Point: " + Integer.toString(loop + 1));
 			System.out.println("Set Loop Point to " + loop);
 		}
 

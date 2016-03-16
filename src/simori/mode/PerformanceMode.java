@@ -29,6 +29,11 @@ public class PerformanceMode implements Mode {
 		} else {
 			(new Thread(SimoriOn.getClockHand())).start();
 		}
+		SimoriOn.getInstance().getGui().writeToLCD("Layer: " + SimoriOn.getInstance().getCurrentLayer().getLayerIndex() 
+													+ "\nInstrument: " + SimoriOn.getInstance().getSoundProcessor().getSynth().getDefaultSoundbank().getInstruments()[SimoriOn.getInstance().getCurrentLayer().getCurrentInstrument()].getName().trim()
+													+ "\nVelocity: " + SimoriOn.getClockHand().getVelocity()
+													+ ", Loop Speed: " + SimoriOn.getClockHand().getLoopSpeed()
+													+ ", Loop Point: " + SimoriOn.getClockHand().getLoopPoint());
 	}
 
 	/**

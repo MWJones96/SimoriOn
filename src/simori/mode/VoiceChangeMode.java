@@ -36,6 +36,8 @@ public class VoiceChangeMode implements Mode {
 
 		this.allInstruments = SimoriOn.getInstance().getSoundProcessor().getSynth().getDefaultSoundbank()
 				.getInstruments();
+		
+		SimoriOn.getInstance().getGui().writeToLCD("Instrument: ");
 	}
 
 	/**
@@ -50,11 +52,7 @@ public class VoiceChangeMode implements Mode {
 		// Highlight row and column of the button
 		button.getGUI().highlightColumnAndRow(button.getCoordsX(), button.getCoordsY());
 
-		//Normal instrument
-		if(button.getCoordsY() * 16 + button.getCoordsX() < 128)
-			this.instrument = button.getCoordsY() * 16 + button.getCoordsX();
-		else
-			//Percussion
+		this.instrument = button.getCoordsY() * 16 + button.getCoordsX();
 
 		// Write out instrument name onto LCD
 		SimoriOn.getInstance().getGui().writeToLCD("Instrument: " + allInstruments[instrument].getName());
