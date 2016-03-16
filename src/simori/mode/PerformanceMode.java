@@ -64,8 +64,9 @@ public class PerformanceMode implements Mode {
 	/**
 	 * method that will reset when the OK button is pressed.
 	 */
-	public void processOKButton() {
-
+	public void processOKButton() 
+	{
+		SimoriOn.getInstance().setMode(new ShopBoyMode());
 	}
 
 }
