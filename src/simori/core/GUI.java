@@ -218,11 +218,13 @@ public class GUI {
 			if (!(SimoriOn.getInstance().getCurrentLayer().getButtonArray()[i % 16][(int)i/16])) {
 				SimoriOn.getInstance().getGui().getButton(i % 16, (int)i/16).setToOffState();
 			}
+			else
+				SimoriOn.getInstance().getGui().getButton(i % 16, (int)i/16).setToOnState();
 		}
 
 		// Highlight every 5 buttons in the same column
 		for (int j = 0; j < 16;j += 5) {
-			getButton(x, j).setToOnState();
+			getButton(x, j).setToOnStateClock();
 		}
 
 	}

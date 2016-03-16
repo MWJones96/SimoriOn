@@ -31,6 +31,7 @@ public class L4Button extends FunctionButton
 		
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SimoriOn.getInstance().getSoundProcessor().killAllSound();
 				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {}
 				else if (!state) {
 					state = true;

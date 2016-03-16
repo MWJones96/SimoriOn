@@ -33,6 +33,8 @@ public class GridButton extends JButton {
 			Image.SCALE_SMOOTH));
 	private ImageIcon imgOff = new ImageIcon(new ImageIcon("./res/ButtonOffGRID.png").getImage().getScaledInstance(30, 30,
 			Image.SCALE_SMOOTH));
+	private ImageIcon imgClk = new ImageIcon(new ImageIcon("./res/ClockHandOn.png").getImage().getScaledInstance(30, 30,
+			Image.SCALE_SMOOTH));
 
 	/**
 	 * constructor that is used that takes into account 3 arguments. performs
@@ -162,6 +164,12 @@ public class GridButton extends JButton {
 	public void setToOffState() {
 		this.setIcon(imgOff);
 		on = false;
+	}
+	
+	public void setToOnStateClock()
+	{
+		this.setIcon(imgClk);
+		on = true;
 	}
 
 }

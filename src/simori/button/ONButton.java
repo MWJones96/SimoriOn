@@ -24,6 +24,7 @@ public class ONButton extends FunctionButton
 		
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SimoriOn.getInstance().getSoundProcessor().killAllSound();
 				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {
 					ONButton.this.turnOn();
 					SimoriOn.getInstance().setMode(new PerformanceMode());

@@ -75,6 +75,16 @@ public class SoundProcessor {
 	public Synthesizer getSynth() {
 		return this.synth;
 	}
+	
+	public void killAllSound()
+	{
+		for(MidiChannel m: midiChannels)
+		{
+			m.allNotesOff();
+			m.allSoundOff();
+		}
+			
+	}
 
 	/**
 	 * inner class- Runnable class for creating individual sounds

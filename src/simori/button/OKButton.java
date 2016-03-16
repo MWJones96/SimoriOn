@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 
 import simori.core.SimoriOn;
 import simori.mode.OnOffMode;
+import simori.mode.PerformanceMode;
 
 public class OKButton extends FunctionButton
 {
@@ -25,6 +26,9 @@ public class OKButton extends FunctionButton
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(!(SimoriOn.getInstance().getMode() instanceof PerformanceMode))
+					SimoriOn.getInstance().getSoundProcessor().killAllSound();
+					
 				SimoriOn.getInstance().getMode().processOKButton();
 
 				// Implements button flash as a thread, so that other processes
