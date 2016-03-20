@@ -2,12 +2,6 @@ package simori.mode;
 
 import simori.button.GridButton;
 import simori.core.SimoriOn;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
 
 /**
  * this mode is activated after the R4 button is pressed.
@@ -30,9 +24,8 @@ public class MasterSlaveMode implements Mode
 			SimoriOn.getClockHand().running.set(false);
 		}
 
-		if(!listenForMaster()) {
-			listenForSlave();
-		}
+		(new Thread(new MasterSlaveDispatcher())).start();
+
 
 
 	}
@@ -46,39 +39,8 @@ public class MasterSlaveMode implements Mode
 
 	}
 
-	public boolean listenForMaster(){
-		System.out.println("Listening for master on port 20160...");
-		try (
-				Socket clientSocket = new Socket("localhost", 20160);
-				PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-				BufferedReader in = new BufferedReader(
-						new InputStreamReader((clientSocket.getInputStream()))
-				);
 
-		) {
-			System.out.println("Connection to master established!");
-			return true;
-		} catch (IOException e){
-			System.out.println("Connection refused.");
-			return false;
-		}
-	}
 
-	public boolean listenForSlave(){
-		System.out.println("Listening for slave on port 20160...");
-		try (
-				ServerSocket serverSocket = new ServerSocket(20160);
-				Socket clientSocket = serverSocket.accept();
-				PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-				BufferedReader in = new BufferedReader(
-						new InputStreamReader(clientSocket.getInputStream()));
-		) {
-			System.out.println("Connection to slave established!");
-			return true;
-		} catch (IOException e){
-			System.out.println("Connection refused.");
-			return false;
-		}
-	}
+
 
 }
