@@ -1,5 +1,7 @@
 package simori.mode;
 
+import simori.core.SimoriOn;
+
 /**
  * @author Team G
  */
@@ -28,5 +30,6 @@ public class MasterSlaveDispatcher implements Runnable {
         if (!slave.getSuccess()){
             masterThread.start();
         }
+
     }
 }

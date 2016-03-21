@@ -26,8 +26,6 @@ public class MasterSlaveMode implements Mode
 
 		(new Thread(new MasterSlaveDispatcher())).start();
 
-
-
 	}
 	@Override
 	public void processMatrixButton(GridButton button) {
@@ -36,11 +34,8 @@ public class MasterSlaveMode implements Mode
 	}
 
 	public void processOKButton(){
-
+		SimoriOn.getInstance().setMode(new PerformanceMode());
+		SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 	}
-
-
-
-
 
 }
