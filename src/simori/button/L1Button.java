@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 
 import simori.core.SimoriOn;
 import simori.mode.OnOffMode;
+import simori.mode.PerformanceMode;
 import simori.mode.VoiceChangeMode;
 
 /**
@@ -39,11 +40,15 @@ public class L1Button extends FunctionButton
 				
 				if (SimoriOn.getInstance().getMode() instanceof OnOffMode) {}
 				else if (!state) {
-					state = true;
 					SimoriOn.getInstance().getGui().turnOffFunctionButtons();
 					SimoriOn.getInstance().getGui().turnOffGridButtons();
 					SimoriOn.getInstance().setMode(new VoiceChangeMode());
 					turnOn();
+				}
+				else if(state)
+				{
+					SimoriOn.getInstance().setMode(new PerformanceMode());
+					turnOff();
 				}
 			}
 		});

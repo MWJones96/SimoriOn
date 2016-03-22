@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 
 import simori.core.SimoriOn;
 import simori.mode.OnOffMode;
+import simori.mode.PerformanceMode;
 import simori.mode.VelocityChangeMode;
 
 /**
@@ -40,6 +41,11 @@ public class L2Button extends FunctionButton
 					SimoriOn.getInstance().getGui().turnOffGridButtons();
 					SimoriOn.getInstance().setMode(new VelocityChangeMode());
 					turnOn();
+				}
+				else if(state)
+				{
+					SimoriOn.getInstance().setMode(new PerformanceMode());
+					turnOff();
 				}
 			}
 		});

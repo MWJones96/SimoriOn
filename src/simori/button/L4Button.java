@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import simori.core.SimoriOn;
 import simori.mode.LoopPointChangeMode;
 import simori.mode.OnOffMode;
+import simori.mode.PerformanceMode;
 /**
  * class that is used to represent that button for when L4 is pressed. 
  * this class is a child class from the FunctionButton Parent class. 
@@ -39,6 +40,11 @@ public class L4Button extends FunctionButton
 					SimoriOn.getInstance().getGui().turnOffGridButtons();
 					SimoriOn.getInstance().setMode(new LoopPointChangeMode());
 					turnOn();
+				}
+				else if(state)
+				{
+					SimoriOn.getInstance().setMode(new PerformanceMode());
+					turnOff();
 				}
 			}
 		});

@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import simori.core.SimoriOn;
 import simori.mode.LayerChangeMode;
 import simori.mode.OnOffMode;
+import simori.mode.PerformanceMode;
 /**
  * class that is used to represent that button for when R1 is pressed. 
  * this class is a child class from the FunctionButton Parent class. 
@@ -39,6 +40,11 @@ public class R1Button extends FunctionButton
 					SimoriOn.getInstance().getGui().turnOffGridButtons();
 					SimoriOn.getInstance().setMode(new LayerChangeMode());
 					turnOn();
+				}
+				else if(state)
+				{
+					SimoriOn.getInstance().setMode(new PerformanceMode());
+					turnOff();
 				}
 			}
 		});

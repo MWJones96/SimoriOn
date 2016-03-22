@@ -24,6 +24,7 @@ public class MasterSlaveMode implements Mode
 			SimoriOn.getClockHand().running.set(false);
 		}
 
+		SimoriOn.getInstance().getGui().writeToLCD(null);
 		(new Thread(new MasterSlaveDispatcher())).start();
 
 	}

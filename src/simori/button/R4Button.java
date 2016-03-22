@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import simori.core.SimoriOn;
 import simori.mode.MasterSlaveMode;
 import simori.mode.OnOffMode;
+import simori.mode.PerformanceMode;
 
 /**
  * class that is used to represent that button for when R4 is pressed. 
@@ -40,6 +41,11 @@ public class R4Button extends FunctionButton
 					SimoriOn.getInstance().getGui().turnOffGridButtons();
 					SimoriOn.getInstance().setMode(new MasterSlaveMode());
 					turnOn();
+				}
+				else if(state)
+				{
+					SimoriOn.getInstance().setMode(new PerformanceMode());
+					turnOff();
 				}
 			}
 		});

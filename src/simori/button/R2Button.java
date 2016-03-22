@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 
 import simori.core.SimoriOn;
 import simori.mode.OnOffMode;
+import simori.mode.PerformanceMode;
 import simori.mode.SaveConfigurationMode;
 
 /**
@@ -40,6 +41,11 @@ public class R2Button extends FunctionButton
 					SimoriOn.getInstance().getGui().turnOffGridButtons();
 					SimoriOn.getInstance().setMode(new SaveConfigurationMode());
 					turnOn();
+				}
+				else if(state)
+				{
+					SimoriOn.getInstance().setMode(new PerformanceMode());
+					turnOff();
 				}
 			}
 		});
