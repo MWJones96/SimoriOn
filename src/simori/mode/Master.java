@@ -20,15 +20,14 @@ public class Master implements Runnable {
 
     public boolean listenForSlave(){
         System.out.println("Listening for slave on port 20160...");
-        try (
-                // Create new socket on port 20160
-                ServerSocket serverSocket = new ServerSocket(20160);
-                Socket clientSocket = serverSocket.accept();
+        try {
 
-                // Create writer object
-                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)
+            // Create new socket on port 20160
+            ServerSocket serverSocket = new ServerSocket(20160);
+            Socket clientSocket = serverSocket.accept();
 
-        ) {
+            // Create writer object
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             System.out.println("Connection to slave established!");
 
             // Get array of all layers
@@ -49,6 +48,9 @@ public class Master implements Runnable {
             out.close();
             serverSocket.close();
             clientSocket.close();
+
+            // On success trigger the OK button to return to performance mode
+            SimoriOn.getInstance().getMode().processOKButton();
 
             return true;
         } catch (IOException e){

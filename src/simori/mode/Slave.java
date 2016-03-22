@@ -22,16 +22,15 @@ public class Slave implements Runnable {
 
     public boolean listenForMaster(){
         System.out.println("Listening for master on port 20160...");
-        try (
-                // Create new socket on port 20160
-                Socket clientSocket = new Socket("localhost", 20160);
+        try {
 
-                // Create reader object
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader((clientSocket.getInputStream()))
-                )
+            // Create new socket on port 20160
+            Socket clientSocket = new Socket("localhost", 20160);
 
-        ) {
+            // Create reader object
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader((clientSocket.getInputStream()))
+            );
             System.out.println("Connection to master established!");
 
             String line;
@@ -65,6 +64,9 @@ public class Slave implements Runnable {
             // Close the BufferedReader and client socket when done
             in.close();
             clientSocket.close();
+
+            // On success trigger the OK button to return to performance mode
+            SimoriOn.getInstance().getMode().processOKButton();
 
             return true;
         } catch (IOException e){
